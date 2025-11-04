@@ -1,0 +1,68 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\voidr\\Desktop\\Tracker\\ProductTrackingV1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E4FB805A-177F-49CA-9A6C-CAD32A094856}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\voidr\\desktop\\tracker\\dataaccesslayer\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4FB805A-177F-49CA-9A6C-CAD32A094856}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\voidr\\desktop\\tracker\\dataaccesslayer\\idatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\voidr\\desktop\\tracker\\businessentities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "RelativeDocumentMoniker": "..\\DataAccessLayer\\DataLayer.cs",
+              "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "RelativeToolTip": "..\\DataAccessLayer\\DataLayer.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADgvzAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:23:54.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IDataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "RelativeDocumentMoniker": "..\\DataAccessLayer\\IDataLayer.cs",
+              "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "RelativeToolTip": "..\\DataAccessLayer\\IDataLayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:23:52.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\BusinessEntities\\User.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\User.cs",
+              "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\BusinessEntities\\User.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:23:34.877Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

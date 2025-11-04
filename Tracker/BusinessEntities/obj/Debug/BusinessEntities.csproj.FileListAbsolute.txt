@@ -1,0 +1,6 @@
+C:\Users\voidr\Desktop\Tracker\BusinessEntities\bin\Debug\BusinessEntities.dll
+C:\Users\voidr\Desktop\Tracker\BusinessEntities\bin\Debug\BusinessEntities.pdb
+C:\Users\voidr\Desktop\Tracker\BusinessEntities\obj\Debug\BusinessEntities.csproj.AssemblyReference.cache
+C:\Users\voidr\Desktop\Tracker\BusinessEntities\obj\Debug\BusinessEntities.csproj.CoreCompileInputs.cache
+C:\Users\voidr\Desktop\Tracker\BusinessEntities\obj\Debug\BusinessEntities.dll
+C:\Users\voidr\Desktop\Tracker\BusinessEntities\obj\Debug\BusinessEntities.pdb
