@@ -73,9 +73,9 @@
             // 
             this.listBoxUserType.FormattingEnabled = true;
             this.listBoxUserType.Items.AddRange(new object[] {
-            "Manager",
-            "Sales",
-            "Production"});
+            "Admin",
+            "Student",
+            "Staff"});
             this.listBoxUserType.Location = new System.Drawing.Point(80, 273);
             this.listBoxUserType.Name = "listBoxUserType";
             this.listBoxUserType.Size = new System.Drawing.Size(120, 56);

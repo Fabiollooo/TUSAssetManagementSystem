@@ -1,15 +1,116 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\voidr\\Desktop\\Tracker\\ProductTrackingV1\\",
+  "WorkspaceRootPath": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E4FB805A-177F-49CA-9A6C-CAD32A094856}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\voidr\\desktop\\tracker\\dataaccesslayer\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E4FB805A-177F-49CA-9A6C-CAD32A094856}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\voidr\\desktop\\tracker\\dataaccesslayer\\idatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|Solution Items{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\SQLPopDbTables.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|Solution Items{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|solutionrelative:SQLPopDbTables.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\voidr\\desktop\\tracker\\businessentities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formmanager.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formmanager.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formallocatepreparedproduct1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formallocatepreparedproduct1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\classdiagram1.cd||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:classdiagram1.cd||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formadduser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formadduser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\userfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4FB805A-177F-49CA-9A6C-CAD32A094856}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\dataaccesslayer\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formsales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formsales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4FB805A-177F-49CA-9A6C-CAD32A094856}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\dataaccesslayer\\idatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formsales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formsales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|Solution Items{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\SqlCreateProductTrackerDBTables.sql||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|Solution Items{8301A654-47DD-434D-9BAF-DAA0B42F41DD}|solutionrelative:SqlCreateProductTrackerDBTables.sql||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formcontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formdeleteuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formdeleteuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\productlinefactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\productline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\orderfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\iproductline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A73728-6BB9-4642-9D48-C325006C4B08}|..\\BusinessEntities\\BusinessEntities.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\businessentities\\iorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|c:\\users\\fabio\\onedrive\\pulpit\\trackerv1.4fixed\\tracker\\producttrackingv1\\formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formvieworderdetails.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formvieworderdetails.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formvieworderdetails.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formvieworderdetails.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formvieworderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D95B520D-5FF9-452A-B4BB-09419DC196BC}|WindowsClient.csproj|solutionrelative:formvieworderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\voidr\\Desktop\\Tracker\\BusinessEntities\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,46 +120,406 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "DataLayer.cs",
-              "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\DataAccessLayer\\DataLayer.cs",
               "RelativeDocumentMoniker": "..\\DataAccessLayer\\DataLayer.cs",
-              "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\DataAccessLayer\\DataLayer.cs",
               "RelativeToolTip": "..\\DataAccessLayer\\DataLayer.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADgvzAAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAD4v3oAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:23:54.266Z",
+              "WhenOpened": "2025-10-30T17:47:34.781Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "formSales.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formSales.cs",
+              "RelativeDocumentMoniker": "formSales.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formSales.cs [Design]",
+              "RelativeToolTip": "formSales.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:53:16.062Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "formSales.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formSales.cs",
+              "RelativeDocumentMoniker": "formSales.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formSales.cs",
+              "RelativeToolTip": "formSales.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAtwEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:02:14.091Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:07:42.69Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "formManager.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formManager.Designer.cs",
+              "RelativeDocumentMoniker": "formManager.Designer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formManager.Designer.cs",
+              "RelativeToolTip": "formManager.Designer.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAADwv00AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:23:01.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "formManager.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formManager.cs",
+              "RelativeDocumentMoniker": "formManager.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formManager.cs",
+              "RelativeToolTip": "formManager.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAzwCQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:22:48.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "formContainer.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formContainer.cs",
+              "RelativeDocumentMoniker": "formContainer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formContainer.cs",
+              "RelativeToolTip": "formContainer.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwCIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:22:17.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "formAllocatePreparedProduct1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formAllocatePreparedProduct1.Designer.cs",
+              "RelativeDocumentMoniker": "formAllocatePreparedProduct1.Designer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formAllocatePreparedProduct1.Designer.cs",
+              "RelativeToolTip": "formAllocatePreparedProduct1.Designer.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvxoAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:22:11.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ClassDiagram1.cd",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\ClassDiagram1.cd",
+              "RelativeDocumentMoniker": "ClassDiagram1.cd",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\ClassDiagram1.cd",
+              "RelativeToolTip": "ClassDiagram1.cd",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000463|",
+              "WhenOpened": "2025-11-01T15:22:06.936Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IDataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "RelativeDocumentMoniker": "..\\DataAccessLayer\\IDataLayer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "RelativeToolTip": "..\\DataAccessLayer\\IDataLayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:14:22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SqlCreateProductTrackerDBTables.sql",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\SqlCreateProductTrackerDBTables.sql",
+              "RelativeDocumentMoniker": "SqlCreateProductTrackerDBTables.sql",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\SqlCreateProductTrackerDBTables.sql",
+              "RelativeToolTip": "SqlCreateProductTrackerDBTables.sql",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-11-01T14:54:11.414Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IDataLayer.cs",
-              "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
-              "RelativeDocumentMoniker": "..\\DataAccessLayer\\IDataLayer.cs",
-              "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
-              "RelativeToolTip": "..\\DataAccessLayer\\IDataLayer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:23:52.823Z",
+              "Title": "SQLPopDbTables.sql",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\SQLPopDbTables.sql",
+              "RelativeDocumentMoniker": "SQLPopDbTables.sql",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\SQLPopDbTables.sql",
+              "RelativeToolTip": "SQLPopDbTables.sql",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-11-01T14:54:07.01Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "formAddUser.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formAddUser.Designer.cs",
+              "RelativeDocumentMoniker": "formAddUser.Designer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formAddUser.Designer.cs",
+              "RelativeToolTip": "formAddUser.Designer.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswE0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:19:49.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "formContainer.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formContainer.cs",
+              "RelativeDocumentMoniker": "formContainer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formContainer.cs [Design]",
+              "RelativeToolTip": "formContainer.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:53:11.749Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "formDeleteUser.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formDeleteUser.cs",
+              "RelativeDocumentMoniker": "formDeleteUser.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formDeleteUser.cs [Design]",
+              "RelativeToolTip": "formDeleteUser.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:53:10.049Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserFactory.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\UserFactory.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\UserFactory.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\UserFactory.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\UserFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:52:08.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\User.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\User.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\User.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:52:06.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ProductLineFactory.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\ProductLineFactory.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\ProductLineFactory.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\ProductLineFactory.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\ProductLineFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:57.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProductLine.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\ProductLine.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\ProductLine.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\ProductLine.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\ProductLine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:55.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\Order.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\Order.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\Order.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\Order.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:47.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "OrderFactory.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\OrderFactory.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\OrderFactory.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\OrderFactory.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\OrderFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:53.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IUser.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\IUser.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\IUser.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\IUser.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\IUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:44.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IProductLine.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\IProductLine.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\IProductLine.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\IProductLine.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\IProductLine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:43.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IOrder.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\IOrder.cs",
+              "RelativeDocumentMoniker": "..\\BusinessEntities\\IOrder.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\BusinessEntities\\IOrder.cs",
+              "RelativeToolTip": "..\\BusinessEntities\\IOrder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:42.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "formLogin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formLogin.cs",
+              "RelativeDocumentMoniker": "formLogin.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\formLogin.cs [Design]",
+              "RelativeToolTip": "formLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:51:14.32Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "formViewOrderDetails.resx",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\FormViewOrderDetails.resx",
+              "RelativeDocumentMoniker": "FormViewOrderDetails.resx",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\FormViewOrderDetails.resx",
+              "RelativeToolTip": "FormViewOrderDetails.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-10-30T17:47:18.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "formViewOrderDetails.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\FormViewOrderDetails.Designer.cs",
+              "RelativeDocumentMoniker": "FormViewOrderDetails.Designer.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\FormViewOrderDetails.Designer.cs",
+              "RelativeToolTip": "FormViewOrderDetails.Designer.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T17:47:18.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "formViewOrderDetails.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\FormViewOrderDetails.cs",
+              "RelativeDocumentMoniker": "FormViewOrderDetails.cs",
+              "ToolTip": "C:\\Users\\fabio\\OneDrive\\Pulpit\\TrackerV1.4Fixed\\Tracker\\ProductTrackingV1\\FormViewOrderDetails.cs",
+              "RelativeToolTip": "FormViewOrderDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T17:47:18.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\voidr\\Desktop\\Tracker\\DataAccessLayer\\DataLayer.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:23:54.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IDataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\voidr\\Desktop\\Tracker\\DataAccessLayer\\IDataLayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:23:52.823Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\voidr\\Desktop\\Tracker\\BusinessEntities\\User.cs",
-              "RelativeDocumentMoniker": "..\\BusinessEntities\\User.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\voidr\\Desktop\\Tracker\\BusinessEntities\\User.cs",
               "ToolTip": "C:\\Users\\voidr\\Desktop\\Tracker\\BusinessEntities\\User.cs",
-              "RelativeToolTip": "..\\BusinessEntities\\User.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\voidr\\Desktop\\Tracker\\BusinessEntities\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T14:23:34.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T14:23:34.877Z"
             }
           ]
         }
