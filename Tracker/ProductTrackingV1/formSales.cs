@@ -32,33 +32,5 @@ namespace ProductTracking
             //    Model.Con.Close();
             Application.Exit();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewRooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void formSales_Load(object sender, EventArgs e)
-        {
-            //Available Rooms - 
-            DataTable rooms = new DataTable();
-
-            rooms.Columns.Add("RoomNumber");
-            rooms.Columns.Add("Capacity");
-            rooms.Columns.Add("Available");
-
-            rooms.Rows.Add("R101", "4", "Y");
-            rooms.Rows.Add("R102", "6", "N");
-            rooms.Rows.Add("R103", "2", "Y");
-            rooms.Rows.Add("R104", "8", "N");
-            rooms.Rows.Add("R105", "3", "Y");
-
-            dataGridViewRooms.DataSource = rooms;
-        }
     }
 }

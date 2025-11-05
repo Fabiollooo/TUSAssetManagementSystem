@@ -2,6 +2,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+
+
+
 namespace DataAccessLayer
 {
     public interface IDataLayer
@@ -19,6 +22,9 @@ namespace DataAccessLayer
         List<IProductLine> getProductLinesForOrder(int OrderCode);
 
         bool editProductLineInDB(BusinessEntities.IProductLine productLine);
-     
+
+        List<ILibraryRoom> getAllLibraryRooms();
+
+
     }
 }

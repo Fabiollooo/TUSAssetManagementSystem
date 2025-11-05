@@ -15,6 +15,9 @@ namespace ProductTracking
     
     public partial class formLogin : Form
     {
+
+      
+
         #region Instance Attributes
         private IModel Model;
         #endregion
@@ -24,7 +27,7 @@ namespace ProductTracking
         #endregion
 
         #region Constructors
-        public formLogin(IModel Model)
+        public formLogin(IModel Model = null)
         {
             InitializeComponent();
             this.Model = Model;
@@ -50,6 +53,28 @@ namespace ProductTracking
                 textBoxPassword.Text = "";
                 textBoxName.Select();
             }
+        }
+
+        private void formLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+     
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cAMPUSSYNCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SignInPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

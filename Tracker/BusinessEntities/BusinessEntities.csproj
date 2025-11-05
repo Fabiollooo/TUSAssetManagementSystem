@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILibraryRoom.cs" />
     <Compile Include="IOrder.cs" />
     <Compile Include="IProductLine.cs" />
     <Compile Include="IUser.cs" />
+    <Compile Include="LibraryRoom.cs" />
     <Compile Include="MaxCodes.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderFactory.cs" />

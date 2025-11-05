@@ -46,12 +46,7 @@ namespace DataAccessLayer
         public void openConnection()
         {
             con = new SqlConnection();
-            con.ConnectionString = "Data Source=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Integrated Security=False;User ID=adminUser;Password=P@ssword123 ";
-
-
-
-
-
+            con.ConnectionString = "Server=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Persist Security Info=False;User ID=adminUser;Password=P@ssword123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             try
             {
                 con.Open();
@@ -190,7 +185,7 @@ namespace DataAccessLayer
             return true;
         }
 
-
+        //This is the function making problems with student role
         public List<IOrder> getAllOrders()
         {
             List<IOrder> OrderList = new List<IOrder>();
@@ -302,5 +297,43 @@ namespace DataAccessLayer
                 return false;
             }
         }
-}
+
+
+
+        //Available rooms (Student)
+        public List<ILibraryRoom> getAllLibraryRooms()
+        {
+            List<ILibraryRoom> rooms = new List<ILibraryRoom>();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
+            try
+            {
+                string sql = "SELECT * FROM LibraryRooms";
+                da = new SqlDataAdapter(sql, con);
+                da.Fill(ds, "LibraryRoomsData");
+                foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
+                {
+                    ILibraryRoom room = new LibraryRoom
+                    {
+                        LibraryRoomID = Convert.ToInt32(dRow["LibraryRoomID"]),
+                        RoomNumber = dRow["RoomNumber"].ToString(),
+                        Capacity = Convert.ToInt32(dRow["Capacity"]),
+                        Resources = dRow["Resources"].ToString(),
+                        RoomStatusID = Convert.ToInt32(dRow["RoomStatusID"])
+                    };
+                    rooms.Add(room);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return rooms;
+        }
+
+
+
+
+    }
 }

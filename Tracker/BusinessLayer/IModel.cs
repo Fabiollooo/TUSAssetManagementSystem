@@ -19,5 +19,12 @@ namespace BusinessLayer
 
         void populateOrders();
         bool updateProductLine(IProductLine productLine);
+
+
+        //View Available Rooms (Student)
+        List<ILibraryRoom> LibraryRoomList { get; set; }
+        void populateLibraryRooms();
+
+
     }
 }

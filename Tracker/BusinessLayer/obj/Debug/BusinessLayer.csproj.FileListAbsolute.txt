@@ -9,6 +9,17 @@ C:\Users\voidr\Desktop\Tracker\BusinessLayer\obj\Debug\BusinessLayer.csproj.Core
 C:\Users\voidr\Desktop\Tracker\BusinessLayer\obj\Debug\Business.EA331CBA.Up2Date
 C:\Users\voidr\Desktop\Tracker\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\voidr\Desktop\Tracker\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\bin\Debug\BusinessEntities.dll
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\bin\Debug\BusinessEntities.pdb
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\obj\Debug\Business.EA331CBA.Up2Date
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\hossa\Desktop\Tracker\BusinessLayer\obj\Debug\BusinessLayer.pdb
 C:\Users\fabio\OneDrive\Pulpit\TrackerV1.4Fixed\Tracker\BusinessLayer\bin\Debug\BusinessLayer.dll
 C:\Users\fabio\OneDrive\Pulpit\TrackerV1.4Fixed\Tracker\BusinessLayer\bin\Debug\BusinessLayer.pdb
 C:\Users\fabio\OneDrive\Pulpit\TrackerV1.4Fixed\Tracker\BusinessLayer\bin\Debug\BusinessEntities.dll

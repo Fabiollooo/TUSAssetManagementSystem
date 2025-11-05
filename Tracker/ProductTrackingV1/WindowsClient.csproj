@@ -93,6 +93,12 @@
     <Compile Include="formEditUser.Designer.cs">
       <DependentUpon>formEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="formLibraryRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLibraryRooms.Designer.cs">
+      <DependentUpon>formLibraryRooms.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formLibraryRooms.resx">
+      <DependentUpon>formLibraryRooms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formViewOrderDetails.resx">
       <DependentUpon>formViewOrderDetails.cs</DependentUpon>
     </EmbeddedResource>

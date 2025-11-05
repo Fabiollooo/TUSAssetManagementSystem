@@ -32,21 +32,21 @@ namespace ProductTracking
             {
                 case "Admin":
                     formManager form1 = new formManager(this, Model); // All forms get passed the formContainer and a reference to the model object. 
-                    this.Text = this.Text + "-Manager";
+                    this.Text = this.Text + "- Admin";
                     form1.Dock = DockStyle.Fill;
                     form1.Show();
                     break;
-                case "Student":
+                case "Staff":
                     formSales form2 = new formSales(this, Model);// All forms get passed the formContainer and a reference to the model object. 
-                    this.Text = this.Text + "-Sales";
+                    this.Text = this.Text + "- Staff";
                     form2.Dock = DockStyle.Fill;
                     form2.Show();
                     break;
-                case "Staff":
-                    formOperator form3 = new formOperator(this, Model); // All forms get passed the formContainer and a reference to the model object. 
-                    this.Text = this.Text + "-Production";
-                    form3.Dock = DockStyle.Fill;
-                    form3.Show();
+                case "Student":
+                    formLibraryRooms studentForm = new formLibraryRooms(Model); // All forms get passed the formContainer and a reference to the model object. 
+                    this.Text = this.Text + "- Student";
+                    studentForm.Dock = DockStyle.Fill;
+                    studentForm.Show();
                     break;
             }
 
