@@ -75,6 +75,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>formAllocatePreparedProduct.resx</DependentUpon>
     </Compile>
+    <Compile Include="formBookLibraryRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formBookLibraryRoom.Designer.cs">
+      <DependentUpon>formBookLibraryRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="formContainer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </Compile>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formBookLibraryRoom.resx">
+      <DependentUpon>formBookLibraryRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLibraryRooms.resx">
       <DependentUpon>formLibraryRooms.cs</DependentUpon>

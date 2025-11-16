@@ -8,7 +8,6 @@ namespace DataAccessLayer
     {
 
         void addNewUserToDB(BusinessEntities.IUser theUser);
-
         bool deleteUserFromDB(BusinessEntities.IUser user);
         bool editUserInDB(BusinessEntities.IUser user);
         void closeConnection();
@@ -22,6 +21,9 @@ namespace DataAccessLayer
 
         //Available Rooms (Student) -FG
         List<ILibraryRoom> getAllLibraryRooms();
+        List<ILibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime);
 
+        // Book Library Room (Student) -TM
+        void addNewBookingToDB(LibraryRoomBooking booking);
     }
 }

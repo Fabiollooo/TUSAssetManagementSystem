@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 using BusinessEntities;
+using System.Globalization;
 
 namespace DataAccessLayer
 {
@@ -307,7 +308,7 @@ namespace DataAccessLayer
             SqlDataAdapter da;
             try
             {
-                string sql = "SELECT lr.*, rs.StatusName FROM LibraryRooms AS lr, RoomStatus AS rs WHERE lr.RoomStatusID = rs.RoomStatusID";
+                string sql = "SELECT lr.*, rs.StatusName FROM LibraryRooms AS lr, RoomStatus AS rs WHERE lr.RoomStatusID = rs.RoomStatusID AND lr.RoomStatusID = 2";
                 da = new SqlDataAdapter(sql, con);
                 da.Fill(ds, "LibraryRoomsData");
                 foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
@@ -332,7 +333,78 @@ namespace DataAccessLayer
             return rooms;
         }
 
+        public List<ILibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime)
+        {
+            List<ILibraryRoom> rooms = new List<ILibraryRoom>();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
 
+            String dateString = date.ToString("yyyy-MM-dd");
+            String startTimeString = startTime.ToString("HH:mm:ss");
+            String endTimeString = endTime.ToString("HH:mm:ss");
+            try
+            {
+                string sql = "SELECT lr.*, rs.StatusName FROM (" +
+                        "SELECT *, CONVERT(time, '" + startTimeString + "') AS StartTime, CONVERT(time, '" + endTimeString + "') AS EndTime FROM LibraryRooms" +
+                    ") AS lr, RoomStatus AS rs WHERE NOT EXISTS (SELECT lrb.LibraryRoomID " + 
+                        "FROM LibraryRoomBookings AS lrb " +
+                        "WHERE lrb.LibraryRoomID = lr.LibraryRoomID " +
+                            "AND CONVERT(date, '" + dateString + "') = lrb.Date " +
+                            "AND (lr.StartTime > lrb.StartTime AND lr.StartTime < lrb.EndTime " +
+                            "OR lr.EndTime > lrb.StartTime AND lr.EndTime < lrb.EndTime " +
+                            "OR lrb.StartTime > lr.StartTime AND lrb.StartTime < lr.EndTime " +
+                            "OR lrb.EndTime > lr.StartTime AND lrb.EndTime < lr.EndTime" +
+                        ")) AND lr.RoomStatusID = 2 AND lr.RoomStatusID = rs.RoomStatusID";
 
+                da = new SqlDataAdapter(sql, con);
+                da.Fill(ds, "LibraryRoomsData");
+                foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
+                {
+                    ILibraryRoom room = new LibraryRoom
+                    {
+                        LibraryRoomID = Convert.ToInt32(dRow["LibraryRoomID"]),
+                        RoomNumber = dRow["RoomNumber"].ToString(),
+                        Capacity = Convert.ToInt32(dRow["Capacity"]),
+                        Resources = dRow["Resources"].ToString(),
+                        RoomStatusID = Convert.ToInt32(dRow["RoomStatusID"]),
+                        StatusName = dRow["StatusName"].ToString()
+                    };
+                    rooms.Add(room);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return rooms;
+        }
+        public void addNewBookingToDB(LibraryRoomBooking booking)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                string sql = "SELECT * From LibraryRoomBookings";
+                SqlDataAdapter da = new SqlDataAdapter(sql, con);
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                da.Fill(ds, "LibraryRoomBookingsData");
+                DataRow dRow = ds.Tables["LibraryRoomBookingsData"].NewRow();
+                dRow[0] = booking.UserId;
+                dRow[1] = booking.LibraryRoomId;
+                dRow[2] = booking.Date.Date;
+                dRow[3] = new TimeSpan(booking.StartTime.TimeOfDay.Hours, booking.StartTime.TimeOfDay.Minutes, 0);
+                dRow[4] = new TimeSpan(booking.EndTime.TimeOfDay.Hours, booking.EndTime.TimeOfDay.Minutes, 0);
+                dRow[5] = booking.Cancelled;
+
+                ds.Tables["LibraryRoomBookingsData"].Rows.Add(dRow);
+                da.Update(ds, "LibraryRoomBookingsData");
+            }
+            catch (Exception _)
+            {
+                if (con.State.ToString() == "Open")
+                    con.Close();
+                Application.Exit();
+            }
+        }
     }
 }

@@ -58,9 +58,10 @@ namespace ProductTracking
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tab_browserooms = new System.Windows.Forms.TabPage();
+            this.dtpBookingDate = new System.Windows.Forms.DateTimePicker();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnStudentDashboardRoomsRefresh = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -84,6 +85,8 @@ namespace ProductTracking
             this.panel12 = new System.Windows.Forms.Panel();
             this.label31 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.dtpBookingStartTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpBookingEndTime = new System.Windows.Forms.DateTimePicker();
             this.tab_dashboard.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -395,9 +398,12 @@ namespace ProductTracking
             // 
             // tab_browserooms
             // 
+            this.tab_browserooms.Controls.Add(this.dtpBookingEndTime);
+            this.tab_browserooms.Controls.Add(this.dtpBookingStartTime);
+            this.tab_browserooms.Controls.Add(this.dtpBookingDate);
             this.tab_browserooms.Controls.Add(this.button6);
             this.tab_browserooms.Controls.Add(this.button5);
-            this.tab_browserooms.Controls.Add(this.button4);
+            this.tab_browserooms.Controls.Add(this.btnStudentDashboardRoomsRefresh);
             this.tab_browserooms.Controls.Add(this.panel8);
             this.tab_browserooms.Controls.Add(this.label17);
             this.tab_browserooms.Controls.Add(this.label18);
@@ -411,6 +417,16 @@ namespace ProductTracking
             this.tab_browserooms.UseVisualStyleBackColor = true;
             this.tab_browserooms.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // dtpBookingDate
+            // 
+            this.dtpBookingDate.CustomFormat = "";
+            this.dtpBookingDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBookingDate.Location = new System.Drawing.Point(53, 303);
+            this.dtpBookingDate.Name = "dtpBookingDate";
+            this.dtpBookingDate.Size = new System.Drawing.Size(118, 20);
+            this.dtpBookingDate.TabIndex = 10;
+            this.dtpBookingDate.Value = new System.DateTime(2025, 11, 16, 20, 37, 27, 0);
+            // 
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,6 +436,7 @@ namespace ProductTracking
             this.button6.TabIndex = 9;
             this.button6.Text = "Book room";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -430,14 +447,15 @@ namespace ProductTracking
             this.button5.Text = "Apply Filter";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnStudentDashboardRoomsRefresh
             // 
-            this.button4.Location = new System.Drawing.Point(912, 300);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Refresh";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnStudentDashboardRoomsRefresh.Location = new System.Drawing.Point(912, 300);
+            this.btnStudentDashboardRoomsRefresh.Name = "btnStudentDashboardRoomsRefresh";
+            this.btnStudentDashboardRoomsRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnStudentDashboardRoomsRefresh.TabIndex = 7;
+            this.btnStudentDashboardRoomsRefresh.Text = "Refresh";
+            this.btnStudentDashboardRoomsRefresh.UseVisualStyleBackColor = true;
+            this.btnStudentDashboardRoomsRefresh.Click += new System.EventHandler(this.btnStudentDashboardRoomsRefresh_Click);
             // 
             // panel8
             // 
@@ -482,7 +500,6 @@ namespace ProductTracking
             this.dgvRooms.AllowUserToAddRows = false;
             this.dgvRooms.AllowUserToResizeColumns = false;
             this.dgvRooms.AllowUserToResizeRows = false;
-            this.dgvRooms.AutoGenerateColumns = false;
             this.dgvRooms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRooms.Location = new System.Drawing.Point(45, 351);
@@ -679,6 +696,27 @@ namespace ProductTracking
             this.label23.TabIndex = 8;
             this.label23.Text = "Upcoming";
             // 
+            // dtpBookingStartTime
+            // 
+            this.dtpBookingStartTime.CustomFormat = "HH:mm";
+            this.dtpBookingStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBookingStartTime.Location = new System.Drawing.Point(177, 303);
+            this.dtpBookingStartTime.Name = "dtpBookingStartTime";
+            this.dtpBookingStartTime.ShowUpDown = true;
+            this.dtpBookingStartTime.Size = new System.Drawing.Size(110, 20);
+            this.dtpBookingStartTime.TabIndex = 11;
+            this.dtpBookingStartTime.Value = new System.DateTime(2025, 11, 16, 0, 0, 0, 0);
+            // 
+            // dtpBookingEndTime
+            // 
+            this.dtpBookingEndTime.CustomFormat = "HH:mm";
+            this.dtpBookingEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBookingEndTime.Location = new System.Drawing.Point(293, 303);
+            this.dtpBookingEndTime.Name = "dtpBookingEndTime";
+            this.dtpBookingEndTime.ShowUpDown = true;
+            this.dtpBookingEndTime.Size = new System.Drawing.Size(110, 20);
+            this.dtpBookingEndTime.TabIndex = 12;
+            // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,7 +794,7 @@ namespace ProductTracking
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnStudentDashboardRoomsRefresh;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button6;
@@ -776,5 +814,8 @@ namespace ProductTracking
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private DateTimePicker dtpBookingDate;
+        private DateTimePicker dtpBookingEndTime;
+        private DateTimePicker dtpBookingStartTime;
     }
 }

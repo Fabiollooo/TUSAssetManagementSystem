@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using DataAccessLayer;
 using BusinessEntities;
+using System.Xml.Linq;
 
 namespace BusinessLayer
 {
@@ -157,6 +158,9 @@ namespace BusinessLayer
 
         public String getUserTypeForCurrentuser()
         {
+            if (currentUser == null)
+                return "Unknown";
+
             return currentUser.UserType;
         }
 
@@ -196,6 +200,25 @@ namespace BusinessLayer
         public void populateLibraryRooms()
         {
             LibraryRoomList = DataLayer.getAllLibraryRooms();
+        }
+        public void populateLibraryRooms(DateTime date, DateTime startTime, DateTime endTime)
+        {
+            LibraryRoomList = DataLayer.getLibraryRoomsAvailable(date, startTime, endTime);
+        }
+
+        // Book Library Room (Student) -TM
+
+        public bool AddNewLibraryBooking(LibraryRoomBooking booking)
+        {
+            try
+            {
+                DataLayer.addNewBookingToDB(booking);
+                return true;
+            }
+            catch (Exception _)
+            {
+                return false;
+            }
         }
     }
 }

@@ -24,5 +24,9 @@ namespace BusinessLayer
         //View Available Rooms (Student) -FG
         List<ILibraryRoom> LibraryRoomList { get; set; }
         void populateLibraryRooms();
+        void populateLibraryRooms(DateTime date, DateTime startTime, DateTime endTime);
+
+        // Book Library Room (Student) -TM
+        bool AddNewLibraryBooking(LibraryRoomBooking booking);
     }
 }

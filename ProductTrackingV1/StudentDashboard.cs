@@ -15,18 +15,23 @@ namespace ProductTracking
     public partial class StudentDashboard : Form
     {
         private IModel Model;
-
+        private DateTime selectedDate;
+        private DateTime selectedStartTime;
+        private DateTime selectedEndTime;
 
         public StudentDashboard(IModel model)
         {
             InitializeComponent();
             Model = model;
+            selectedDate = DateTime.Now;
+            selectedStartTime = DateTime.Now;
+            selectedEndTime = DateTime.Now.AddHours(1);
             this.Load += StudentDashboard_Load;
         }
 
-        private void StudentDashboard_Load(object sender, EventArgs e)
+        private void RefreshRooms()
         {
-            Model.populateLibraryRooms();
+            Model.populateLibraryRooms(selectedDate, selectedStartTime, selectedEndTime);
 
             if (dgvRooms != null)
             {
@@ -41,6 +46,9 @@ namespace ProductTracking
                 dgvRooms.DataSource = Model.LibraryRoomList;
             }
         }
+
+        private void StudentDashboard_Load(object sender, EventArgs e)
+        {}
 
         //Book a room button
         private void btn_BookRoom_Click(object sender, EventArgs e)
@@ -98,6 +106,37 @@ namespace ProductTracking
 
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (dgvRooms.SelectedRows.Count == 0)
+                return;
 
+            DataGridViewRow selectedRow = dgvRooms.SelectedRows[0];
+            if (selectedRow.DataBoundItem == null)
+                return;
+
+            button6.Visible = false;
+
+            LibraryRoom room = selectedRow.DataBoundItem as LibraryRoom;
+
+            Form bookLibraryRoom = new formBookLibraryRoom(Model, room, Model.CurrentUser, selectedDate, selectedStartTime, selectedEndTime);
+            bookLibraryRoom.Dock = DockStyle.Fill;
+            bookLibraryRoom.ShowDialog();
+            RefreshRooms();
+
+            button6.Visible = true;
+        }
+
+        private void btnStudentDashboardRoomsRefresh_Click(object sender, EventArgs e)
+        {
+            if (dtpBookingStartTime.Value > dtpBookingEndTime.Value)
+                dtpBookingEndTime.Value = dtpBookingStartTime.Value.AddHours(1);
+
+            selectedDate = dtpBookingDate.Value;
+            selectedStartTime = dtpBookingStartTime.Value;
+            selectedEndTime = dtpBookingEndTime.Value;
+
+            RefreshRooms();
+        }
     }
 }
