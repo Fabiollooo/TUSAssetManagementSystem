@@ -307,7 +307,7 @@ namespace DataAccessLayer
             SqlDataAdapter da;
             try
             {
-                string sql = "SELECT * FROM LibraryRooms";
+                string sql = "SELECT lr.*, rs.StatusName FROM LibraryRooms AS lr, RoomStatus AS rs WHERE lr.RoomStatusID = rs.RoomStatusID";
                 da = new SqlDataAdapter(sql, con);
                 da.Fill(ds, "LibraryRoomsData");
                 foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
@@ -318,7 +318,8 @@ namespace DataAccessLayer
                         RoomNumber = dRow["RoomNumber"].ToString(),
                         Capacity = Convert.ToInt32(dRow["Capacity"]),
                         Resources = dRow["Resources"].ToString(),
-                        RoomStatusID = Convert.ToInt32(dRow["RoomStatusID"])
+                        RoomStatusID = Convert.ToInt32(dRow["RoomStatusID"]),
+                        StatusName = dRow["StatusName"].ToString()
                     };
                     rooms.Add(room);
                 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessEntities;
 using BusinessLayer;
 
 namespace ProductTracking
@@ -23,8 +24,6 @@ namespace ProductTracking
             this.Load += StudentDashboard_Load;
         }
 
-
-
         private void StudentDashboard_Load(object sender, EventArgs e)
         {
             Model.populateLibraryRooms();
@@ -32,18 +31,14 @@ namespace ProductTracking
             if (dgvRooms != null)
             {
                 dgvRooms.DataSource = null;
-                dgvRooms.DataSource = Model.LibraryRoomList;
-                dgvRooms.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-                if (dgvRooms.Columns.Count > 0)
-                {
-                    dgvRooms.Columns["LibraryRoomID"].HeaderText = "ID";
-                    dgvRooms.Columns["RoomNumber"].HeaderText = "Room Number";
-                    dgvRooms.Columns["Capacity"].HeaderText = "Capacity";
-                    dgvRooms.Columns["Resources"].HeaderText = "Resources";
-                    dgvRooms.Columns["RoomStatusID"].HeaderText = "Status ID";
-                    dgvRooms.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                }
+                dgvRooms.Columns.Clear();
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Room Number", DataPropertyName = "RoomNumber" });
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Capacity", DataPropertyName = "Capacity" });
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Resources", DataPropertyName = "Resources" });
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Status", DataPropertyName = "StatusName" });
+
+                dgvRooms.DataSource = Model.LibraryRoomList;
             }
         }
 

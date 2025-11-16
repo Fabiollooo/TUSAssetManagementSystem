@@ -13,6 +13,7 @@ namespace BusinessEntities
         public int Capacity { get; set; }
         public string Resources { get; set; }
         public int RoomStatusID { get; set; }
+        public String StatusName { get; set; }
     }
 
 }

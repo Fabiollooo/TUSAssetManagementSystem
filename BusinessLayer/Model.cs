@@ -197,7 +197,5 @@ namespace BusinessLayer
         {
             LibraryRoomList = DataLayer.getAllLibraryRooms();
         }
-
-
     }
 }

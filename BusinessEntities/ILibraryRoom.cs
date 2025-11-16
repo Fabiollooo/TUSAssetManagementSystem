@@ -13,5 +13,6 @@ namespace BusinessEntities
         int Capacity { get; set; }
         string Resources { get; set; }
         int RoomStatusID { get; set; }
+        String StatusName { get; set; }
     }
 }

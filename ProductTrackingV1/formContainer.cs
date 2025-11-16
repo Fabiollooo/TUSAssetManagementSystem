@@ -27,7 +27,6 @@ namespace ProductTracking
             formLogin formLgn = new formLogin(Model);
             formLgn.ShowDialog();
 
-           
             switch (Model.getUserTypeForCurrentuser())
             {
                 case "Admin":
@@ -50,8 +49,6 @@ namespace ProductTracking
                     studentForm.Show();
                     break;
             }
-
-
         }
     }
 }
