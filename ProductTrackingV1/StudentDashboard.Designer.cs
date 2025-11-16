@@ -482,7 +482,6 @@ namespace ProductTracking
             this.dgvRooms.AllowUserToAddRows = false;
             this.dgvRooms.AllowUserToResizeColumns = false;
             this.dgvRooms.AllowUserToResizeRows = false;
-            this.dgvRooms.AutoGenerateColumns = false;
             this.dgvRooms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRooms.Location = new System.Drawing.Point(45, 351);
