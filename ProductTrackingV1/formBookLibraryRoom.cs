@@ -20,17 +20,17 @@ namespace ProductTracking
 
         private void RefreshInfo()
         {
-            labelBookRoomRoomNumber.Text = "Room: " + room.RoomNumber;
-            labelBookRoomDate.Text = "Date: " + booking.Date.ToShortDateString();
-            labelBookRoomStartTime.Text = "Start Time: " + booking.StartTime.ToShortTimeString();
-            labelBookRoomEndTime.Text = "End Time: " + booking.EndTime.ToShortTimeString();
+            labelBookRoomRoomNumber.Text = "Room: " + room.roomNumber;
+            labelBookRoomDate.Text = "Date: " + booking.date.ToShortDateString();
+            labelBookRoomStartTime.Text = "Start Time: " + booking.startTime.ToShortTimeString();
+            labelBookRoomEndTime.Text = "End Time: " + booking.endTime.ToShortTimeString();
         }
 
         public formBookLibraryRoom(IModel model, LibraryRoom selectedRoom, IUser user, DateTime date, DateTime startTime, DateTime endTime)
         {
             Model = model;
             room = selectedRoom;
-            booking = new LibraryRoomBooking(user.UserID, room.LibraryRoomID, date, startTime, endTime, false);
+            booking = new LibraryRoomBooking(user.UserID, room, date, startTime, endTime, false);
 
             InitializeComponent();
             RefreshInfo();

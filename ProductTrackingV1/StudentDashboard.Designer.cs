@@ -32,11 +32,12 @@ namespace ProductTracking
         {
             this.tab_dashboard = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.btn_ManageBookings = new System.Windows.Forms.Button();
-            this.btn_ViewCalendar = new System.Windows.Forms.Button();
             this.btn_BookRoom = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -62,32 +63,28 @@ namespace ProductTracking
             this.dtpBookingDate = new System.Windows.Forms.DateTimePicker();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.btnStudentDashboardRoomsRefresh = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.dgvRooms = new System.Windows.Forms.DataGridView();
-            this.tab_calendarview = new System.Windows.Forms.TabPage();
             this.tab_mybookings = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMyBookings = new System.Windows.Forms.DataGridView();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblMyBookingsTotal = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
+            this.lblMyBookingsCancelled = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label28 = new System.Windows.Forms.Label();
+            this.lblMyBookingsCompleted = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.label31 = new System.Windows.Forms.Label();
+            this.lblMyBookingsUpcoming = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.btnLogOut = new System.Windows.Forms.Button();
             this.tab_dashboard.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -99,7 +96,7 @@ namespace ProductTracking
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).BeginInit();
             this.tab_mybookings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMyBookings)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -110,7 +107,6 @@ namespace ProductTracking
             // 
             this.tab_dashboard.Controls.Add(this.tabPage1);
             this.tab_dashboard.Controls.Add(this.tab_browserooms);
-            this.tab_dashboard.Controls.Add(this.tab_calendarview);
             this.tab_dashboard.Controls.Add(this.tab_mybookings);
             this.tab_dashboard.Location = new System.Drawing.Point(12, 12);
             this.tab_dashboard.Name = "tab_dashboard";
@@ -141,6 +137,27 @@ namespace ProductTracking
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(927, 48);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(84, 34);
+            this.btnLogOut.TabIndex = 12;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.Location = new System.Drawing.Point(768, 48);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(138, 17);
+            this.lblWelcome.TabIndex = 11;
+            this.lblWelcome.Text = "Welcoming message";
+            // 
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -155,7 +172,6 @@ namespace ProductTracking
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.btn_ManageBookings);
-            this.panel6.Controls.Add(this.btn_ViewCalendar);
             this.panel6.Controls.Add(this.btn_BookRoom);
             this.panel6.Location = new System.Drawing.Point(688, 258);
             this.panel6.Name = "panel6";
@@ -182,17 +198,6 @@ namespace ProductTracking
             this.btn_ManageBookings.Text = "Manage Bookings";
             this.btn_ManageBookings.UseVisualStyleBackColor = true;
             this.btn_ManageBookings.Click += new System.EventHandler(this.btn_ManageBookings_Click);
-            // 
-            // btn_ViewCalendar
-            // 
-            this.btn_ViewCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ViewCalendar.Location = new System.Drawing.Point(22, 120);
-            this.btn_ViewCalendar.Name = "btn_ViewCalendar";
-            this.btn_ViewCalendar.Size = new System.Drawing.Size(299, 38);
-            this.btn_ViewCalendar.TabIndex = 1;
-            this.btn_ViewCalendar.Text = "View Calendar";
-            this.btn_ViewCalendar.UseVisualStyleBackColor = true;
-            this.btn_ViewCalendar.Click += new System.EventHandler(this.btn_ViewCalendar_Click);
             // 
             // btn_BookRoom
             // 
@@ -396,7 +401,6 @@ namespace ProductTracking
             this.tab_browserooms.Controls.Add(this.dtpBookingDate);
             this.tab_browserooms.Controls.Add(this.button6);
             this.tab_browserooms.Controls.Add(this.button5);
-            this.tab_browserooms.Controls.Add(this.btnStudentDashboardRoomsRefresh);
             this.tab_browserooms.Controls.Add(this.panel8);
             this.tab_browserooms.Controls.Add(this.label17);
             this.tab_browserooms.Controls.Add(this.label18);
@@ -419,6 +423,7 @@ namespace ProductTracking
             this.dtpBookingEndTime.ShowUpDown = true;
             this.dtpBookingEndTime.Size = new System.Drawing.Size(110, 20);
             this.dtpBookingEndTime.TabIndex = 12;
+            this.dtpBookingEndTime.ValueChanged += new System.EventHandler(this.dtpBookingEndTime_ValueChanged);
             // 
             // dtpBookingStartTime
             // 
@@ -430,6 +435,7 @@ namespace ProductTracking
             this.dtpBookingStartTime.Size = new System.Drawing.Size(110, 20);
             this.dtpBookingStartTime.TabIndex = 11;
             this.dtpBookingStartTime.Value = new System.DateTime(2025, 11, 16, 0, 0, 0, 0);
+            this.dtpBookingStartTime.ValueChanged += new System.EventHandler(this.dtpBookingStartTime_ValueChanged);
             // 
             // dtpBookingDate
             // 
@@ -440,6 +446,7 @@ namespace ProductTracking
             this.dtpBookingDate.Size = new System.Drawing.Size(118, 20);
             this.dtpBookingDate.TabIndex = 10;
             this.dtpBookingDate.Value = new System.DateTime(2025, 11, 16, 20, 37, 27, 0);
+            this.dtpBookingDate.ValueChanged += new System.EventHandler(this.dtpBookingDate_ValueChanged);
             // 
             // button6
             // 
@@ -460,16 +467,6 @@ namespace ProductTracking
             this.button5.TabIndex = 8;
             this.button5.Text = "Apply Filter";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // btnStudentDashboardRoomsRefresh
-            // 
-            this.btnStudentDashboardRoomsRefresh.Location = new System.Drawing.Point(912, 300);
-            this.btnStudentDashboardRoomsRefresh.Name = "btnStudentDashboardRoomsRefresh";
-            this.btnStudentDashboardRoomsRefresh.Size = new System.Drawing.Size(75, 23);
-            this.btnStudentDashboardRoomsRefresh.TabIndex = 7;
-            this.btnStudentDashboardRoomsRefresh.Text = "Refresh";
-            this.btnStudentDashboardRoomsRefresh.UseVisualStyleBackColor = true;
-            this.btnStudentDashboardRoomsRefresh.Click += new System.EventHandler(this.btnStudentDashboardRoomsRefresh_Click);
             // 
             // panel8
             // 
@@ -512,11 +509,13 @@ namespace ProductTracking
             // dgvRooms
             // 
             this.dgvRooms.AllowUserToAddRows = false;
+            this.dgvRooms.AllowUserToDeleteRows = false;
             this.dgvRooms.AllowUserToResizeColumns = false;
             this.dgvRooms.AllowUserToResizeRows = false;
             this.dgvRooms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRooms.Location = new System.Drawing.Point(45, 351);
+            this.dgvRooms.MultiSelect = false;
             this.dgvRooms.Name = "dgvRooms";
             this.dgvRooms.ReadOnly = true;
             this.dgvRooms.RowHeadersVisible = false;
@@ -525,20 +524,10 @@ namespace ProductTracking
             this.dgvRooms.TabIndex = 2;
             this.dgvRooms.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRooms_CellContentClick);
             // 
-            // tab_calendarview
-            // 
-            this.tab_calendarview.Location = new System.Drawing.Point(4, 22);
-            this.tab_calendarview.Name = "tab_calendarview";
-            this.tab_calendarview.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_calendarview.Size = new System.Drawing.Size(1067, 766);
-            this.tab_calendarview.TabIndex = 2;
-            this.tab_calendarview.Text = "Calendar View";
-            this.tab_calendarview.UseVisualStyleBackColor = true;
-            // 
             // tab_mybookings
             // 
             this.tab_mybookings.Controls.Add(this.label24);
-            this.tab_mybookings.Controls.Add(this.dataGridView1);
+            this.tab_mybookings.Controls.Add(this.dgvMyBookings);
             this.tab_mybookings.Controls.Add(this.panel9);
             this.tab_mybookings.Controls.Add(this.label21);
             this.tab_mybookings.Controls.Add(this.label22);
@@ -563,33 +552,42 @@ namespace ProductTracking
             this.label24.TabIndex = 18;
             this.label24.Text = "My Bookings";
             // 
-            // dataGridView1
+            // dgvMyBookings
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 379);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1003, 340);
-            this.dataGridView1.TabIndex = 17;
+            this.dgvMyBookings.AllowUserToAddRows = false;
+            this.dgvMyBookings.AllowUserToDeleteRows = false;
+            this.dgvMyBookings.AllowUserToResizeColumns = false;
+            this.dgvMyBookings.AllowUserToResizeRows = false;
+            this.dgvMyBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMyBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMyBookings.Location = new System.Drawing.Point(24, 379);
+            this.dgvMyBookings.MultiSelect = false;
+            this.dgvMyBookings.Name = "dgvMyBookings";
+            this.dgvMyBookings.ReadOnly = true;
+            this.dgvMyBookings.RowHeadersVisible = false;
+            this.dgvMyBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMyBookings.Size = new System.Drawing.Size(1003, 340);
+            this.dgvMyBookings.TabIndex = 17;
             // 
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel9.Controls.Add(this.label19);
+            this.panel9.Controls.Add(this.lblMyBookingsTotal);
             this.panel9.Controls.Add(this.label20);
             this.panel9.Location = new System.Drawing.Point(24, 125);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(200, 100);
             this.panel9.TabIndex = 13;
             // 
-            // label19
+            // lblMyBookingsTotal
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(13, 43);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(16, 17);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "0";
+            this.lblMyBookingsTotal.AutoSize = true;
+            this.lblMyBookingsTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMyBookingsTotal.Location = new System.Drawing.Point(13, 43);
+            this.lblMyBookingsTotal.Name = "lblMyBookingsTotal";
+            this.lblMyBookingsTotal.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsTotal.TabIndex = 7;
+            this.lblMyBookingsTotal.Text = "0";
             // 
             // label20
             // 
@@ -623,22 +621,22 @@ namespace ProductTracking
             // panel10
             // 
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel10.Controls.Add(this.label25);
+            this.panel10.Controls.Add(this.lblMyBookingsCancelled);
             this.panel10.Controls.Add(this.label26);
             this.panel10.Location = new System.Drawing.Point(827, 125);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(200, 100);
             this.panel10.TabIndex = 16;
             // 
-            // label25
+            // lblMyBookingsCancelled
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(12, 43);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(16, 17);
-            this.label25.TabIndex = 10;
-            this.label25.Text = "0";
+            this.lblMyBookingsCancelled.AutoSize = true;
+            this.lblMyBookingsCancelled.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMyBookingsCancelled.Location = new System.Drawing.Point(12, 43);
+            this.lblMyBookingsCancelled.Name = "lblMyBookingsCancelled";
+            this.lblMyBookingsCancelled.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsCancelled.TabIndex = 10;
+            this.lblMyBookingsCancelled.Text = "0";
             // 
             // label26
             // 
@@ -653,22 +651,22 @@ namespace ProductTracking
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel11.Controls.Add(this.label28);
+            this.panel11.Controls.Add(this.lblMyBookingsCompleted);
             this.panel11.Controls.Add(this.label29);
             this.panel11.Location = new System.Drawing.Point(564, 125);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(200, 100);
             this.panel11.TabIndex = 15;
             // 
-            // label28
+            // lblMyBookingsCompleted
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(12, 43);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(16, 17);
-            this.label28.TabIndex = 9;
-            this.label28.Text = "0";
+            this.lblMyBookingsCompleted.AutoSize = true;
+            this.lblMyBookingsCompleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMyBookingsCompleted.Location = new System.Drawing.Point(12, 43);
+            this.lblMyBookingsCompleted.Name = "lblMyBookingsCompleted";
+            this.lblMyBookingsCompleted.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsCompleted.TabIndex = 9;
+            this.lblMyBookingsCompleted.Text = "0";
             // 
             // label29
             // 
@@ -683,22 +681,22 @@ namespace ProductTracking
             // panel12
             // 
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel12.Controls.Add(this.label31);
+            this.panel12.Controls.Add(this.lblMyBookingsUpcoming);
             this.panel12.Controls.Add(this.label23);
             this.panel12.Location = new System.Drawing.Point(294, 125);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(200, 100);
             this.panel12.TabIndex = 14;
             // 
-            // label31
+            // lblMyBookingsUpcoming
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(14, 43);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(16, 17);
-            this.label31.TabIndex = 8;
-            this.label31.Text = "0";
+            this.lblMyBookingsUpcoming.AutoSize = true;
+            this.lblMyBookingsUpcoming.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMyBookingsUpcoming.Location = new System.Drawing.Point(14, 43);
+            this.lblMyBookingsUpcoming.Name = "lblMyBookingsUpcoming";
+            this.lblMyBookingsUpcoming.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsUpcoming.TabIndex = 8;
+            this.lblMyBookingsUpcoming.Text = "0";
             // 
             // label23
             // 
@@ -710,34 +708,15 @@ namespace ProductTracking
             this.label23.TabIndex = 8;
             this.label23.Text = "Upcoming";
             // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(768, 48);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(138, 17);
-            this.lblWelcome.TabIndex = 11;
-            this.lblWelcome.Text = "Welcoming message";
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(927, 48);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(84, 34);
-            this.btnLogOut.TabIndex = 12;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 806);
+            this.ClientSize = new System.Drawing.Size(1100, 806);
             this.Controls.Add(this.tab_dashboard);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "StudentDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Dashboard";
             this.tab_dashboard.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -759,7 +738,7 @@ namespace ProductTracking
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).EndInit();
             this.tab_mybookings.ResumeLayout(false);
             this.tab_mybookings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMyBookings)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -778,7 +757,6 @@ namespace ProductTracking
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tab_browserooms;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tab_calendarview;
         private System.Windows.Forms.TabPage tab_mybookings;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
@@ -794,7 +772,6 @@ namespace ProductTracking
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btn_ManageBookings;
-        private System.Windows.Forms.Button btn_ViewCalendar;
         private System.Windows.Forms.Button btn_BookRoom;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label16;
@@ -807,26 +784,25 @@ namespace ProductTracking
         private System.Windows.Forms.Label lblNoActiveBookings;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button btnStudentDashboardRoomsRefresh;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblMyBookingsTotal;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lblMyBookingsCancelled;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label lblMyBookingsCompleted;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lblMyBookingsUpcoming;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMyBookings;
         private DateTimePicker dtpBookingDate;
         private DateTimePicker dtpBookingEndTime;
         private DateTimePicker dtpBookingStartTime;

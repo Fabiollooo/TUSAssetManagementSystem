@@ -23,14 +23,20 @@ namespace ProductTracking
         {
             InitializeComponent();
             Model = model;
-            selectedDate = DateTime.Now;
-            selectedStartTime = DateTime.Now;
-            selectedEndTime = DateTime.Now.AddHours(1);
+            dtpBookingDate.Value = DateTime.Now;
+            dtpBookingStartTime.Value = DateTime.Now;
+            dtpBookingEndTime.Value = DateTime.Now.AddHours(1);
             this.Load += StudentDashboard_Load;
         }
 
         private void RefreshRooms()
         {
+            if (dtpBookingStartTime.Value > dtpBookingEndTime.Value)
+                dtpBookingEndTime.Value = dtpBookingStartTime.Value.AddHours(1);
+
+            selectedDate = dtpBookingDate.Value;
+            selectedStartTime = dtpBookingStartTime.Value;
+            selectedEndTime = dtpBookingEndTime.Value;
 
             Model.populateLibraryRooms(selectedDate, selectedStartTime, selectedEndTime);
 
@@ -48,6 +54,36 @@ namespace ProductTracking
             }
         }
 
+        private void RefreshMyBookings()
+        {
+            Model.populateLibraryRoomBookings(Model.CurrentUser);
+
+            lblMyBookingsUpcoming.Text = Model.GetUpcomingBookingsCount(Model.CurrentUser.UserID).ToString();
+            lblMyBookingsTotal.Text = Model.CountActiveBookingsForUser(Model.CurrentUser.UserID).ToString();
+            lblMyBookingsCancelled.Text = Model.CountCancelledBookingsForUser(Model.CurrentUser.UserID).ToString();
+            lblMyBookingsCompleted.Text = Model.CountCompletedBookingsForUser(Model.CurrentUser.UserID).ToString();
+
+            if (dgvMyBookings != null)
+            {
+                dgvMyBookings.DataSource = null;
+
+                dgvMyBookings.Columns.Clear();
+                dgvMyBookings.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Room Number", DataPropertyName = "roomNumber" });
+                dgvMyBookings.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Booking Date", DataPropertyName = "date" });
+                dgvMyBookings.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Start Time", DataPropertyName = "startTime" });
+                dgvMyBookings.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "End Time", DataPropertyName = "endTime" });
+                dgvMyBookings.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Cancelled", DataPropertyName = "cancelled" });
+
+                dgvMyBookings.DataSource = Model.LibraryRoomBookingsList.Select(booking => new {
+                    booking.room.roomNumber,
+                    date = booking.date.ToString("dd:MM:yyyy"),
+                    startTime = booking.startTime.ToString("HH:mm"),
+                    endTime = booking.endTime.ToString("HH:mm"),
+                    cancelled = booking.cancelled ? "True" : "False"
+                }).ToList();
+            }
+        }
+
         private void StudentDashboard_Load(object sender, EventArgs e)
         {
             lblNoActiveBookings.Text = Model.CountActiveBookingsForUser(Model.CurrentUser.UserID).ToString();
@@ -62,6 +98,9 @@ namespace ProductTracking
             {
                 lblWelcome.Text = "Welcome!";
             }
+
+            RefreshRooms();
+            RefreshMyBookings();
         }
 
         //Book a room button
@@ -70,23 +109,11 @@ namespace ProductTracking
             tab_dashboard.SelectedTab = tab_browserooms;
         }
 
-        //View Calendar button
-        private void btn_ViewCalendar_Click(object sender, EventArgs e)
-        {
-            tab_dashboard.SelectedTab = tab_calendarview;
-        }
-
         //Manage Bookings button
         private void btn_ManageBookings_Click(object sender, EventArgs e)
         {
             tab_dashboard.SelectedTab = tab_mybookings;
         }
-
-
-
-
-
-
 
 
         //Ignore
@@ -137,27 +164,15 @@ namespace ProductTracking
             bookLibraryRoom.Dock = DockStyle.Fill;
             bookLibraryRoom.ShowDialog();
             RefreshRooms();
+            RefreshMyBookings();
 
             button6.Visible = true;
-        }
-
-        private void btnStudentDashboardRoomsRefresh_Click(object sender, EventArgs e)
-        {
-            if (dtpBookingStartTime.Value > dtpBookingEndTime.Value)
-                dtpBookingEndTime.Value = dtpBookingStartTime.Value.AddHours(1);
-
-            selectedDate = dtpBookingDate.Value;
-            selectedStartTime = dtpBookingStartTime.Value;
-            selectedEndTime = dtpBookingEndTime.Value;
-
-            RefreshRooms();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             try
             {
-
                 this.Close();
                 Application.Restart();
             }
@@ -165,6 +180,21 @@ namespace ProductTracking
             {
                 MessageBox.Show("Error logging out: " + ex.Message);
             }
+        }
+
+        private void dtpBookingDate_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshRooms();
+        }
+
+        private void dtpBookingStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshRooms();
+        }
+
+        private void dtpBookingEndTime_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshRooms();
         }
     }
 }

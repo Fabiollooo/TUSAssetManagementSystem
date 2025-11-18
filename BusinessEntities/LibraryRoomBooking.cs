@@ -6,104 +6,32 @@ using System.Threading.Tasks;
 
 namespace BusinessEntities
 {
-    public class LibraryRoomBooking : BusinessEntities.IBooking
+    public class LibraryRoomBooking : IBooking
     {
         #region Instance Properties
-        private int userId;
-        private int libraryRoomId;
-        private DateTime date;
-        private DateTime startTime;
-        private DateTime endTime;
-        private bool cancelled;
-
+        public int userID { get; set; }
+        public IRoom room { get; set; }
+        public DateTime date { get; set; }
+        public DateTime startTime { get; set; }
+        public DateTime endTime { get; set; }
+        public bool cancelled { get; set; }
         #endregion
 
-        #region Instance Properties
-        public int UserId
-        {
-            get
-            {
-                return userId; ;
-            }
-            set
-            {
-                userId = value;
-            }
-        }
-
-        public int LibraryRoomId
-        {
-            get
-            {
-                return libraryRoomId;
-            }
-            set
-            {
-                libraryRoomId = value;
-            }
-        }
-
-        public DateTime Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-            }
-        }
-        public DateTime StartTime
-        {
-            get
-            {
-                return startTime;
-            }
-            set
-            {
-                startTime = value;
-            }
-        }
-        public DateTime EndTime
-        {
-            get
-            {
-                return endTime;
-            }
-            set
-            {
-                endTime = value;
-            }
-        }
-        public bool Cancelled
-        {
-            get
-            {
-                return cancelled;
-            }
-            set
-            {
-                cancelled = value;
-            }
-        }
-
-        #endregion
         #region Constructors
         public LibraryRoomBooking()
         {
-            this.userId = 0;
-            this.libraryRoomId = 0;
+            this.userID = 0;
+            this.room = null;
             this.date = new DateTime();
             this.startTime = new DateTime();
             this.endTime = new DateTime();
             this.cancelled = false;
         }
 
-        public LibraryRoomBooking(int userId, int libraryRoomId, DateTime date, DateTime startTime, DateTime endTime, bool cancelled)
+        public LibraryRoomBooking(int userId, LibraryRoom room, DateTime date, DateTime startTime, DateTime endTime, bool cancelled)
         {
-            this.userId = userId;
-            this.libraryRoomId = libraryRoomId;
+            this.userID = userId;
+            this.room = room;
             this.date = date;
             this.startTime = startTime;
             this.endTime = endTime;

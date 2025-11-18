@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBooking.cs" />
+    <Compile Include="IRoom.cs" />
     <Compile Include="ILibraryRoom.cs" />
     <Compile Include="IOrder.cs" />
     <Compile Include="IProductLine.cs" />

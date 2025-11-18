@@ -20,13 +20,17 @@ namespace DataAccessLayer
         bool editProductLineInDB(BusinessEntities.IProductLine productLine);
 
         //Available Rooms (Student) -FG
-        List<ILibraryRoom> getAllLibraryRooms();
-        List<ILibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime);
+        List<LibraryRoom> getAllLibraryRooms();
+        List<LibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime);
         int CountActiveBookingsForUser(int userId);
         int GetHoursBookedThisMonth(int userId);
         int GetUpcomingBookingsCount(int userId);
+        int CountCancelledBookingsForUser(int userId);
+        int CountCompletedBookingsForUser(int userId);
 
         // Book Library Room (Student) -TM
         void addNewBookingToDB(LibraryRoomBooking booking);
+
+        List<LibraryRoomBooking> getAllStudentLibraryBookings(IUser student);
     }
 }
