@@ -21,8 +21,8 @@ namespace BusinessLayer
         bool updateProductLine(IProductLine productLine);
 
 
-       //View Available Rooms (Student) -FG
-        List<ILibraryRoom> LibraryRoomList { get; set; }
+        //View Available Rooms (Student) -FG
+        List<LibraryRoom> LibraryRoomList { get; set; }
         void populateLibraryRooms();
         void populateLibraryRooms(DateTime date, DateTime startTime, DateTime endTime);
 
@@ -33,11 +33,25 @@ namespace BusinessLayer
         //Count for "No of Upcoming bookings" - FG
         int GetUpcomingBookingsCount(int userId);
 
+        //Upcoming bookings - FG
+        List<LibraryRoomBooking> GetTop3UpcomingBookings(int userId);
+
+        bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn);
 
 
-       // Book Library Room (Student) -TM
+
+
+
+        //Count for "Cancelled bookings" - TM
+        int CountCancelledBookingsForUser(int userId);
+        //Count for "Completed bookings" - TM
+        int CountCompletedBookingsForUser(int userId);
+
+
+        //Book Library Room (Student) -TM
         bool AddNewLibraryBooking(LibraryRoomBooking booking);
-
-
+        // View Your Library Room Bookings (Student) -TM
+        List<LibraryRoomBooking> LibraryRoomBookingsList { get; set; }
+        void populateLibraryRoomBookings(IUser student);
     }
 }

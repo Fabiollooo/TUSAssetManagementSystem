@@ -301,9 +301,9 @@ namespace DataAccessLayer
 
 
         //Available rooms (Student) -FG
-        public List<ILibraryRoom> getAllLibraryRooms()
+        public List<LibraryRoom> getAllLibraryRooms()
         {
-            List<ILibraryRoom> rooms = new List<ILibraryRoom>();
+            List<LibraryRoom> rooms = new List<LibraryRoom>();
             DataSet ds = new DataSet();
             SqlDataAdapter da;
             try
@@ -313,15 +313,15 @@ namespace DataAccessLayer
                 da.Fill(ds, "LibraryRoomsData");
                 foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
                 {
-                    ILibraryRoom room = new LibraryRoom
-                    {
-                        LibraryRoomID = Convert.ToInt32(dRow["LibraryRoomID"]),
-                        RoomNumber = dRow["RoomNumber"].ToString(),
-                        Capacity = Convert.ToInt32(dRow["Capacity"]),
-                        Resources = dRow["Resources"].ToString(),
-                        RoomStatusID = Convert.ToInt32(dRow["RoomStatusID"]),
-                        StatusName = dRow["StatusName"].ToString()
-                    };
+                    LibraryRoom room = new LibraryRoom(
+                        Convert.ToInt32(dRow["LibraryRoomID"]),
+                        dRow["RoomNumber"].ToString(),
+                        Convert.ToInt32(dRow["Capacity"]),
+                        dRow["Resources"].ToString(),
+                        Convert.ToInt32(dRow["RoomStatusID"]),
+                        dRow["StatusName"].ToString()
+                    );
+
                     rooms.Add(room);
                 }
             }
@@ -340,7 +340,20 @@ namespace DataAccessLayer
             cmd.Parameters.AddWithValue("@UserID", userId);
             return (int)cmd.ExecuteScalar();
         }
-
+        public int CountCancelledBookingsForUser(int userId)
+        {
+            string sql = "SELECT COUNT(*) FROM LibraryRoomBookings WHERE UserID = @UserID AND Cancelled = 1";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@UserID", userId);
+            return (int)cmd.ExecuteScalar();
+        }
+        public int CountCompletedBookingsForUser(int userId)
+        {
+            string sql = "SELECT COUNT(*) FROM LibraryRoomBookings WHERE UserID = @UserID AND Cancelled = 0 AND Date < GETDATE()";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@UserID", userId);
+            return (int)cmd.ExecuteScalar();
+        }
         public int GetHoursBookedThisMonth(int userId)
         {
             string sql = "SELECT SUM(DATEDIFF(HOUR, StartTime, EndTime)) FROM LibraryRoomBookings WHERE UserID = @UserID AND MONTH(Date) = MONTH(GETDATE()) AND Cancelled = 0";
@@ -358,14 +371,72 @@ namespace DataAccessLayer
             return (int)cmd.ExecuteScalar();
         }
 
-
-
-
-
-
-        public List<ILibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime)
+        //Upcoming Bookings - FG
+        public List<LibraryRoomBooking> GetTop3UpcomingBookings(int userId)
         {
-            List<ILibraryRoom> rooms = new List<ILibraryRoom>();
+            List<LibraryRoomBooking> bookings = new List<LibraryRoomBooking>();
+
+            try
+            {
+                string query = @"SELECT TOP 3 lrb.BookingID, lrb.LibraryRoomID, lrb.StartTime, lrb.EndTime, lrb.Date, 
+                                lr.RoomNumber, lrb.CheckedIn, lrb.Cancelled 
+                        FROM LibraryRoomBookings lrb
+                        INNER JOIN LibraryRooms lr ON lrb.LibraryRoomID = lr.LibraryRoomID
+                        WHERE lrb.UserID = @UserID 
+                        AND lrb.Date >= CAST(GETDATE() AS DATE)
+                        AND lrb.Cancelled = 0
+                        ORDER BY lrb.StartTime ASC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@UserID", userId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int libraryRoomId = Convert.ToInt32(reader["LibraryRoomID"]);
+                    string roomNumber = reader["RoomNumber"].ToString();
+                    DateTime date = (DateTime)reader["Date"];
+                    TimeSpan startTimeSpan = (TimeSpan)reader["StartTime"];
+                    TimeSpan endTimeSpan = (TimeSpan)reader["EndTime"];
+                    bool cancelled = Convert.ToBoolean(reader["Cancelled"]); 
+
+                    DateTime startTime = date.Date + startTimeSpan;
+                    DateTime endTime = date.Date + endTimeSpan;
+
+                    LibraryRoom room = new LibraryRoom(libraryRoomId, roomNumber, 0, "", 2, "Available");
+
+                    LibraryRoomBooking booking = new LibraryRoomBooking(
+                        Convert.ToInt32(reader["BookingID"]),
+                        userId,
+                        room,
+                        date,
+                        startTime,
+                        endTime,
+                        cancelled 
+                    )
+                    {
+                        checkedIn = Convert.ToBoolean(reader["CheckedIn"])
+                    };
+                    bookings.Add(booking);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in GetTop3UpcomingBookings: " + ex.Message);
+            }
+
+            return bookings;
+        }
+
+
+
+
+        //Display rooms - TM
+        public List<LibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime)
+        {
+            List<LibraryRoom> rooms = new List<LibraryRoom>();
             DataSet ds = new DataSet();
             SqlDataAdapter da;
 
@@ -390,15 +461,15 @@ namespace DataAccessLayer
                 da.Fill(ds, "LibraryRoomsData");
                 foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
                 {
-                    ILibraryRoom room = new LibraryRoom
-                    {
-                        LibraryRoomID = Convert.ToInt32(dRow["LibraryRoomID"]),
-                        RoomNumber = dRow["RoomNumber"].ToString(),
-                        Capacity = Convert.ToInt32(dRow["Capacity"]),
-                        Resources = dRow["Resources"].ToString(),
-                        RoomStatusID = Convert.ToInt32(dRow["RoomStatusID"]),
-                        StatusName = dRow["StatusName"].ToString()
-                    };
+                    LibraryRoom room = new LibraryRoom(
+                        Convert.ToInt32(dRow["LibraryRoomID"]),
+                        dRow["RoomNumber"].ToString(),
+                        Convert.ToInt32(dRow["Capacity"]),
+                        dRow["Resources"].ToString(),
+                        Convert.ToInt32(dRow["RoomStatusID"]),
+                        dRow["StatusName"].ToString()
+                    );
+
                     rooms.Add(room);
                 }
             }
@@ -418,13 +489,14 @@ namespace DataAccessLayer
                 SqlDataAdapter da = new SqlDataAdapter(sql, con);
                 SqlCommandBuilder cb = new SqlCommandBuilder(da);
                 da.Fill(ds, "LibraryRoomBookingsData");
+
                 DataRow dRow = ds.Tables["LibraryRoomBookingsData"].NewRow();
-                dRow[0] = booking.UserId;
-                dRow[1] = booking.LibraryRoomId;
-                dRow[2] = booking.Date.Date;
-                dRow[3] = new TimeSpan(booking.StartTime.TimeOfDay.Hours, booking.StartTime.TimeOfDay.Minutes, 0);
-                dRow[4] = new TimeSpan(booking.EndTime.TimeOfDay.Hours, booking.EndTime.TimeOfDay.Minutes, 0);
-                dRow[5] = booking.Cancelled;
+                dRow["UserID"] = booking.userID;
+                dRow["LibraryRoomID"] = booking.room.roomID;
+                dRow["Date"] = booking.date.Date;
+                dRow["StartTime"] = new TimeSpan(booking.startTime.TimeOfDay.Hours, booking.startTime.TimeOfDay.Minutes, 0);
+                dRow["EndTime"] = new TimeSpan(booking.endTime.TimeOfDay.Hours, booking.endTime.TimeOfDay.Minutes, 0);
+                dRow["Cancelled"] = booking.cancelled;
 
                 ds.Tables["LibraryRoomBookingsData"].Rows.Add(dRow);
                 da.Update(ds, "LibraryRoomBookingsData");
@@ -437,7 +509,85 @@ namespace DataAccessLayer
             }
         }
 
-        
+
+        // -FG
+        public List<LibraryRoomBooking> getAllStudentLibraryBookings(IUser student)
+        {
+            List<LibraryRoomBooking> bookings = new List<LibraryRoomBooking>();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
+            try
+            {
+                string sqlTodayString = "CONVERT(date, '" + DateTime.Today.ToString("yyyy-MM-dd") + "')";
+                string sqlNowString = "CONVERT(time, '" + DateTime.Now.ToString("HH:mm") + "')";
+                string sql = "SELECT lrb.*, lr.*, rs.StatusName FROM LibraryRoomBookings AS lrb, LibraryRooms AS lr, RoomStatus AS rs " +
+                    "WHERE (lrb.Date > " + sqlTodayString + " OR (lrb.Date = " + sqlTodayString + " AND lrb.EndTime >= " + sqlNowString + ")) " +
+                    "AND lrb.LibraryRoomID = lr.LibraryRoomID AND lr.RoomStatusID = rs.RoomStatusID AND lrb.UserID = " + student.UserID + " ORDER BY lrb.Date";
+                da = new SqlDataAdapter(sql, con);
+                da.Fill(ds, "LibraryRoomBookingsData");
+                foreach (DataRow dRow in ds.Tables["LibraryRoomBookingsData"].Rows)
+                {
+                    LibraryRoom room = new LibraryRoom(
+                        Convert.ToInt32(dRow["LibraryRoomID"]),
+                        dRow["RoomNumber"].ToString(),
+                        Convert.ToInt32(dRow["Capacity"]),
+                        dRow["Resources"].ToString(),
+                        Convert.ToInt32(dRow["RoomStatusID"]),
+                        dRow["StatusName"].ToString()
+                    );
+
+                    DateTime date = (DateTime)dRow["Date"];
+                    TimeSpan startTimeSpan = (TimeSpan)dRow["StartTime"];
+                    TimeSpan endTimeSpan = (TimeSpan)dRow["EndTime"];
+                    bool cancelled = Convert.ToBoolean(dRow["Cancelled"]); 
+
+                    DateTime startTime = date.Date + startTimeSpan;
+                    DateTime endTime = date.Date + endTimeSpan;
+
+                    LibraryRoomBooking booking = new LibraryRoomBooking(
+                        Convert.ToInt32(dRow["BookingID"]),
+                        Convert.ToInt32(dRow["UserID"]),
+                        room,
+                        date,
+                        startTime,
+                        endTime,
+                        cancelled 
+                    )
+                    {
+                        checkedIn = Convert.ToBoolean(dRow["CheckedIn"])
+                    };
+                    bookings.Add(booking);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in getAllStudentLibraryBookings: " + ex.Message);
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return bookings;
+        }
+
+        //Update booking check in status - FG
+        public bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn)
+        {
+            try
+            {
+                string query = "UPDATE LibraryRoomBookings SET CheckedIn = @CheckedIn WHERE BookingID = @BookingID";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@CheckedIn", isCheckedIn);
+                cmd.Parameters.AddWithValue("@BookingID", bookingId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating check-in status: " + ex.Message);
+                return false;
+            }
+        }
+
 
 
     }

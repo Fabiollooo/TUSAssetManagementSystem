@@ -8,11 +8,11 @@ namespace BusinessEntities
 {
     public interface IBooking
     {
-        int UserId { get; set; }
-        int LibraryRoomId { get; set; }
-        DateTime Date { get; set; }
-        DateTime StartTime { get; set; }
-        DateTime EndTime { get; set; }
-        bool Cancelled { get; set; }
+        int userID { get; set; }
+        IRoom room { get; set; }
+        DateTime date { get; set; }
+        DateTime startTime { get; set; }
+        DateTime endTime { get; set; }
+        bool cancelled { get; set; }
     }
 }
