@@ -32,17 +32,16 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.listBoxUserType = new System.Windows.Forms.ListBox();
             this.buttonCommit = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.panelOuter = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelForm = new System.Windows.Forms.Panel();
-            this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
-            this.lblConfirmPassword = new System.Windows.Forms.Label();
-            this.comboUserType = new System.Windows.Forms.ComboBox();
-            this.lblRole = new System.Windows.Forms.Label();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.comboUserType = new System.Windows.Forms.ComboBox();
+            this.lblConfirmPassword = new System.Windows.Forms.Label();
+            this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
             this.panelOuter.SuspendLayout();
             this.panelForm.SuspendLayout();
             this.SuspendLayout();
@@ -83,20 +82,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
-            // listBoxUserType
-            // 
-            this.listBoxUserType.FormattingEnabled = true;
-            this.listBoxUserType.ItemHeight = 20;
-            this.listBoxUserType.Items.AddRange(new object[] {
-            "Admin",
-            "Staff",
-            "Student"});
-            this.listBoxUserType.Location = new System.Drawing.Point(83, 290);
-            this.listBoxUserType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listBoxUserType.Name = "listBoxUserType";
-            this.listBoxUserType.Size = new System.Drawing.Size(178, 84);
-            this.listBoxUserType.TabIndex = 5;
-            // 
             // buttonCommit
             // 
             this.buttonCommit.Location = new System.Drawing.Point(37, 520);
@@ -125,7 +110,6 @@
             this.panelOuter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOuter.Controls.Add(this.lblTitle);
             this.panelOuter.Controls.Add(this.panelForm);
-            this.panelOuter.Controls.Add(this.listBoxUserType);
             this.panelOuter.Controls.Add(this.buttonBack);
             this.panelOuter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelOuter.Location = new System.Drawing.Point(0, 0);
@@ -162,21 +146,24 @@
             this.panelForm.Size = new System.Drawing.Size(408, 671);
             this.panelForm.TabIndex = 8;
             // 
-            // textBoxConfirmPassword
+            // buttonReset
             // 
-            this.textBoxConfirmPassword.Location = new System.Drawing.Point(37, 239);
-            this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
-            this.textBoxConfirmPassword.Size = new System.Drawing.Size(178, 26);
-            this.textBoxConfirmPassword.TabIndex = 10;
+            this.buttonReset.Location = new System.Drawing.Point(247, 520);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(107, 111);
+            this.buttonReset.TabIndex = 13;
+            this.buttonReset.Text = "Reset Form";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
-            // lblConfirmPassword
+            // lblRole
             // 
-            this.lblConfirmPassword.AutoSize = true;
-            this.lblConfirmPassword.Location = new System.Drawing.Point(33, 216);
-            this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(137, 20);
-            this.lblConfirmPassword.TabIndex = 11;
-            this.lblConfirmPassword.Text = "Confirm Password";
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(33, 299);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(42, 20);
+            this.lblRole.TabIndex = 12;
+            this.lblRole.Text = "Role";
             // 
             // comboUserType
             // 
@@ -195,24 +182,21 @@
             this.comboUserType.Size = new System.Drawing.Size(128, 28);
             this.comboUserType.TabIndex = 10;
             // 
-            // lblRole
+            // lblConfirmPassword
             // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(33, 299);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(42, 20);
-            this.lblRole.TabIndex = 12;
-            this.lblRole.Text = "Role";
+            this.lblConfirmPassword.AutoSize = true;
+            this.lblConfirmPassword.Location = new System.Drawing.Point(33, 216);
+            this.lblConfirmPassword.Name = "lblConfirmPassword";
+            this.lblConfirmPassword.Size = new System.Drawing.Size(137, 20);
+            this.lblConfirmPassword.TabIndex = 11;
+            this.lblConfirmPassword.Text = "Confirm Password";
             // 
-            // buttonReset
+            // textBoxConfirmPassword
             // 
-            this.buttonReset.Location = new System.Drawing.Point(247, 520);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(107, 111);
-            this.buttonReset.TabIndex = 13;
-            this.buttonReset.Text = "Reset Form";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            this.textBoxConfirmPassword.Location = new System.Drawing.Point(37, 239);
+            this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
+            this.textBoxConfirmPassword.Size = new System.Drawing.Size(178, 26);
+            this.textBoxConfirmPassword.TabIndex = 10;
             // 
             // formAddUser
             // 
@@ -242,7 +226,6 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listBoxUserType;
         private System.Windows.Forms.Button buttonCommit;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Panel panelOuter;

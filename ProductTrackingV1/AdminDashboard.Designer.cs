@@ -36,25 +36,25 @@
             this.dgvRecentBookings = new System.Windows.Forms.DataGridView();
             this.lblTotalBookingsTitle = new System.Windows.Forms.Label();
             this.panelStatsRow = new System.Windows.Forms.Panel();
-            this.panelTotalBookings = new System.Windows.Forms.Panel();
+            this.panelTotalUsers = new System.Windows.Forms.Panel();
+            this.lblTotalUsersNumber = new System.Windows.Forms.Label();
             this.lblTotalUsersTitle = new System.Windows.Forms.Label();
-            this.lblTotalBookingsNumber = new System.Windows.Forms.Label();
             this.panelActiveBookings = new System.Windows.Forms.Panel();
             this.lblActiveBookingsNumber = new System.Windows.Forms.Label();
             this.lblActiveBookingsTitle = new System.Windows.Forms.Label();
-            this.lblTotalUsersNumber = new System.Windows.Forms.Label();
+            this.panelTotalBookings = new System.Windows.Forms.Panel();
+            this.lblTotalBookingsNumber = new System.Windows.Forms.Label();
             this.panelQuickActions = new System.Windows.Forms.Panel();
             this.lblQuickTitle = new System.Windows.Forms.Label();
             this.panelRecent = new System.Windows.Forms.Panel();
-            this.panelTotalUsers = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecentBookings)).BeginInit();
             this.panelStatsRow.SuspendLayout();
-            this.panelTotalBookings.SuspendLayout();
+            this.panelTotalUsers.SuspendLayout();
             this.panelActiveBookings.SuspendLayout();
+            this.panelTotalBookings.SuspendLayout();
             this.panelQuickActions.SuspendLayout();
             this.panelRecent.SuspendLayout();
-            this.panelTotalUsers.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLibraryBookings
@@ -89,7 +89,7 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(125, 59);
             this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "button3";
+            this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -148,15 +148,25 @@
             this.panelStatsRow.Size = new System.Drawing.Size(875, 129);
             this.panelStatsRow.TabIndex = 10;
             // 
-            // panelTotalBookings
+            // panelTotalUsers
             // 
-            this.panelTotalBookings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTotalBookings.Controls.Add(this.lblTotalBookingsNumber);
-            this.panelTotalBookings.Controls.Add(this.lblTotalBookingsTitle);
-            this.panelTotalBookings.Location = new System.Drawing.Point(33, 30);
-            this.panelTotalBookings.Name = "panelTotalBookings";
-            this.panelTotalBookings.Size = new System.Drawing.Size(177, 80);
-            this.panelTotalBookings.TabIndex = 1;
+            this.panelTotalUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTotalUsers.Controls.Add(this.lblTotalUsersNumber);
+            this.panelTotalUsers.Controls.Add(this.lblTotalUsersTitle);
+            this.panelTotalUsers.Location = new System.Drawing.Point(645, 30);
+            this.panelTotalUsers.Name = "panelTotalUsers";
+            this.panelTotalUsers.Size = new System.Drawing.Size(175, 80);
+            this.panelTotalUsers.TabIndex = 13;
+            // 
+            // lblTotalUsersNumber
+            // 
+            this.lblTotalUsersNumber.AutoSize = true;
+            this.lblTotalUsersNumber.Location = new System.Drawing.Point(75, 50);
+            this.lblTotalUsersNumber.Name = "lblTotalUsersNumber";
+            this.lblTotalUsersNumber.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalUsersNumber.TabIndex = 12;
+            this.lblTotalUsersNumber.Text = "0";
+            this.lblTotalUsersNumber.Click += new System.EventHandler(this.lblTotalUsersNumber_Click);
             // 
             // lblTotalUsersTitle
             // 
@@ -168,16 +178,6 @@
             this.lblTotalUsersTitle.TabIndex = 11;
             this.lblTotalUsersTitle.Text = "Total Users";
             this.lblTotalUsersTitle.Click += new System.EventHandler(this.lblTotalUsersTitle_Click);
-            // 
-            // lblTotalBookingsNumber
-            // 
-            this.lblTotalBookingsNumber.AutoSize = true;
-            this.lblTotalBookingsNumber.Location = new System.Drawing.Point(63, 35);
-            this.lblTotalBookingsNumber.Name = "lblTotalBookingsNumber";
-            this.lblTotalBookingsNumber.Size = new System.Drawing.Size(18, 20);
-            this.lblTotalBookingsNumber.TabIndex = 7;
-            this.lblTotalBookingsNumber.Text = "0";
-            this.lblTotalBookingsNumber.Click += new System.EventHandler(this.lblTotalBookingsNumber_Click);
             // 
             // panelActiveBookings
             // 
@@ -208,15 +208,25 @@
             this.lblActiveBookingsTitle.TabIndex = 6;
             this.lblActiveBookingsTitle.Text = "Active Bookings";
             // 
-            // lblTotalUsersNumber
+            // panelTotalBookings
             // 
-            this.lblTotalUsersNumber.AutoSize = true;
-            this.lblTotalUsersNumber.Location = new System.Drawing.Point(75, 50);
-            this.lblTotalUsersNumber.Name = "lblTotalUsersNumber";
-            this.lblTotalUsersNumber.Size = new System.Drawing.Size(18, 20);
-            this.lblTotalUsersNumber.TabIndex = 12;
-            this.lblTotalUsersNumber.Text = "0";
-            this.lblTotalUsersNumber.Click += new System.EventHandler(this.lblTotalUsersNumber_Click);
+            this.panelTotalBookings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTotalBookings.Controls.Add(this.lblTotalBookingsNumber);
+            this.panelTotalBookings.Controls.Add(this.lblTotalBookingsTitle);
+            this.panelTotalBookings.Location = new System.Drawing.Point(33, 30);
+            this.panelTotalBookings.Name = "panelTotalBookings";
+            this.panelTotalBookings.Size = new System.Drawing.Size(177, 80);
+            this.panelTotalBookings.TabIndex = 1;
+            // 
+            // lblTotalBookingsNumber
+            // 
+            this.lblTotalBookingsNumber.AutoSize = true;
+            this.lblTotalBookingsNumber.Location = new System.Drawing.Point(63, 35);
+            this.lblTotalBookingsNumber.Name = "lblTotalBookingsNumber";
+            this.lblTotalBookingsNumber.Size = new System.Drawing.Size(18, 20);
+            this.lblTotalBookingsNumber.TabIndex = 7;
+            this.lblTotalBookingsNumber.Text = "0";
+            this.lblTotalBookingsNumber.Click += new System.EventHandler(this.lblTotalBookingsNumber_Click);
             // 
             // panelQuickActions
             // 
@@ -248,16 +258,6 @@
             this.panelRecent.Size = new System.Drawing.Size(650, 250);
             this.panelRecent.TabIndex = 12;
             // 
-            // panelTotalUsers
-            // 
-            this.panelTotalUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTotalUsers.Controls.Add(this.lblTotalUsersNumber);
-            this.panelTotalUsers.Controls.Add(this.lblTotalUsersTitle);
-            this.panelTotalUsers.Location = new System.Drawing.Point(645, 30);
-            this.panelTotalUsers.Name = "panelTotalUsers";
-            this.panelTotalUsers.Size = new System.Drawing.Size(175, 80);
-            this.panelTotalUsers.TabIndex = 13;
-            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -276,15 +276,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecentBookings)).EndInit();
             this.panelStatsRow.ResumeLayout(false);
             this.panelStatsRow.PerformLayout();
-            this.panelTotalBookings.ResumeLayout(false);
-            this.panelTotalBookings.PerformLayout();
+            this.panelTotalUsers.ResumeLayout(false);
+            this.panelTotalUsers.PerformLayout();
             this.panelActiveBookings.ResumeLayout(false);
             this.panelActiveBookings.PerformLayout();
+            this.panelTotalBookings.ResumeLayout(false);
+            this.panelTotalBookings.PerformLayout();
             this.panelQuickActions.ResumeLayout(false);
             this.panelQuickActions.PerformLayout();
             this.panelRecent.ResumeLayout(false);
-            this.panelTotalUsers.ResumeLayout(false);
-            this.panelTotalUsers.PerformLayout();
             this.ResumeLayout(false);
 
         }
