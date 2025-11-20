@@ -116,6 +116,7 @@
             this.panelOuter.Name = "panelOuter";
             this.panelOuter.Size = new System.Drawing.Size(1186, 769);
             this.panelOuter.TabIndex = 8;
+            this.panelOuter.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOuter_Paint);
             // 
             // lblTitle
             // 

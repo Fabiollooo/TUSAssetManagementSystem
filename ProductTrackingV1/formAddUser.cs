@@ -33,10 +33,7 @@ namespace ProductTracking
         {
             Close();
         }
-        /*
-         * LINQ (Language Integrated Query) is a Microsoft programming model and methodology that essentially adds formal query capabilities into Microsoft .NET-based programming languages. LINQ offers a 
-         * compact, expressive, and intelligible syntax for manipulating data.
-         * */
+       
         private void buttonCommit_Click(object sender, EventArgs e)
         {
             // 1. Basic validation
@@ -58,27 +55,25 @@ namespace ProductTracking
                 return;
             }
 
-            if (comboUserType.SelectedIndex == -1)   // or listBoxUserType if you kept it
+            if (comboUserType.SelectedIndex == -1)  
             {
                 MessageBox.Show("You must select a user role.");
                 return;
             }
 
-            // 2. Duplicate name check (same as before)
+            
             IUser duplicateUser = Model.UserList
                                        .FirstOrDefault(user => user.Name == textBoxName.Text.Trim());
 
             if (duplicateUser != null)
             {
                 MessageBox.Show("Duplicate user name, enter a different name!");
-                // optional debug:
-                // MessageBox.Show(duplicateUser.Name + " " + duplicateUser.Password);
                 ClearInputs();
                 return;
             }
 
-            // 3. Create user via model
-            string role = comboUserType.SelectedItem.ToString(); // or listBoxUserType.SelectedItem.ToString()
+           
+            string role = comboUserType.SelectedItem.ToString(); 
 
             if (Model.addNewUser(textBoxName.Text.Trim(),
                                  textBoxPassword.Text,
@@ -106,9 +101,13 @@ namespace ProductTracking
             textBoxName.Text = "";
             textBoxPassword.Text = "";
             textBoxConfirmPassword.Text = "";
-            comboUserType.SelectedIndex = -1;   // or listBoxUserType.ClearSelected();
+            comboUserType.SelectedIndex = -1;  
         }
 
+        private void panelOuter_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }

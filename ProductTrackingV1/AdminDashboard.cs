@@ -56,13 +56,13 @@ namespace ProductTracking
                 activeBookings = Model.OrderList.Count(o => !o.Complete);
             }
 
-            // Users list is already in the Model (no populateUsers needed)
+        
             if (Model != null && Model.UserList != null)
             {
                 totalUsers = Model.UserList.Count;
             }
 
-            // Put numbers into the 3 labels
+         
             lblTotalBookingsNumber.Text = totalBookings.ToString();
             lblActiveBookingsNumber.Text = activeBookings.ToString();
             lblTotalUsersNumber.Text = totalUsers.ToString();
@@ -85,7 +85,7 @@ namespace ProductTracking
             dgvRecentBookings.Rows.Clear();
             dgvRecentBookings.Columns.Clear();
 
-            // Columns that match the data we REALLY have in IOrder
+       
             dgvRecentBookings.Columns.Add("BookingId", "Booking ID");
             dgvRecentBookings.Columns.Add("LibraryRoom", "Library Room");
             dgvRecentBookings.Columns.Add("Date", "Date");
@@ -105,11 +105,11 @@ namespace ProductTracking
                 string status = order.Complete ? "complete" : "active";
 
                 dgvRecentBookings.Rows.Add(
-                    order.OrderCode,                          // Booking ID
-                    order.CustomerCode,                       // Customer
-                    order.OrderDate.ToShortDateString(),      // Date
-                    order.OrderDate.ToString("HH:mm"),        // Time
-                    status                                    // Status
+                    order.OrderCode,                          
+                    order.CustomerCode,                      
+                    order.OrderDate.ToShortDateString(),      
+                    order.OrderDate.ToString("HH:mm"),        
+                    status                                    
                 );
             }
         }

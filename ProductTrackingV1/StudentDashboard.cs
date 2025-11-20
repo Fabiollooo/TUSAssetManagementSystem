@@ -57,10 +57,7 @@ namespace ProductTracking
         }
 
         //View Calendar button
-        private void btn_ViewCalendar_Click(object sender, EventArgs e)
-        {
-            tab_dashboard.SelectedTab = tab_calendarview;
-        }
+       
 
         //Manage Bookings button
         private void btn_ManageBookings_Click(object sender, EventArgs e)
