@@ -22,16 +22,17 @@ namespace DataAccessLayer
         //Available Rooms (Student) -FG
         List<LibraryRoom> getAllLibraryRooms();
         List<LibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime);
+        int CountTotalBookings(int? userId);
         int CountActiveBookingsForUser(int userId);
         int GetHoursBookedThisMonth(int userId);
         int GetUpcomingBookingsCount(int userId);
         int CountCancelledBookingsForUser(int userId);
         int CountCompletedBookingsForUser(int userId);
-
         List<LibraryRoomBooking> GetTop3UpcomingBookings(int userId);
-
         bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn);
         int GetAvailableRoomsCountRightNow();
+        bool UpdateLibraryRoom(LibraryRoom room);
+        bool DeleteLibraryRoom(int roomId);
 
 
         // Book Library Room (Student) -TM

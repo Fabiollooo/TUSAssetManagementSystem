@@ -332,7 +332,17 @@ namespace DataAccessLayer
             }
             return rooms;
         }
-
+        public int CountTotalBookings(int? userId)
+        {
+            string defaultSql = "SELECT COUNT(*) FROM LibraryRoomBookings";
+            SqlCommand cmd = new SqlCommand(defaultSql, con);
+  
+            if (userId != null) {
+                cmd.CommandText += " WHERE UserID = @UserID";
+                cmd.Parameters.AddWithValue("@UserID", userId);
+            }
+            return (int)cmd.ExecuteScalar();
+        }
         public int CountActiveBookingsForUser(int userId)
         {
             string sql = "SELECT COUNT(*) FROM LibraryRoomBookings WHERE UserID = @UserID AND Cancelled = 0";
@@ -448,6 +458,54 @@ namespace DataAccessLayer
             }
 
             return bookings;
+        }
+
+        //Admin Update Room - FG
+        public bool UpdateLibraryRoom(LibraryRoom room)
+        {
+            string sql = @"UPDATE LibraryRooms 
+                   SET RoomNumber = @RoomNumber, 
+                   Capacity = @Capacity, 
+                   Resources = @Resources 
+                   WHERE LibraryRoomID = @LibraryRoomID";
+
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@RoomNumber", room.roomNumber);
+            cmd.Parameters.AddWithValue("@Capacity", room.capacity);
+            cmd.Parameters.AddWithValue("@Resources", room.resources);
+            cmd.Parameters.AddWithValue("@LibraryRoomID", room.roomID);
+
+            try
+            {
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in UpdateLibraryRoom: {ex.Message}");
+                return false;
+            }
+        }
+
+
+        //Admin Delete Room -FG
+        public bool DeleteLibraryRoom(int roomId)
+        {
+            string sql = "DELETE FROM LibraryRooms WHERE LibraryRoomID = @RoomID";
+
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@RoomID", roomId);
+
+            try
+            {
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in DeleteLibraryRoom: {ex.Message}");
+                return false;
+            }
         }
 
 

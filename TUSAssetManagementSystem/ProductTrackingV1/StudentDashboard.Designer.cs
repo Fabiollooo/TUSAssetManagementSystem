@@ -95,6 +95,9 @@ namespace ProductTracking
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblMyBookingsUpcoming = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tab_dashboard.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -536,6 +539,9 @@ namespace ProductTracking
             // 
             // tab_browserooms
             // 
+            this.tab_browserooms.Controls.Add(this.label10);
+            this.tab_browserooms.Controls.Add(this.label6);
+            this.tab_browserooms.Controls.Add(this.label3);
             this.tab_browserooms.Controls.Add(this.dtpBookingEndTime);
             this.tab_browserooms.Controls.Add(this.dtpBookingStartTime);
             this.tab_browserooms.Controls.Add(this.dtpBookingDate);
@@ -556,30 +562,31 @@ namespace ProductTracking
             // 
             this.dtpBookingEndTime.CustomFormat = "HH";
             this.dtpBookingEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBookingEndTime.Location = new System.Drawing.Point(293, 109);
+            this.dtpBookingEndTime.Location = new System.Drawing.Point(343, 137);
             this.dtpBookingEndTime.Name = "dtpBookingEndTime";
             this.dtpBookingEndTime.ShowUpDown = true;
             this.dtpBookingEndTime.Size = new System.Drawing.Size(110, 20);
             this.dtpBookingEndTime.TabIndex = 12;
+            this.dtpBookingEndTime.Value = new System.DateTime(2025, 11, 22, 18, 0, 0, 0);
             this.dtpBookingEndTime.ValueChanged += new System.EventHandler(this.dtpBookingEndTime_ValueChanged);
             // 
             // dtpBookingStartTime
             // 
             this.dtpBookingStartTime.CustomFormat = "HH";
             this.dtpBookingStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBookingStartTime.Location = new System.Drawing.Point(177, 109);
+            this.dtpBookingStartTime.Location = new System.Drawing.Point(194, 137);
             this.dtpBookingStartTime.Name = "dtpBookingStartTime";
             this.dtpBookingStartTime.ShowUpDown = true;
             this.dtpBookingStartTime.Size = new System.Drawing.Size(110, 20);
             this.dtpBookingStartTime.TabIndex = 11;
-            this.dtpBookingStartTime.Value = new System.DateTime(2025, 11, 16, 0, 0, 0, 0);
+            this.dtpBookingStartTime.Value = new System.DateTime(2025, 11, 22, 9, 0, 0, 0);
             this.dtpBookingStartTime.ValueChanged += new System.EventHandler(this.dtpBookingStartTime_ValueChanged);
             // 
             // dtpBookingDate
             // 
             this.dtpBookingDate.CustomFormat = "";
             this.dtpBookingDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBookingDate.Location = new System.Drawing.Point(53, 109);
+            this.dtpBookingDate.Location = new System.Drawing.Point(53, 137);
             this.dtpBookingDate.Name = "dtpBookingDate";
             this.dtpBookingDate.Size = new System.Drawing.Size(118, 20);
             this.dtpBookingDate.TabIndex = 10;
@@ -589,7 +596,7 @@ namespace ProductTracking
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(877, 543);
+            this.button6.Location = new System.Drawing.Point(885, 572);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(110, 36);
             this.button6.TabIndex = 9;
@@ -624,7 +631,7 @@ namespace ProductTracking
             this.dgvRooms.AllowUserToResizeRows = false;
             this.dgvRooms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRooms.Location = new System.Drawing.Point(45, 157);
+            this.dgvRooms.Location = new System.Drawing.Point(53, 186);
             this.dgvRooms.MultiSelect = false;
             this.dgvRooms.Name = "dgvRooms";
             this.dgvRooms.ReadOnly = true;
@@ -830,6 +837,33 @@ namespace ProductTracking
             this.label23.TabIndex = 8;
             this.label23.Text = "Upcoming";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(191, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Start Time:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(340, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "End Time:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(50, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Date:";
+            // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -947,5 +981,8 @@ namespace ProductTracking
         private Label lblTime2;
         private Label lblTitle2;
         private Button btnCheckIn;
+        private Label label10;
+        private Label label6;
+        private Label label3;
     }
 }

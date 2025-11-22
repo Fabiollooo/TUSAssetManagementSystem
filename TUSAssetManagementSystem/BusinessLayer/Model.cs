@@ -206,6 +206,12 @@ namespace BusinessLayer
             LibraryRoomList = DataLayer.getLibraryRoomsAvailable(date, startTime, endTime);
         }
 
+        //Count for "Total bookings" - TM
+        public int CountTotalBookings(int? userId)
+        {
+            return DataLayer.CountTotalBookings(userId);
+        }
+
         //Count for "Active bookings" - FG
         public int CountActiveBookingsForUser(int userId)
         {
@@ -261,6 +267,31 @@ namespace BusinessLayer
             }
         }
 
+        public bool UpdateLibraryRoom(LibraryRoom room)
+        {
+            try
+            {
+                return DataLayer.UpdateLibraryRoom(room);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Model.UpdateLibraryRoom: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool DeleteLibraryRoom(int roomId)
+        {
+            try
+            {
+                return DataLayer.DeleteLibraryRoom(roomId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Model.DeleteLibraryRoom: {ex.Message}");
+                return false;
+            }
+        }
 
 
 

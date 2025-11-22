@@ -87,7 +87,7 @@ namespace ProductTracking
             Model.populateLibraryRoomBookings(Model.CurrentUser);
 
             lblMyBookingsUpcoming.Text = Model.GetUpcomingBookingsCount(Model.CurrentUser.UserID).ToString();
-            lblMyBookingsTotal.Text = Model.CountActiveBookingsForUser(Model.CurrentUser.UserID).ToString();
+            lblMyBookingsTotal.Text = Model.CountTotalBookings(Model.CurrentUser.UserID).ToString();
             lblMyBookingsCancelled.Text = Model.CountCancelledBookingsForUser(Model.CurrentUser.UserID).ToString();
             lblMyBookingsCompleted.Text = Model.CountCompletedBookingsForUser(Model.CurrentUser.UserID).ToString();
 
@@ -178,8 +178,8 @@ namespace ProductTracking
         private void DisplayBooking(LibraryRoomBooking booking, Panel panel, Label title, Label time, Label id)
         {
             title.Text = $"Room {booking.room.roomNumber}";
-            time.Text = $"{booking.startTime:HH:mm} - {booking.endTime:HH:mm}";
-            id.Text = $"ID: {booking.room.roomID}";
+            time.Text = $"{booking.date:ddd dd/MM}: {booking.startTime:HH:mm} - {booking.endTime:HH:mm}";
+            id.Text = $"Booking ID: {booking.room.roomID}";
         }
 
 

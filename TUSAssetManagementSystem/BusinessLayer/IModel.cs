@@ -27,6 +27,8 @@ namespace BusinessLayer
         void populateLibraryRooms();
         void populateLibraryRooms(DateTime date, DateTime startTime, DateTime endTime);
 
+        //Count for "Total bookings" - TM
+        int CountTotalBookings(int? userId);
         //Count for "Active bookings" - FG
         int CountActiveBookingsForUser(int userId);
         //Count for "Hours Booked" - FG
@@ -39,6 +41,8 @@ namespace BusinessLayer
 
         bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn);
         int GetAvailableRoomsCount(int userId);
+        bool UpdateLibraryRoom(LibraryRoom room);
+        bool DeleteLibraryRoom(int roomId);
 
 
 

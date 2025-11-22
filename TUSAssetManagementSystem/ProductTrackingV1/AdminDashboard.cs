@@ -45,14 +45,11 @@ namespace ProductTracking
         private void LoadStats()
         {
             try { Model.populateOrders(); } catch { }
-
-            int totalBookings = 0;
             int activeBookings = 0;
             int totalUsers = 0;
 
             if (Model != null && Model.OrderList != null)
             {
-                totalBookings = Model.OrderList.Count;
                 activeBookings = Model.OrderList.Count(o => !o.Complete);
             }
 
@@ -63,7 +60,7 @@ namespace ProductTracking
             }
 
             // Put numbers into the 3 labels
-            lblTotalBookingsNumber.Text = totalBookings.ToString();
+            lblTotalBookingsNumber.Text = Model.CountTotalBookings(null).ToString();
             lblActiveBookingsNumber.Text = activeBookings.ToString();
             lblTotalUsersNumber.Text = totalUsers.ToString();
 
@@ -132,12 +129,13 @@ namespace ProductTracking
 
         private void btnLibraryBookings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Library Bookings feature coming soon!",
-                "Coming Soon",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+
+            using (formAdminManageRooms manageRoomsForm = new formAdminManageRooms(Model))
+            {
+                this.Hide(); 
+                manageRoomsForm.ShowDialog();
+                this.Show(); 
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
