@@ -17,17 +17,17 @@ namespace ProductTracking
         #region Instance Attributes
         IModel Model;
         formContainer fc;
-        #endregion 
+        #endregion
 
-       #region Constructors
-        public formAddUser( formContainer parent, IModel Model)
+        #region Constructors
+        public formAddUser(formContainer parent, IModel Model)
         {
             InitializeComponent();
             MdiParent = parent;
             fc = parent;
-            this.Model = Model;        
+            this.Model = Model;
         }
-       #endregion
+        #endregion
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
@@ -39,38 +39,76 @@ namespace ProductTracking
          * */
         private void buttonCommit_Click(object sender, EventArgs e)
         {
-            if (listBoxUserType.SelectedIndex != -1)
-            { // some validation on userName, we won't allow duplicate usernames
-               IUser duplicateUser = Model.UserList.FirstOrDefault(user => user.Name == textBoxName.Text.Trim()); 
-                          /* provides a shortcut to accessing the element that occurs first in the collection or query,
-                          while protecting against invalid accesses if there are no elements.It'sa linq query. FirstOrDefault is a generic method which means it accepts a type parameter that indicates what types it acts upon. 
-                          The => is a lambda operator. Anything before the => are the input parameters, and anything after is the expression. You can have multiple input parameters.
-                          Think of a lambda expression as"given x, do something with x"                                                                                          * */
-                if (duplicateUser == null)
-                {
-                    if (Model.addNewUser(textBoxName.Text, textBoxPassword.Text, listBoxUserType.SelectedItem.ToString()))
-                    {
-                        MessageBox.Show("User created");
-                        textBoxName.Text = "";
-                        textBoxPassword.Text = "";
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Duplicate User name, enter a different name!");
-                    MessageBox.Show(duplicateUser.Name + " " + duplicateUser.Password);  // just to show directOrDefault returns the matching user where there is one. 
-                    textBoxName.Text = "";
-                    textBoxPassword.Text = "";
-                }
+            // 1. Basic validation
+            if (string.IsNullOrWhiteSpace(textBoxName.Text))
+            {
+                MessageBox.Show("Please enter a name.");
+                return;
+            }
 
+            if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
+            {
+                MessageBox.Show("Please enter a password.");
+                return;
+            }
+
+            if (textBoxPassword.Text != textBoxConfirmPassword.Text)
+            {
+                MessageBox.Show("Passwords do not match.");
+                return;
+            }
+
+            if (comboUserType.SelectedIndex == -1)   // or listBoxUserType if you kept it
+            {
+                MessageBox.Show("You must select a user role.");
+                return;
+            }
+
+            // 2. Duplicate name check (same as before)
+            IUser duplicateUser = Model.UserList
+                                       .FirstOrDefault(user => user.Name == textBoxName.Text.Trim());
+
+            if (duplicateUser != null)
+            {
+                MessageBox.Show("Duplicate user name, enter a different name!");
+                // optional debug:
+                // MessageBox.Show(duplicateUser.Name + " " + duplicateUser.Password);
+                ClearInputs();
+                return;
+            }
+
+            // 3. Create user via model
+            string role = comboUserType.SelectedItem.ToString(); // or listBoxUserType.SelectedItem.ToString()
+
+            if (Model.addNewUser(textBoxName.Text.Trim(),
+                                 textBoxPassword.Text,
+                                 role))
+            {
+                MessageBox.Show("User created successfully.");
+                ClearInputs();
             }
             else
             {
-                MessageBox.Show("You must select a user type!");
-                textBoxName.Text = "";
-                textBoxPassword.Text = "";
-
+                MessageBox.Show("Error creating user.");
             }
         }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            
+                ClearInputs();
+           
+
+        }
+
+        private void ClearInputs()
+        {
+            textBoxName.Text = "";
+            textBoxPassword.Text = "";
+            textBoxConfirmPassword.Text = "";
+            comboUserType.SelectedIndex = -1;   // or listBoxUserType.ClearSelected();
+        }
+
     }
+
 }
