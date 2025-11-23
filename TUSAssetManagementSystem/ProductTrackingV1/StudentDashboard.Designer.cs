@@ -70,6 +70,9 @@ namespace ProductTracking
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tab_browserooms = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dtpBookingEndTime = new System.Windows.Forms.DateTimePicker();
             this.dtpBookingStartTime = new System.Windows.Forms.DateTimePicker();
             this.dtpBookingDate = new System.Windows.Forms.DateTimePicker();
@@ -95,9 +98,6 @@ namespace ProductTracking
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblMyBookingsUpcoming = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.tab_dashboard.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -558,6 +558,33 @@ namespace ProductTracking
             this.tab_browserooms.UseVisualStyleBackColor = true;
             this.tab_browserooms.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(50, 116);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Date:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(340, 116);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "End Time:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(191, 116);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Start Time:";
+            // 
             // dtpBookingEndTime
             // 
             this.dtpBookingEndTime.CustomFormat = "HH";
@@ -659,6 +686,7 @@ namespace ProductTracking
             this.tab_mybookings.TabIndex = 3;
             this.tab_mybookings.Text = "My Bookings";
             this.tab_mybookings.UseVisualStyleBackColor = true;
+            this.tab_mybookings.Click += new System.EventHandler(this.tab_mybookings_Click);
             // 
             // btnCheckIn
             // 
@@ -836,33 +864,6 @@ namespace ProductTracking
             this.label23.Size = new System.Drawing.Size(81, 20);
             this.label23.TabIndex = 8;
             this.label23.Text = "Upcoming";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Start Time:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(340, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "End Time:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(50, 116);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Date:";
             // 
             // StudentDashboard
             // 

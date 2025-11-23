@@ -259,7 +259,8 @@ namespace BusinessLayer
         {
             try
             {
-                return dataLayer.GetAvailableRoomsCountRightNow();
+                string userType = CurrentUser.UserType;
+                return dataLayer.GetAvailableRoomsCountRightNow(userType);
             }
             catch (Exception ex)
             {
@@ -361,8 +362,29 @@ namespace BusinessLayer
             LibraryRoomBookingsList = DataLayer.getAllStudentLibraryBookings(student);
         }
 
-    
+        public bool AddLibraryRoom(string roomNumber, int capacity, string resources, int statusId, string statusName, string roomType)
+        {
+            try
+            {
+                if (roomNumber.Length == 0)
+                    throw new Exception();
 
+                int maxId = 0;
+                foreach (LibraryRoom room in LibraryRoomList)
+                {
+                    if (room.roomID > maxId)
+                        maxId = room.roomID;
+                }
 
+                LibraryRoom newLibraryRoom = LibraryRoomFactory.GetLibraryRoom(maxId + 1, roomNumber, capacity, resources, statusId, statusName, roomType);
+                LibraryRoomList.Add(newLibraryRoom);
+                DataLayer.addNewLibraryRoomToDB(newLibraryRoom);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

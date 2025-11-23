@@ -62,7 +62,7 @@
             this.btnLibraryBookings.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnLibraryBookings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLibraryBookings.Location = new System.Drawing.Point(9, 92);
-            this.btnLibraryBookings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLibraryBookings.Margin = new System.Windows.Forms.Padding(2);
             this.btnLibraryBookings.Name = "btnLibraryBookings";
             this.btnLibraryBookings.Size = new System.Drawing.Size(125, 32);
             this.btnLibraryBookings.TabIndex = 0;
@@ -75,7 +75,7 @@
             this.btnManageUsers.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManageUsers.Location = new System.Drawing.Point(9, 38);
-            this.btnManageUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnManageUsers.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(125, 32);
             this.btnManageUsers.TabIndex = 1;
@@ -88,7 +88,7 @@
             this.btnLogout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Location = new System.Drawing.Point(570, 350);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(83, 38);
             this.btnLogout.TabIndex = 2;
@@ -111,7 +111,7 @@
             this.panelHeader.Controls.Add(this.lblWelcome);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(2);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(819, 65);
             this.panelHeader.TabIndex = 4;
@@ -125,7 +125,7 @@
             this.dgvRecentBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecentBookings.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvRecentBookings.Location = new System.Drawing.Point(0, 43);
-            this.dgvRecentBookings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvRecentBookings.Margin = new System.Windows.Forms.Padding(2);
             this.dgvRecentBookings.Name = "dgvRecentBookings";
             this.dgvRecentBookings.ReadOnly = true;
             this.dgvRecentBookings.RowHeadersVisible = false;
@@ -151,7 +151,7 @@
             this.panelStatsRow.Controls.Add(this.panelActiveBookings);
             this.panelStatsRow.Controls.Add(this.panelTotalBookings);
             this.panelStatsRow.Location = new System.Drawing.Point(21, 69);
-            this.panelStatsRow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelStatsRow.Margin = new System.Windows.Forms.Padding(2);
             this.panelStatsRow.Name = "panelStatsRow";
             this.panelStatsRow.Size = new System.Drawing.Size(583, 84);
             this.panelStatsRow.TabIndex = 10;
@@ -162,7 +162,7 @@
             this.panelTotalUsers.Controls.Add(this.lblTotalUsersNumber);
             this.panelTotalUsers.Controls.Add(this.lblTotalUsersTitle);
             this.panelTotalUsers.Location = new System.Drawing.Point(430, 20);
-            this.panelTotalUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTotalUsers.Margin = new System.Windows.Forms.Padding(2);
             this.panelTotalUsers.Name = "panelTotalUsers";
             this.panelTotalUsers.Size = new System.Drawing.Size(117, 53);
             this.panelTotalUsers.TabIndex = 13;
@@ -197,7 +197,7 @@
             this.panelActiveBookings.Controls.Add(this.lblActiveBookingsNumber);
             this.panelActiveBookings.Controls.Add(this.lblActiveBookingsTitle);
             this.panelActiveBookings.Location = new System.Drawing.Point(227, 19);
-            this.panelActiveBookings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelActiveBookings.Margin = new System.Windows.Forms.Padding(2);
             this.panelActiveBookings.Name = "panelActiveBookings";
             this.panelActiveBookings.Size = new System.Drawing.Size(105, 47);
             this.panelActiveBookings.TabIndex = 2;
@@ -228,7 +228,7 @@
             this.panelTotalBookings.Controls.Add(this.lblTotalBookingsNumber);
             this.panelTotalBookings.Controls.Add(this.lblTotalBookingsTitle);
             this.panelTotalBookings.Location = new System.Drawing.Point(22, 20);
-            this.panelTotalBookings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTotalBookings.Margin = new System.Windows.Forms.Padding(2);
             this.panelTotalBookings.Name = "panelTotalBookings";
             this.panelTotalBookings.Size = new System.Drawing.Size(119, 53);
             this.panelTotalBookings.TabIndex = 1;
@@ -251,7 +251,7 @@
             this.panelQuickActions.Controls.Add(this.btnManageUsers);
             this.panelQuickActions.Controls.Add(this.btnLibraryBookings);
             this.panelQuickActions.Location = new System.Drawing.Point(35, 338);
-            this.panelQuickActions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelQuickActions.Margin = new System.Windows.Forms.Padding(2);
             this.panelQuickActions.Name = "panelQuickActions";
             this.panelQuickActions.Size = new System.Drawing.Size(147, 130);
             this.panelQuickActions.TabIndex = 11;
@@ -272,7 +272,7 @@
             this.panelRecent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRecent.Controls.Add(this.dgvRecentBookings);
             this.panelRecent.Location = new System.Drawing.Point(21, 164);
-            this.panelRecent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRecent.Margin = new System.Windows.Forms.Padding(2);
             this.panelRecent.Name = "panelRecent";
             this.panelRecent.Size = new System.Drawing.Size(434, 163);
             this.panelRecent.TabIndex = 12;
@@ -287,9 +287,9 @@
             this.Controls.Add(this.panelStatsRow);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.btnLogout);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminDashboard";
-            this.Text = "AdminDashboard";
+            this.Text = "Admin Dashboard";
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();

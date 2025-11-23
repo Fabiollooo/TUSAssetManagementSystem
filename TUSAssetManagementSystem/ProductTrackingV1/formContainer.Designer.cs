@@ -42,7 +42,7 @@
             this.MaximizeBox = false;
             this.Name = "formContainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Product Tracking";
+            this.Text = "Asset Management System";
             this.Shown += new System.EventHandler(this.formContainer_Shown);
             this.ResumeLayout(false);
 

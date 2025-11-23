@@ -70,15 +70,21 @@ namespace ProductTracking
             if (dgvRooms != null)
             {
                 dgvRooms.DataSource = null;
+                dgvRooms.Columns.Clear();
                 dgvRooms.AutoGenerateColumns = false;
 
-                dgvRooms.Columns.Clear();
-                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Room Number", DataPropertyName = "RoomNumber" });
-                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Capacity", DataPropertyName = "Capacity" });
-                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Resources", DataPropertyName = "Resources" });
-                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Status", DataPropertyName = "StatusName" });
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Room Number", DataPropertyName = "roomNumber" });
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Capacity", DataPropertyName = "capacity" });
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Resources", DataPropertyName = "resources" });
+                dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Status", DataPropertyName = "statusName" });
 
-                dgvRooms.DataSource = Model.LibraryRoomList;
+               
+                string userType = Model.CurrentUser.UserType;
+                var filteredRooms = Model.LibraryRoomList.Where(room =>
+                    room.roomType == userType || room.roomType == "Both"
+                ).ToList();
+
+                dgvRooms.DataSource = filteredRooms;
             }
         }
 
@@ -271,6 +277,7 @@ namespace ProductTracking
             }
 
             DateTime earliestCheckInTime = selectedBooking.startTime.AddMinutes(-10);
+            DateTime latestCheckInTime = selectedBooking.startTime.AddMinutes(10);
 
             if (selectedBooking.date.Date != DateTime.Today)
             {
@@ -282,6 +289,12 @@ namespace ProductTracking
             {
                 TimeSpan timeLeft = earliestCheckInTime - DateTime.Now;
                 MessageBox.Show($"You can check in in {timeLeft:mm\\:ss} minutes.");
+                return;
+            }
+
+            if (DateTime.Now > latestCheckInTime)
+            {
+                MessageBox.Show("Check-in period has expired. You can only check in up to 10 minutes after your booking start time.");
                 return;
             }
 
@@ -387,6 +400,11 @@ namespace ProductTracking
         }
 
         private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_mybookings_Click(object sender, EventArgs e)
         {
 
         }

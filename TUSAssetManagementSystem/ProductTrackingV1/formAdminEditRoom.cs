@@ -17,7 +17,6 @@ namespace ProductTracking
         private IModel Model;
         private LibraryRoom room;
 
-
         public formAdminEditRoom(IModel model, LibraryRoom selectedRoom)
         {
             InitializeComponent();

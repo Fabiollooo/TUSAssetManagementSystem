@@ -36,10 +36,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboStatus = new System.Windows.Forms.ComboBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.txtResources = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.comboStatus = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UpDownCapacity)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -123,22 +123,12 @@
             this.panel1.Size = new System.Drawing.Size(202, 320);
             this.panel1.TabIndex = 9;
             // 
-            // label5
+            // txtResources
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Resources";
-            // 
-            // comboStatus
-            // 
-            this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Location = new System.Drawing.Point(9, 192);
-            this.comboStatus.Name = "comboStatus";
-            this.comboStatus.Size = new System.Drawing.Size(157, 21);
-            this.comboStatus.TabIndex = 10;
+            this.txtResources.Location = new System.Drawing.Point(9, 138);
+            this.txtResources.Name = "txtResources";
+            this.txtResources.Size = new System.Drawing.Size(157, 20);
+            this.txtResources.TabIndex = 12;
             // 
             // btnCancel
             // 
@@ -150,12 +140,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtResources
+            // comboStatus
             // 
-            this.txtResources.Location = new System.Drawing.Point(9, 138);
-            this.txtResources.Name = "txtResources";
-            this.txtResources.Size = new System.Drawing.Size(157, 20);
-            this.txtResources.TabIndex = 12;
+            this.comboStatus.FormattingEnabled = true;
+            this.comboStatus.Location = new System.Drawing.Point(9, 192);
+            this.comboStatus.Name = "comboStatus";
+            this.comboStatus.Size = new System.Drawing.Size(157, 21);
+            this.comboStatus.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 122);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Resources";
             // 
             // formAdminEditRoom
             // 
@@ -165,7 +165,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "formAdminEditRoom";
-            this.Text = "formAdminEditRoom";
+            this.Text = "Edit Room";
             this.Load += new System.EventHandler(this.formAdminEditRoom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UpDownCapacity)).EndInit();
             this.panel1.ResumeLayout(false);

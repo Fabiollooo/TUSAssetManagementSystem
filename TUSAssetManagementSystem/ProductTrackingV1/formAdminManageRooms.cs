@@ -64,8 +64,6 @@ namespace ProductTracking
 
             
             var selectedRoom = Model.LibraryRoomList[dgvRooms.SelectedRows[0].Index];
-
-           
             using (formAdminEditRoom editForm = new formAdminEditRoom(Model, selectedRoom))
             {
                 if (editForm.ShowDialog() == DialogResult.OK)
@@ -75,7 +73,6 @@ namespace ProductTracking
                     
                 }
             }
-
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -115,6 +112,21 @@ namespace ProductTracking
                     MessageBox.Show("Failed to delete room. It may have existing bookings.");
                 }
             }
+        }
+
+        private void btnAddRoom_Click(object sender, EventArgs e)
+        {
+            if (dgvRooms.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a room to edit.");
+                return;
+            }
+
+            var selectedRoom = Model.LibraryRoomList[dgvRooms.SelectedRows[0].Index];
+            Form addForm = new formAdminAddRoom(Model);
+            addForm.ShowDialog();
+
+            RefreshRooms();
         }
     }
 }

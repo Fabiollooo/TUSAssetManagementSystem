@@ -30,14 +30,14 @@ namespace DataAccessLayer
         int CountCompletedBookingsForUser(int userId);
         List<LibraryRoomBooking> GetTop3UpcomingBookings(int userId);
         bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn);
-        int GetAvailableRoomsCountRightNow();
+        int GetAvailableRoomsCountRightNow(string userType);
         bool UpdateLibraryRoom(LibraryRoom room);
         bool DeleteLibraryRoom(int roomId);
 
 
         // Book Library Room (Student) -TM
         void addNewBookingToDB(LibraryRoomBooking booking);
-
         List<LibraryRoomBooking> getAllStudentLibraryBookings(IUser student);
+        void addNewLibraryRoomToDB(LibraryRoom newLibraryRoom);
     }
 }

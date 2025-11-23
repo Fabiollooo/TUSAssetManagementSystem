@@ -21,6 +21,7 @@ namespace DataAccessLayer
         DataSet ds;                 //Declare the DataSet object
         SqlDataAdapter da;          //Declare the DataAdapter object
         int totUsers;
+        int totLibraryRooms;
         SqlCommandBuilder cb;
         #endregion
         #region Static Attributes
@@ -300,7 +301,7 @@ namespace DataAccessLayer
         }
 
 
-        //Available rooms (Student) -FG
+        //All rooms (Student) -FG
         public List<LibraryRoom> getAllLibraryRooms()
         {
             List<LibraryRoom> rooms = new List<LibraryRoom>();
@@ -308,19 +309,20 @@ namespace DataAccessLayer
             SqlDataAdapter da;
             try
             {
-                string sql = "SELECT lr.*, rs.StatusName FROM LibraryRooms AS lr, RoomStatus AS rs WHERE lr.RoomStatusID = rs.RoomStatusID AND lr.RoomStatusID = 2";
+                string sql = "SELECT lr.*, rs.StatusName FROM LibraryRooms AS lr, RoomStatus AS rs WHERE lr.RoomStatusID = rs.RoomStatusID";
                 da = new SqlDataAdapter(sql, con);
                 da.Fill(ds, "LibraryRoomsData");
                 foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
                 {
                     LibraryRoom room = new LibraryRoom(
-                        Convert.ToInt32(dRow["LibraryRoomID"]),
-                        dRow["RoomNumber"].ToString(),
-                        Convert.ToInt32(dRow["Capacity"]),
-                        dRow["Resources"].ToString(),
-                        Convert.ToInt32(dRow["RoomStatusID"]),
-                        dRow["StatusName"].ToString()
-                    );
+                    Convert.ToInt32(dRow["LibraryRoomID"]),
+                    dRow["RoomNumber"].ToString(),
+                    Convert.ToInt32(dRow["Capacity"]),
+                    dRow["Resources"].ToString(),
+                    Convert.ToInt32(dRow["RoomStatusID"]),
+                    dRow["StatusName"].ToString(),
+                    dRow["RoomType"].ToString() 
+                     );
 
                     rooms.Add(room);
                 }
@@ -381,12 +383,13 @@ namespace DataAccessLayer
             return (int)cmd.ExecuteScalar();
         }
 
-        public int GetAvailableRoomsCountRightNow()
+        public int GetAvailableRoomsCountRightNow(string userType)
         {
-            string sql = @"SELECT COUNT(*) FROM LibraryRooms WHERE LibraryRoomID NOT IN (SELECT LibraryRoomID FROM LibraryRoomBookings WHERE Date = CAST(@CurrentTime AS date) AND CONVERT(time, @CurrentTime) BETWEEN StartTime AND EndTime AND Cancelled = 0) AND RoomStatusID = 2";
+            string sql = @"SELECT COUNT(*) FROM LibraryRooms WHERE LibraryRoomID NOT IN (SELECT LibraryRoomID FROM LibraryRoomBookings WHERE Date = CAST(@CurrentTime AS date) AND CONVERT(time, @CurrentTime) BETWEEN StartTime AND EndTime AND Cancelled = 0) AND RoomStatusID = 2 AND (RoomType = @UserType OR RoomType = 'Both')";
 
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@CurrentTime", DateTime.Now);
+            cmd.Parameters.AddWithValue("@UserType", userType);
 
             try
             {
@@ -434,7 +437,7 @@ namespace DataAccessLayer
                     DateTime startTime = date.Date + startTimeSpan;
                     DateTime endTime = date.Date + endTimeSpan;
 
-                    LibraryRoom room = new LibraryRoom(libraryRoomId, roomNumber, 0, "", 2, "Available");
+                    LibraryRoom room = new LibraryRoom(libraryRoomId, roomNumber, 0, "", 2, "Available", "");
 
                     LibraryRoomBooking booking = new LibraryRoomBooking(
                         Convert.ToInt32(reader["BookingID"]),
@@ -524,29 +527,30 @@ namespace DataAccessLayer
             try
             {
                 string sql = "SELECT lr.*, rs.StatusName FROM (" +
-                        "SELECT *, CONVERT(time, '" + startTimeString + "') AS StartTime, CONVERT(time, '" + endTimeString + "') AS EndTime FROM LibraryRooms" +
-                    ") AS lr, RoomStatus AS rs WHERE NOT EXISTS (SELECT lrb.LibraryRoomID " + 
-                        "FROM LibraryRoomBookings AS lrb " +
-                        "WHERE lrb.LibraryRoomID = lr.LibraryRoomID " +
-                            "AND CONVERT(date, '" + dateString + "') = lrb.Date " +
-                            "AND (lr.StartTime > lrb.StartTime AND lr.StartTime < lrb.EndTime " +
-                            "OR lr.EndTime > lrb.StartTime AND lr.EndTime < lrb.EndTime " +
-                            "OR lrb.StartTime > lr.StartTime AND lrb.StartTime < lr.EndTime " +
-                            "OR lrb.EndTime > lr.StartTime AND lrb.EndTime < lr.EndTime" +
-                        ")) AND lr.RoomStatusID = 2 AND lr.RoomStatusID = rs.RoomStatusID";
+                            "SELECT *, CONVERT(time, '" + startTimeString + "') AS StartTime, CONVERT(time, '" + endTimeString + "') AS EndTime FROM LibraryRooms" +
+                        ") AS lr, RoomStatus AS rs WHERE NOT EXISTS (SELECT lrb.LibraryRoomID " +
+                            "FROM LibraryRoomBookings AS lrb " +
+                            "WHERE lrb.LibraryRoomID = lr.LibraryRoomID " +
+                                "AND CONVERT(date, '" + dateString + "') = lrb.Date " +
+                                "AND (lr.StartTime > lrb.StartTime AND lr.StartTime < lrb.EndTime " +
+                                "OR lr.EndTime > lrb.StartTime AND lr.EndTime < lrb.EndTime " +
+                                "OR lrb.StartTime > lr.StartTime AND lrb.StartTime < lr.EndTime " +
+                                "OR lrb.EndTime > lr.StartTime AND lrb.EndTime < lr.EndTime" +
+                            ")) AND lr.RoomStatusID = 2 AND lr.RoomStatusID = rs.RoomStatusID";
 
                 da = new SqlDataAdapter(sql, con);
                 da.Fill(ds, "LibraryRoomsData");
                 foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
                 {
                     LibraryRoom room = new LibraryRoom(
-                        Convert.ToInt32(dRow["LibraryRoomID"]),
-                        dRow["RoomNumber"].ToString(),
-                        Convert.ToInt32(dRow["Capacity"]),
-                        dRow["Resources"].ToString(),
-                        Convert.ToInt32(dRow["RoomStatusID"]),
-                        dRow["StatusName"].ToString()
-                    );
+                    Convert.ToInt32(dRow["LibraryRoomID"]),
+                    dRow["RoomNumber"].ToString(),
+                    Convert.ToInt32(dRow["Capacity"]),
+                    dRow["Resources"].ToString(),
+                    Convert.ToInt32(dRow["RoomStatusID"]),
+                    dRow["StatusName"].ToString(),
+                    dRow["RoomType"].ToString()  
+                     );
 
                     rooms.Add(room);
                 }
@@ -606,13 +610,14 @@ namespace DataAccessLayer
                 foreach (DataRow dRow in ds.Tables["LibraryRoomBookingsData"].Rows)
                 {
                     LibraryRoom room = new LibraryRoom(
-                        Convert.ToInt32(dRow["LibraryRoomID"]),
-                        dRow["RoomNumber"].ToString(),
-                        Convert.ToInt32(dRow["Capacity"]),
-                        dRow["Resources"].ToString(),
-                        Convert.ToInt32(dRow["RoomStatusID"]),
-                        dRow["StatusName"].ToString()
-                    );
+                    Convert.ToInt32(dRow["LibraryRoomID"]),
+                    dRow["RoomNumber"].ToString(),
+                    Convert.ToInt32(dRow["Capacity"]),
+                    dRow["Resources"].ToString(),
+                    Convert.ToInt32(dRow["RoomStatusID"]),
+                    dRow["StatusName"].ToString(),
+                    dRow["RoomType"].ToString() 
+                     );
 
                     DateTime date = (DateTime)dRow["Date"];
                     TimeSpan startTimeSpan = (TimeSpan)dRow["StartTime"];
@@ -666,7 +671,32 @@ namespace DataAccessLayer
             }
         }
 
+        public void addNewLibraryRoomToDB(LibraryRoom newLibraryRoom)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                string sql = "SELECT * From LibraryRooms";
+                SqlDataAdapter da = new SqlDataAdapter(sql, con);
+                SqlCommandBuilder cb = new SqlCommandBuilder(da);
+                da.Fill(ds, "LibraryRoomsData");
+                totLibraryRooms = ds.Tables["LibraryRoomsData"].Rows.Count;
+                DataRow dRow = ds.Tables["LibraryRoomsData"].NewRow();
+                dRow[0] = newLibraryRoom.roomID;
+                dRow[1] = newLibraryRoom.roomNumber;
+                dRow[2] = newLibraryRoom.capacity;
+                dRow[3] = newLibraryRoom.resources;
+                dRow[4] = newLibraryRoom.roomStatusID;
 
-
+                ds.Tables["LibraryRoomsData"].Rows.Add(dRow);
+                da.Update(ds, "LibraryRoomsData");
+            }
+            catch (Exception)
+            {
+                if (con.State.ToString() == "Open")
+                    con.Close();
+                Application.Exit();
+            }
+        }
     }
 }
