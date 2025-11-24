@@ -37,6 +37,16 @@ namespace BusinessEntities
             this.statusName = statusName;
             this.roomType = roomType;
         }
+
+        public LibraryRoom(int libraryRoomID,
+                       string roomNumber,
+                       int capacity,
+                       string resources,
+                       int roomStatusID,
+                       string statusName)
+        : this(libraryRoomID, roomNumber, capacity, resources, roomStatusID, statusName, "Unknown")
+        {
+        }
     }
 }
 

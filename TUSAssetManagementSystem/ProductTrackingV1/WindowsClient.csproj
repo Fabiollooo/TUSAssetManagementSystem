@@ -66,6 +66,18 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminLibraryDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLibraryDashboard.Designer.cs">
+      <DependentUpon>AdminLibraryDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBookingForm.Designer.cs">
+      <DependentUpon>EditBookingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="formAdminAddRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +183,12 @@
     </Compile>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLibraryDashboard.resx">
+      <DependentUpon>AdminLibraryDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBookingForm.resx">
+      <DependentUpon>EditBookingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formAdminAddRoom.resx">
       <DependentUpon>formAdminAddRoom.cs</DependentUpon>

@@ -96,16 +96,6 @@ namespace BusinessLayer
         public Boolean login(String name, String password)
         {
             
-            //foreach (User user in userList) // now using template so can simplify this code as shown below
-            //{
-            //    if (name == user.Name && password == user.Password)
-            //    {
-                  
-            //        CurrentUser=user;
-            //        return true;
-            //    }
-            //}
-            //return false;
 
             IUser matchUser = userList.FirstOrDefault(user => user.Name == name && user.Password == password);
             if (matchUser == null)
@@ -131,9 +121,7 @@ namespace BusinessLayer
                     if (user.UserID > maxId)
                         maxId = user.UserID;
                 }
-                IUser theUser = UserFactory.GetUser(name, password, userType,maxId+1);   // Using a Factory to create the user entity object. ie seperating object creation from business logic
-                UserList.Add(theUser);                             // Add a reference to the newly created object to the Models UserList
-                DataLayer.addNewUserToDB(theUser); //Gets the DataLayer to add the new user to the DB. 
+                IUser theUser = UserFactory.GetUser(name, password, userType,maxId+1);   
                 return true;
             }
                 catch (System.Exception excep)
@@ -146,7 +134,7 @@ namespace BusinessLayer
         {
 
             DataLayer.deleteUserFromDB(user);
-            UserList.Remove(user); //remove object from collection
+            UserList.Remove(user); 
            return true;
 
         }
@@ -355,11 +343,81 @@ namespace BusinessLayer
         }
 
         public List<LibraryRoomBooking> LibraryRoomBookingsList { get; set; } = new List<LibraryRoomBooking>();
+        public List<LibraryRoomBooking> LibraryRoomBookingList { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         // View Your Library Room Bookings (Student) -TM
         public void populateLibraryRoomBookings(IUser student)
         {
             LibraryRoomBookingsList = DataLayer.getAllStudentLibraryBookings(student);
+        }
+
+        public void populateAllCurrentLibraryBookings()
+        {
+            populateLibraryBookings();
+        }
+
+        private void populateLibraryBookings()
+        {
+            LibraryRoomBookingsList = new List<LibraryRoomBooking>();
+
+            foreach (IUser user in userList)
+            {
+                var bookingsForUser = DataLayer.getAllStudentLibraryBookings(user);
+                if (bookingsForUser != null)
+                    LibraryRoomBookingsList.AddRange(bookingsForUser);
+            }
+        }
+        public bool UpdateLibraryRoomBooking(LibraryRoomBooking booking)
+        {
+            DateTime now = DateTime.Now;
+
+           
+            if (booking.date.Date < now.Date ||
+               (booking.date.Date == now.Date && booking.startTime.TimeOfDay < now.TimeOfDay))
+            {
+                MessageBox.Show("Can't move a booking into the past!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+           
+            if (booking.date.DayOfWeek == DayOfWeek.Saturday ||
+                booking.date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MessageBox.Show("Can't make a booking for the weekend!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (booking.startTime.TimeOfDay < TimeSpan.FromHours(9) ||
+                booking.endTime.TimeOfDay > TimeSpan.FromHours(18))
+            {
+                MessageBox.Show("Booking must be between 09:00 and 18:00!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            double duration = (booking.endTime - booking.startTime).TotalMinutes;
+            if (duration < 30 || duration > 120)
+            {
+                MessageBox.Show("Booking must be between 30 minutes and 2 hours!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+        
+            return DataLayer.UpdateLibraryRoomBooking(booking);
+        }
+
+
+        public bool CancelLibraryBooking(int bookingId)
+        {
+            return DataLayer.CancelLibraryBooking(bookingId);
+        }
+
+        public int AutoCancelNoShowBookings()
+        {
+            return DataLayer.AutoCancelNoShowBookings();
         }
 
         public bool AddLibraryRoom(string roomNumber, int capacity, string resources, int statusId, string statusName, string roomType)
@@ -385,6 +443,11 @@ namespace BusinessLayer
             {
                 return false;
             }
+        }
+
+        void IModel.populateLibraryBookings()
+        {
+            throw new NotImplementedException();
         }
     }
 }

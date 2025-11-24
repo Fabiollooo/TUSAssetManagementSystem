@@ -39,5 +39,9 @@ namespace DataAccessLayer
         void addNewBookingToDB(LibraryRoomBooking booking);
         List<LibraryRoomBooking> getAllStudentLibraryBookings(IUser student);
         void addNewLibraryRoomToDB(LibraryRoom newLibraryRoom);
+
+        bool CancelLibraryBooking(int bookingId);
+        int AutoCancelNoShowBookings();
+        bool UpdateLibraryRoomBooking(LibraryRoomBooking booking);
     }
 }

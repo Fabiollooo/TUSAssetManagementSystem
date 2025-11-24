@@ -56,6 +56,14 @@ namespace BusinessLayer
         List<LibraryRoomBooking> LibraryRoomBookingsList { get; set; }
         void populateLibraryRoomBookings(IUser student);
 
+        List<LibraryRoomBooking> LibraryRoomBookingList { get; set; }
+        void populateLibraryBookings();
+        void populateAllCurrentLibraryBookings();
+        bool CancelLibraryBooking(int bookingId);
+        int AutoCancelNoShowBookings();
+        bool UpdateLibraryRoomBooking(LibraryRoomBooking booking);
+
+
         bool AddLibraryRoom(string roomNumber, int capacity, string resources, int statusId, string statusName, string roomType);
     }
 }

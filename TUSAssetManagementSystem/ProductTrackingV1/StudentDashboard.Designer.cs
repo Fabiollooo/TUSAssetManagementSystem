@@ -81,6 +81,7 @@ namespace ProductTracking
             this.label18 = new System.Windows.Forms.Label();
             this.dgvRooms = new System.Windows.Forms.DataGridView();
             this.tab_mybookings = new System.Windows.Forms.TabPage();
+            this.btnEditBooking = new System.Windows.Forms.Button();
             this.btnCheckIn = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.dgvMyBookings = new System.Windows.Forms.DataGridView();
@@ -124,10 +125,11 @@ namespace ProductTracking
             this.tab_dashboard.Controls.Add(this.tabPage1);
             this.tab_dashboard.Controls.Add(this.tab_browserooms);
             this.tab_dashboard.Controls.Add(this.tab_mybookings);
-            this.tab_dashboard.Location = new System.Drawing.Point(12, 12);
+            this.tab_dashboard.Location = new System.Drawing.Point(18, 18);
+            this.tab_dashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tab_dashboard.Name = "tab_dashboard";
             this.tab_dashboard.SelectedIndex = 0;
-            this.tab_dashboard.Size = new System.Drawing.Size(1075, 690);
+            this.tab_dashboard.Size = new System.Drawing.Size(1612, 1062);
             this.tab_dashboard.TabIndex = 0;
             // 
             // tabPage1
@@ -143,10 +145,11 @@ namespace ProductTracking
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1067, 664);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPage1.Size = new System.Drawing.Size(1604, 1029);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dashboard";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -155,9 +158,10 @@ namespace ProductTracking
             // btnLogOut
             // 
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(927, 48);
+            this.btnLogOut.Location = new System.Drawing.Point(1390, 74);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(84, 34);
+            this.btnLogOut.Size = new System.Drawing.Size(126, 52);
             this.btnLogOut.TabIndex = 12;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = true;
@@ -167,9 +171,10 @@ namespace ProductTracking
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(768, 48);
+            this.lblWelcome.Location = new System.Drawing.Point(1152, 74);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(138, 17);
+            this.lblWelcome.Size = new System.Drawing.Size(195, 25);
             this.lblWelcome.TabIndex = 11;
             this.lblWelcome.Text = "Welcoming message";
             // 
@@ -179,27 +184,30 @@ namespace ProductTracking
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.btn_ManageBookings);
             this.panel6.Controls.Add(this.btn_BookRoom);
-            this.panel6.Location = new System.Drawing.Point(688, 258);
+            this.panel6.Location = new System.Drawing.Point(1032, 397);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(340, 233);
+            this.panel6.Size = new System.Drawing.Size(508, 420);
             this.panel6.TabIndex = 9;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(19, 18);
+            this.label13.Location = new System.Drawing.Point(28, 28);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 17);
+            this.label13.Size = new System.Drawing.Size(133, 25);
             this.label13.TabIndex = 1;
             this.label13.Text = "Quick Actions";
             // 
             // btn_ManageBookings
             // 
             this.btn_ManageBookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ManageBookings.Location = new System.Drawing.Point(22, 139);
+            this.btn_ManageBookings.Location = new System.Drawing.Point(33, 214);
+            this.btn_ManageBookings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_ManageBookings.Name = "btn_ManageBookings";
-            this.btn_ManageBookings.Size = new System.Drawing.Size(299, 38);
+            this.btn_ManageBookings.Size = new System.Drawing.Size(448, 58);
             this.btn_ManageBookings.TabIndex = 2;
             this.btn_ManageBookings.Text = "Manage Bookings";
             this.btn_ManageBookings.UseVisualStyleBackColor = true;
@@ -208,9 +216,10 @@ namespace ProductTracking
             // btn_BookRoom
             // 
             this.btn_BookRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_BookRoom.Location = new System.Drawing.Point(22, 64);
+            this.btn_BookRoom.Location = new System.Drawing.Point(33, 98);
+            this.btn_BookRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_BookRoom.Name = "btn_BookRoom";
-            this.btn_BookRoom.Size = new System.Drawing.Size(299, 38);
+            this.btn_BookRoom.Size = new System.Drawing.Size(448, 58);
             this.btn_BookRoom.TabIndex = 0;
             this.btn_BookRoom.Text = "Book a Room";
             this.btn_BookRoom.UseVisualStyleBackColor = true;
@@ -223,9 +232,10 @@ namespace ProductTracking
             this.panel5.Controls.Add(this.panelRoom2);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.panelRoom1);
-            this.panel5.Location = new System.Drawing.Point(25, 258);
+            this.panel5.Location = new System.Drawing.Point(38, 397);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(643, 322);
+            this.panel5.Size = new System.Drawing.Size(962, 493);
             this.panel5.TabIndex = 8;
             // 
             // panelRoom3
@@ -234,18 +244,20 @@ namespace ProductTracking
             this.panelRoom3.Controls.Add(this.lblID3);
             this.panelRoom3.Controls.Add(this.lblTime3);
             this.panelRoom3.Controls.Add(this.lblTitle3);
-            this.panelRoom3.Location = new System.Drawing.Point(17, 219);
+            this.panelRoom3.Location = new System.Drawing.Point(26, 337);
+            this.panelRoom3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelRoom3.Name = "panelRoom3";
-            this.panelRoom3.Size = new System.Drawing.Size(594, 82);
+            this.panelRoom3.Size = new System.Drawing.Size(889, 124);
             this.panelRoom3.TabIndex = 3;
             // 
             // lblID3
             // 
             this.lblID3.AutoSize = true;
             this.lblID3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID3.Location = new System.Drawing.Point(10, 58);
+            this.lblID3.Location = new System.Drawing.Point(15, 89);
+            this.lblID3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID3.Name = "lblID3";
-            this.lblID3.Size = new System.Drawing.Size(43, 17);
+            this.lblID3.Size = new System.Drawing.Size(61, 25);
             this.lblID3.TabIndex = 2;
             this.lblID3.Text = "lblID3";
             // 
@@ -253,9 +265,10 @@ namespace ProductTracking
             // 
             this.lblTime3.AutoSize = true;
             this.lblTime3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime3.Location = new System.Drawing.Point(10, 35);
+            this.lblTime3.Location = new System.Drawing.Point(15, 54);
+            this.lblTime3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime3.Name = "lblTime3";
-            this.lblTime3.Size = new System.Drawing.Size(61, 17);
+            this.lblTime3.Size = new System.Drawing.Size(86, 25);
             this.lblTime3.TabIndex = 1;
             this.lblTime3.Text = "lblTime3";
             // 
@@ -263,9 +276,10 @@ namespace ProductTracking
             // 
             this.lblTitle3.AutoSize = true;
             this.lblTitle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle3.Location = new System.Drawing.Point(9, 5);
+            this.lblTitle3.Location = new System.Drawing.Point(14, 8);
+            this.lblTitle3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle3.Name = "lblTitle3";
-            this.lblTitle3.Size = new System.Drawing.Size(74, 24);
+            this.lblTitle3.Size = new System.Drawing.Size(115, 32);
             this.lblTitle3.TabIndex = 0;
             this.lblTitle3.Text = "lblTitle3";
             // 
@@ -275,18 +289,20 @@ namespace ProductTracking
             this.panelRoom2.Controls.Add(this.lblID2);
             this.panelRoom2.Controls.Add(this.lblTime2);
             this.panelRoom2.Controls.Add(this.lblTitle2);
-            this.panelRoom2.Location = new System.Drawing.Point(17, 131);
+            this.panelRoom2.Location = new System.Drawing.Point(26, 202);
+            this.panelRoom2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelRoom2.Name = "panelRoom2";
-            this.panelRoom2.Size = new System.Drawing.Size(594, 82);
+            this.panelRoom2.Size = new System.Drawing.Size(889, 124);
             this.panelRoom2.TabIndex = 3;
             // 
             // lblID2
             // 
             this.lblID2.AutoSize = true;
             this.lblID2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID2.Location = new System.Drawing.Point(10, 58);
+            this.lblID2.Location = new System.Drawing.Point(15, 89);
+            this.lblID2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID2.Name = "lblID2";
-            this.lblID2.Size = new System.Drawing.Size(43, 17);
+            this.lblID2.Size = new System.Drawing.Size(61, 25);
             this.lblID2.TabIndex = 2;
             this.lblID2.Text = "lblID2";
             // 
@@ -294,9 +310,10 @@ namespace ProductTracking
             // 
             this.lblTime2.AutoSize = true;
             this.lblTime2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime2.Location = new System.Drawing.Point(10, 35);
+            this.lblTime2.Location = new System.Drawing.Point(15, 54);
+            this.lblTime2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime2.Name = "lblTime2";
-            this.lblTime2.Size = new System.Drawing.Size(61, 17);
+            this.lblTime2.Size = new System.Drawing.Size(86, 25);
             this.lblTime2.TabIndex = 1;
             this.lblTime2.Text = "lblTime2";
             // 
@@ -304,9 +321,10 @@ namespace ProductTracking
             // 
             this.lblTitle2.AutoSize = true;
             this.lblTitle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle2.Location = new System.Drawing.Point(9, 5);
+            this.lblTitle2.Location = new System.Drawing.Point(14, 8);
+            this.lblTitle2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle2.Name = "lblTitle2";
-            this.lblTitle2.Size = new System.Drawing.Size(74, 24);
+            this.lblTitle2.Size = new System.Drawing.Size(115, 32);
             this.lblTitle2.TabIndex = 0;
             this.lblTitle2.Text = "lblTitle2";
             // 
@@ -314,9 +332,10 @@ namespace ProductTracking
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 9);
+            this.label4.Location = new System.Drawing.Point(21, 14);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 17);
+            this.label4.Size = new System.Drawing.Size(186, 25);
             this.label4.TabIndex = 1;
             this.label4.Text = "Upcoming Bookings";
             // 
@@ -326,18 +345,20 @@ namespace ProductTracking
             this.panelRoom1.Controls.Add(this.lblID1);
             this.panelRoom1.Controls.Add(this.lblTime1);
             this.panelRoom1.Controls.Add(this.lblTitle1);
-            this.panelRoom1.Location = new System.Drawing.Point(17, 43);
+            this.panelRoom1.Location = new System.Drawing.Point(26, 66);
+            this.panelRoom1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelRoom1.Name = "panelRoom1";
-            this.panelRoom1.Size = new System.Drawing.Size(594, 82);
+            this.panelRoom1.Size = new System.Drawing.Size(889, 124);
             this.panelRoom1.TabIndex = 0;
             // 
             // lblID1
             // 
             this.lblID1.AutoSize = true;
             this.lblID1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID1.Location = new System.Drawing.Point(10, 58);
+            this.lblID1.Location = new System.Drawing.Point(15, 89);
+            this.lblID1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblID1.Name = "lblID1";
-            this.lblID1.Size = new System.Drawing.Size(43, 17);
+            this.lblID1.Size = new System.Drawing.Size(61, 25);
             this.lblID1.TabIndex = 2;
             this.lblID1.Text = "lblID1";
             // 
@@ -345,9 +366,10 @@ namespace ProductTracking
             // 
             this.lblTime1.AutoSize = true;
             this.lblTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime1.Location = new System.Drawing.Point(10, 35);
+            this.lblTime1.Location = new System.Drawing.Point(15, 54);
+            this.lblTime1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTime1.Name = "lblTime1";
-            this.lblTime1.Size = new System.Drawing.Size(61, 17);
+            this.lblTime1.Size = new System.Drawing.Size(86, 25);
             this.lblTime1.TabIndex = 1;
             this.lblTime1.Text = "lblTime1";
             // 
@@ -355,9 +377,10 @@ namespace ProductTracking
             // 
             this.lblTitle1.AutoSize = true;
             this.lblTitle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle1.Location = new System.Drawing.Point(9, 5);
+            this.lblTitle1.Location = new System.Drawing.Point(14, 8);
+            this.lblTitle1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle1.Name = "lblTitle1";
-            this.lblTitle1.Size = new System.Drawing.Size(74, 24);
+            this.lblTitle1.Size = new System.Drawing.Size(115, 32);
             this.lblTitle1.TabIndex = 0;
             this.lblTitle1.Text = "lblTitle1";
             // 
@@ -367,9 +390,10 @@ namespace ProductTracking
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.lblUpcomingNo);
             this.panel4.Controls.Add(this.label9);
-            this.panel4.Location = new System.Drawing.Point(828, 132);
+            this.panel4.Location = new System.Drawing.Point(1242, 203);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 100);
+            this.panel4.Size = new System.Drawing.Size(298, 152);
             this.panel4.TabIndex = 10;
             // 
             // label16
@@ -377,9 +401,10 @@ namespace ProductTracking
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label16.Location = new System.Drawing.Point(13, 69);
+            this.label16.Location = new System.Drawing.Point(20, 106);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(63, 13);
+            this.label16.Size = new System.Drawing.Size(91, 20);
             this.label16.TabIndex = 11;
             this.label16.Text = "Next 7 days";
             // 
@@ -387,9 +412,10 @@ namespace ProductTracking
             // 
             this.lblUpcomingNo.AutoSize = true;
             this.lblUpcomingNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpcomingNo.Location = new System.Drawing.Point(12, 43);
+            this.lblUpcomingNo.Location = new System.Drawing.Point(18, 66);
+            this.lblUpcomingNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUpcomingNo.Name = "lblUpcomingNo";
-            this.lblUpcomingNo.Size = new System.Drawing.Size(16, 17);
+            this.lblUpcomingNo.Size = new System.Drawing.Size(23, 25);
             this.lblUpcomingNo.TabIndex = 10;
             this.lblUpcomingNo.Text = "0";
             // 
@@ -397,9 +423,10 @@ namespace ProductTracking
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 12);
+            this.label9.Location = new System.Drawing.Point(18, 18);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 20);
+            this.label9.Size = new System.Drawing.Size(123, 29);
             this.label9.TabIndex = 9;
             this.label9.Text = "Upcoming";
             // 
@@ -409,9 +436,10 @@ namespace ProductTracking
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.lblHoursBooked);
             this.panel3.Controls.Add(this.label8);
-            this.panel3.Location = new System.Drawing.Point(565, 132);
+            this.panel3.Location = new System.Drawing.Point(848, 203);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 100);
+            this.panel3.Size = new System.Drawing.Size(298, 152);
             this.panel3.TabIndex = 4;
             // 
             // label14
@@ -419,9 +447,10 @@ namespace ProductTracking
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label14.Location = new System.Drawing.Point(12, 69);
+            this.label14.Location = new System.Drawing.Point(18, 106);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 13);
+            this.label14.Size = new System.Drawing.Size(87, 20);
             this.label14.TabIndex = 10;
             this.label14.Text = "This month";
             // 
@@ -429,9 +458,10 @@ namespace ProductTracking
             // 
             this.lblHoursBooked.AutoSize = true;
             this.lblHoursBooked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoursBooked.Location = new System.Drawing.Point(12, 43);
+            this.lblHoursBooked.Location = new System.Drawing.Point(18, 66);
+            this.lblHoursBooked.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoursBooked.Name = "lblHoursBooked";
-            this.lblHoursBooked.Size = new System.Drawing.Size(16, 17);
+            this.lblHoursBooked.Size = new System.Drawing.Size(23, 25);
             this.lblHoursBooked.TabIndex = 9;
             this.lblHoursBooked.Text = "0";
             // 
@@ -439,9 +469,10 @@ namespace ProductTracking
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 12);
+            this.label8.Location = new System.Drawing.Point(18, 18);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(111, 20);
+            this.label8.Size = new System.Drawing.Size(167, 29);
             this.label8.TabIndex = 9;
             this.label8.Text = "Hours Booked";
             // 
@@ -451,9 +482,10 @@ namespace ProductTracking
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.lblAvailableRooms);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(295, 132);
+            this.panel2.Location = new System.Drawing.Point(442, 203);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.Size = new System.Drawing.Size(298, 152);
             this.panel2.TabIndex = 3;
             // 
             // label15
@@ -461,9 +493,10 @@ namespace ProductTracking
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label15.Location = new System.Drawing.Point(15, 69);
+            this.label15.Location = new System.Drawing.Point(22, 106);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 13);
+            this.label15.Size = new System.Drawing.Size(82, 20);
             this.label15.TabIndex = 9;
             this.label15.Text = "Right Now";
             // 
@@ -471,9 +504,10 @@ namespace ProductTracking
             // 
             this.lblAvailableRooms.AutoSize = true;
             this.lblAvailableRooms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAvailableRooms.Location = new System.Drawing.Point(14, 43);
+            this.lblAvailableRooms.Location = new System.Drawing.Point(21, 66);
+            this.lblAvailableRooms.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAvailableRooms.Name = "lblAvailableRooms";
-            this.lblAvailableRooms.Size = new System.Drawing.Size(16, 17);
+            this.lblAvailableRooms.Size = new System.Drawing.Size(23, 25);
             this.lblAvailableRooms.TabIndex = 8;
             this.lblAvailableRooms.Text = "0";
             // 
@@ -481,9 +515,10 @@ namespace ProductTracking
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 12);
+            this.label7.Location = new System.Drawing.Point(21, 18);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 20);
+            this.label7.Size = new System.Drawing.Size(194, 29);
             this.label7.TabIndex = 8;
             this.label7.Text = "Available Rooms";
             // 
@@ -492,18 +527,20 @@ namespace ProductTracking
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.lblNoActiveBookings);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(25, 132);
+            this.panel1.Location = new System.Drawing.Point(38, 203);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.Size = new System.Drawing.Size(298, 152);
             this.panel1.TabIndex = 2;
             // 
             // lblNoActiveBookings
             // 
             this.lblNoActiveBookings.AutoSize = true;
             this.lblNoActiveBookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoActiveBookings.Location = new System.Drawing.Point(13, 43);
+            this.lblNoActiveBookings.Location = new System.Drawing.Point(20, 66);
+            this.lblNoActiveBookings.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNoActiveBookings.Name = "lblNoActiveBookings";
-            this.lblNoActiveBookings.Size = new System.Drawing.Size(16, 17);
+            this.lblNoActiveBookings.Size = new System.Drawing.Size(23, 25);
             this.lblNoActiveBookings.TabIndex = 7;
             this.lblNoActiveBookings.Text = "0";
             // 
@@ -511,9 +548,10 @@ namespace ProductTracking
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 12);
+            this.label5.Location = new System.Drawing.Point(20, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 20);
+            this.label5.Size = new System.Drawing.Size(184, 29);
             this.label5.TabIndex = 6;
             this.label5.Text = "Active Bookings";
             // 
@@ -521,18 +559,20 @@ namespace ProductTracking
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 65);
+            this.label2.Location = new System.Drawing.Point(32, 100);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(368, 20);
+            this.label2.Size = new System.Drawing.Size(562, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Welcome back! Here\'s an overview of you bookings";
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 20);
+            this.label1.Location = new System.Drawing.Point(28, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 45);
+            this.label1.Size = new System.Drawing.Size(234, 69);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dashboard";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
@@ -549,10 +589,11 @@ namespace ProductTracking
             this.tab_browserooms.Controls.Add(this.label17);
             this.tab_browserooms.Controls.Add(this.label18);
             this.tab_browserooms.Controls.Add(this.dgvRooms);
-            this.tab_browserooms.Location = new System.Drawing.Point(4, 22);
+            this.tab_browserooms.Location = new System.Drawing.Point(4, 29);
+            this.tab_browserooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tab_browserooms.Name = "tab_browserooms";
-            this.tab_browserooms.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_browserooms.Size = new System.Drawing.Size(1067, 664);
+            this.tab_browserooms.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tab_browserooms.Size = new System.Drawing.Size(1604, 1029);
             this.tab_browserooms.TabIndex = 1;
             this.tab_browserooms.Text = "Browse Rooms";
             this.tab_browserooms.UseVisualStyleBackColor = true;
@@ -561,27 +602,30 @@ namespace ProductTracking
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(50, 116);
+            this.label10.Location = new System.Drawing.Point(75, 178);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 13);
+            this.label10.Size = new System.Drawing.Size(48, 20);
             this.label10.TabIndex = 15;
             this.label10.Text = "Date:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(340, 116);
+            this.label6.Location = new System.Drawing.Point(510, 178);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(80, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "End Time:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 116);
+            this.label3.Location = new System.Drawing.Point(286, 178);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 13;
             this.label3.Text = "Start Time:";
             // 
@@ -589,10 +633,11 @@ namespace ProductTracking
             // 
             this.dtpBookingEndTime.CustomFormat = "HH";
             this.dtpBookingEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBookingEndTime.Location = new System.Drawing.Point(343, 137);
+            this.dtpBookingEndTime.Location = new System.Drawing.Point(514, 211);
+            this.dtpBookingEndTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpBookingEndTime.Name = "dtpBookingEndTime";
             this.dtpBookingEndTime.ShowUpDown = true;
-            this.dtpBookingEndTime.Size = new System.Drawing.Size(110, 20);
+            this.dtpBookingEndTime.Size = new System.Drawing.Size(163, 26);
             this.dtpBookingEndTime.TabIndex = 12;
             this.dtpBookingEndTime.Value = new System.DateTime(2025, 11, 22, 18, 0, 0, 0);
             this.dtpBookingEndTime.ValueChanged += new System.EventHandler(this.dtpBookingEndTime_ValueChanged);
@@ -601,10 +646,11 @@ namespace ProductTracking
             // 
             this.dtpBookingStartTime.CustomFormat = "HH";
             this.dtpBookingStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpBookingStartTime.Location = new System.Drawing.Point(194, 137);
+            this.dtpBookingStartTime.Location = new System.Drawing.Point(291, 211);
+            this.dtpBookingStartTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpBookingStartTime.Name = "dtpBookingStartTime";
             this.dtpBookingStartTime.ShowUpDown = true;
-            this.dtpBookingStartTime.Size = new System.Drawing.Size(110, 20);
+            this.dtpBookingStartTime.Size = new System.Drawing.Size(163, 26);
             this.dtpBookingStartTime.TabIndex = 11;
             this.dtpBookingStartTime.Value = new System.DateTime(2025, 11, 22, 9, 0, 0, 0);
             this.dtpBookingStartTime.ValueChanged += new System.EventHandler(this.dtpBookingStartTime_ValueChanged);
@@ -613,9 +659,10 @@ namespace ProductTracking
             // 
             this.dtpBookingDate.CustomFormat = "";
             this.dtpBookingDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBookingDate.Location = new System.Drawing.Point(53, 137);
+            this.dtpBookingDate.Location = new System.Drawing.Point(80, 211);
+            this.dtpBookingDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpBookingDate.Name = "dtpBookingDate";
-            this.dtpBookingDate.Size = new System.Drawing.Size(118, 20);
+            this.dtpBookingDate.Size = new System.Drawing.Size(175, 26);
             this.dtpBookingDate.TabIndex = 10;
             this.dtpBookingDate.Value = new System.DateTime(2025, 11, 16, 20, 37, 27, 0);
             this.dtpBookingDate.ValueChanged += new System.EventHandler(this.dtpBookingDate_ValueChanged);
@@ -623,9 +670,10 @@ namespace ProductTracking
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(885, 572);
+            this.button6.Location = new System.Drawing.Point(1328, 880);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(110, 36);
+            this.button6.Size = new System.Drawing.Size(165, 55);
             this.button6.TabIndex = 9;
             this.button6.Text = "Book room";
             this.button6.UseVisualStyleBackColor = true;
@@ -635,18 +683,20 @@ namespace ProductTracking
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(19, 66);
+            this.label17.Location = new System.Drawing.Point(28, 102);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(343, 20);
+            this.label17.Size = new System.Drawing.Size(516, 29);
             this.label17.TabIndex = 5;
             this.label17.Text = "Find and book the perfect space for your needs";
             // 
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(17, 21);
+            this.label18.Location = new System.Drawing.Point(26, 32);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(610, 45);
+            this.label18.Size = new System.Drawing.Size(915, 69);
             this.label18.TabIndex = 4;
             this.label18.Text = "Browse Rooms and Resource";
             // 
@@ -658,18 +708,21 @@ namespace ProductTracking
             this.dgvRooms.AllowUserToResizeRows = false;
             this.dgvRooms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRooms.Location = new System.Drawing.Point(53, 186);
+            this.dgvRooms.Location = new System.Drawing.Point(80, 286);
+            this.dgvRooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvRooms.MultiSelect = false;
             this.dgvRooms.Name = "dgvRooms";
             this.dgvRooms.ReadOnly = true;
             this.dgvRooms.RowHeadersVisible = false;
+            this.dgvRooms.RowHeadersWidth = 62;
             this.dgvRooms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRooms.Size = new System.Drawing.Size(942, 355);
+            this.dgvRooms.Size = new System.Drawing.Size(1413, 546);
             this.dgvRooms.TabIndex = 2;
             this.dgvRooms.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRooms_CellContentClick);
             // 
             // tab_mybookings
             // 
+            this.tab_mybookings.Controls.Add(this.btnEditBooking);
             this.tab_mybookings.Controls.Add(this.btnCheckIn);
             this.tab_mybookings.Controls.Add(this.label24);
             this.tab_mybookings.Controls.Add(this.dgvMyBookings);
@@ -679,21 +732,35 @@ namespace ProductTracking
             this.tab_mybookings.Controls.Add(this.panel10);
             this.tab_mybookings.Controls.Add(this.panel11);
             this.tab_mybookings.Controls.Add(this.panel12);
-            this.tab_mybookings.Location = new System.Drawing.Point(4, 22);
+            this.tab_mybookings.Location = new System.Drawing.Point(4, 29);
+            this.tab_mybookings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tab_mybookings.Name = "tab_mybookings";
-            this.tab_mybookings.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mybookings.Size = new System.Drawing.Size(1067, 664);
+            this.tab_mybookings.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tab_mybookings.Size = new System.Drawing.Size(1604, 1029);
             this.tab_mybookings.TabIndex = 3;
             this.tab_mybookings.Text = "My Bookings";
             this.tab_mybookings.UseVisualStyleBackColor = true;
             this.tab_mybookings.Click += new System.EventHandler(this.tab_mybookings_Click);
             // 
+            // btnEditBooking
+            // 
+            this.btnEditBooking.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditBooking.Location = new System.Drawing.Point(1240, 386);
+            this.btnEditBooking.Name = "btnEditBooking";
+            this.btnEditBooking.Size = new System.Drawing.Size(115, 52);
+            this.btnEditBooking.TabIndex = 21;
+            this.btnEditBooking.Text = "Edit";
+            this.btnEditBooking.UseVisualStyleBackColor = true;
+            this.btnEditBooking.Click += new System.EventHandler(this.btnEditBooking_Click_1);
+            // 
             // btnCheckIn
             // 
             this.btnCheckIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckIn.Location = new System.Drawing.Point(937, 251);
+            this.btnCheckIn.Location = new System.Drawing.Point(1406, 386);
+            this.btnCheckIn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Size = new System.Drawing.Size(90, 35);
+            this.btnCheckIn.Size = new System.Drawing.Size(135, 54);
             this.btnCheckIn.TabIndex = 19;
             this.btnCheckIn.Text = "Check In";
             this.btnCheckIn.UseVisualStyleBackColor = true;
@@ -703,9 +770,10 @@ namespace ProductTracking
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(21, 266);
+            this.label24.Location = new System.Drawing.Point(32, 409);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(99, 20);
+            this.label24.Size = new System.Drawing.Size(151, 29);
             this.label24.TabIndex = 18;
             this.label24.Text = "My Bookings";
             // 
@@ -717,13 +785,15 @@ namespace ProductTracking
             this.dgvMyBookings.AllowUserToResizeRows = false;
             this.dgvMyBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMyBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMyBookings.Location = new System.Drawing.Point(24, 301);
+            this.dgvMyBookings.Location = new System.Drawing.Point(36, 463);
+            this.dgvMyBookings.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvMyBookings.MultiSelect = false;
             this.dgvMyBookings.Name = "dgvMyBookings";
             this.dgvMyBookings.ReadOnly = true;
             this.dgvMyBookings.RowHeadersVisible = false;
+            this.dgvMyBookings.RowHeadersWidth = 62;
             this.dgvMyBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMyBookings.Size = new System.Drawing.Size(1003, 340);
+            this.dgvMyBookings.Size = new System.Drawing.Size(1504, 523);
             this.dgvMyBookings.TabIndex = 17;
             // 
             // panel9
@@ -731,18 +801,20 @@ namespace ProductTracking
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.lblMyBookingsTotal);
             this.panel9.Controls.Add(this.label20);
-            this.panel9.Location = new System.Drawing.Point(24, 125);
+            this.panel9.Location = new System.Drawing.Point(36, 192);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(200, 100);
+            this.panel9.Size = new System.Drawing.Size(298, 152);
             this.panel9.TabIndex = 13;
             // 
             // lblMyBookingsTotal
             // 
             this.lblMyBookingsTotal.AutoSize = true;
             this.lblMyBookingsTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMyBookingsTotal.Location = new System.Drawing.Point(13, 43);
+            this.lblMyBookingsTotal.Location = new System.Drawing.Point(20, 66);
+            this.lblMyBookingsTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMyBookingsTotal.Name = "lblMyBookingsTotal";
-            this.lblMyBookingsTotal.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsTotal.Size = new System.Drawing.Size(23, 25);
             this.lblMyBookingsTotal.TabIndex = 7;
             this.lblMyBookingsTotal.Text = "0";
             // 
@@ -750,9 +822,10 @@ namespace ProductTracking
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(13, 12);
+            this.label20.Location = new System.Drawing.Point(20, 18);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(114, 20);
+            this.label20.Size = new System.Drawing.Size(175, 29);
             this.label20.TabIndex = 6;
             this.label20.Text = "Total Bookings";
             // 
@@ -760,18 +833,20 @@ namespace ProductTracking
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(20, 58);
+            this.label21.Location = new System.Drawing.Point(30, 89);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(300, 20);
+            this.label21.Size = new System.Drawing.Size(456, 29);
             this.label21.TabIndex = 12;
             this.label21.Text = "View and manage your room reservations";
             // 
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(18, 13);
+            this.label22.Location = new System.Drawing.Point(27, 20);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(267, 45);
+            this.label22.Size = new System.Drawing.Size(400, 69);
             this.label22.TabIndex = 11;
             this.label22.Text = "My Bookings";
             // 
@@ -780,18 +855,20 @@ namespace ProductTracking
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.lblMyBookingsCancelled);
             this.panel10.Controls.Add(this.label26);
-            this.panel10.Location = new System.Drawing.Point(827, 125);
+            this.panel10.Location = new System.Drawing.Point(1240, 192);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(200, 100);
+            this.panel10.Size = new System.Drawing.Size(298, 152);
             this.panel10.TabIndex = 16;
             // 
             // lblMyBookingsCancelled
             // 
             this.lblMyBookingsCancelled.AutoSize = true;
             this.lblMyBookingsCancelled.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMyBookingsCancelled.Location = new System.Drawing.Point(12, 43);
+            this.lblMyBookingsCancelled.Location = new System.Drawing.Point(18, 66);
+            this.lblMyBookingsCancelled.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMyBookingsCancelled.Name = "lblMyBookingsCancelled";
-            this.lblMyBookingsCancelled.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsCancelled.Size = new System.Drawing.Size(23, 25);
             this.lblMyBookingsCancelled.TabIndex = 10;
             this.lblMyBookingsCancelled.Text = "0";
             // 
@@ -799,9 +876,10 @@ namespace ProductTracking
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(12, 12);
+            this.label26.Location = new System.Drawing.Point(18, 18);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(79, 20);
+            this.label26.Size = new System.Drawing.Size(122, 29);
             this.label26.TabIndex = 9;
             this.label26.Text = "Cancelled";
             // 
@@ -810,18 +888,20 @@ namespace ProductTracking
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel11.Controls.Add(this.lblMyBookingsCompleted);
             this.panel11.Controls.Add(this.label29);
-            this.panel11.Location = new System.Drawing.Point(564, 125);
+            this.panel11.Location = new System.Drawing.Point(846, 192);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(200, 100);
+            this.panel11.Size = new System.Drawing.Size(298, 152);
             this.panel11.TabIndex = 15;
             // 
             // lblMyBookingsCompleted
             // 
             this.lblMyBookingsCompleted.AutoSize = true;
             this.lblMyBookingsCompleted.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMyBookingsCompleted.Location = new System.Drawing.Point(12, 43);
+            this.lblMyBookingsCompleted.Location = new System.Drawing.Point(18, 66);
+            this.lblMyBookingsCompleted.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMyBookingsCompleted.Name = "lblMyBookingsCompleted";
-            this.lblMyBookingsCompleted.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsCompleted.Size = new System.Drawing.Size(23, 25);
             this.lblMyBookingsCompleted.TabIndex = 9;
             this.lblMyBookingsCompleted.Text = "0";
             // 
@@ -829,9 +909,10 @@ namespace ProductTracking
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(12, 12);
+            this.label29.Location = new System.Drawing.Point(18, 18);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(86, 20);
+            this.label29.Size = new System.Drawing.Size(132, 29);
             this.label29.TabIndex = 9;
             this.label29.Text = "Completed";
             // 
@@ -840,18 +921,20 @@ namespace ProductTracking
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel12.Controls.Add(this.lblMyBookingsUpcoming);
             this.panel12.Controls.Add(this.label23);
-            this.panel12.Location = new System.Drawing.Point(294, 125);
+            this.panel12.Location = new System.Drawing.Point(441, 192);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(200, 100);
+            this.panel12.Size = new System.Drawing.Size(298, 152);
             this.panel12.TabIndex = 14;
             // 
             // lblMyBookingsUpcoming
             // 
             this.lblMyBookingsUpcoming.AutoSize = true;
             this.lblMyBookingsUpcoming.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMyBookingsUpcoming.Location = new System.Drawing.Point(14, 43);
+            this.lblMyBookingsUpcoming.Location = new System.Drawing.Point(21, 66);
+            this.lblMyBookingsUpcoming.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMyBookingsUpcoming.Name = "lblMyBookingsUpcoming";
-            this.lblMyBookingsUpcoming.Size = new System.Drawing.Size(16, 17);
+            this.lblMyBookingsUpcoming.Size = new System.Drawing.Size(23, 25);
             this.lblMyBookingsUpcoming.TabIndex = 8;
             this.lblMyBookingsUpcoming.Text = "0";
             // 
@@ -859,19 +942,21 @@ namespace ProductTracking
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(14, 12);
+            this.label23.Location = new System.Drawing.Point(21, 18);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(81, 20);
+            this.label23.Size = new System.Drawing.Size(123, 29);
             this.label23.TabIndex = 8;
             this.label23.Text = "Upcoming";
             // 
             // StudentDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 712);
+            this.ClientSize = new System.Drawing.Size(1650, 1095);
             this.Controls.Add(this.tab_dashboard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StudentDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Dashboard";
@@ -985,5 +1070,6 @@ namespace ProductTracking
         private Label label10;
         private Label label6;
         private Label label3;
+        private Button btnEditBooking;
     }
 }

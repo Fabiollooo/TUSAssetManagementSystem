@@ -73,7 +73,7 @@ namespace DataAccessLayer
 
         public List<IUser> getAllUsers()
         {
-          List<IUser> UserList = new List<IUser>();
+            List<IUser> UserList = new List<IUser>();
             try
             {
 
@@ -191,7 +191,7 @@ namespace DataAccessLayer
         public List<IOrder> getAllOrders()
         {
             List<IOrder> OrderList = new List<IOrder>();
-            List<IProductLine> ProductLineList = new List<IProductLine>(); 
+            List<IProductLine> ProductLineList = new List<IProductLine>();
             DataSet ds;                 //Declare the DataSet object
             SqlDataAdapter da;   //Declare the DataAdapter object
             SqlCommandBuilder cb;
@@ -206,14 +206,14 @@ namespace DataAccessLayer
                 for (int i = 0; i < totNumOrders; i++)
                 {
                     DataRow dRow = ds.Tables["OrdersData"].Rows[i];
-                  
+
                     IOrder order = OrderFactory.GetOrder(Convert.ToInt16(dRow.ItemArray.GetValue(0).ToString()),
                                             Convert.ToInt16(dRow.ItemArray.GetValue(1).ToString()),
                                             Convert.ToInt16(dRow.ItemArray.GetValue(2).ToString()),
                                             Convert.ToBoolean(dRow.ItemArray.GetValue(3).ToString()),
                                             DateTime.Parse(dRow.ItemArray.GetValue(4).ToString()));
                     OrderList.Add(order);
-               
+
 
                 }
             }
@@ -254,7 +254,7 @@ namespace DataAccessLayer
                                             Convert.ToInt16(dRow.ItemArray.GetValue(4).ToString()),
                                             Convert.ToBoolean(dRow.ItemArray.GetValue(5).ToString()));
                     ProductLineList.Add(productLine);
-                    
+
                 }
             }
             catch (System.Exception excep)
@@ -267,9 +267,9 @@ namespace DataAccessLayer
             }
 
             return ProductLineList;
-    }
+        }
 
-        public bool  editProductLineInDB(IProductLine productLine)
+        public bool editProductLineInDB(IProductLine productLine)
         {
             try
             {
@@ -279,7 +279,7 @@ namespace DataAccessLayer
                 da.MissingSchemaAction = MissingSchemaAction.AddWithKey;
                 cb = new SqlCommandBuilder(da);  //Generates
                 da.Fill(ds, "ProductLinesData");
-                object[] compK = new object[2] { productLine.ProductLineCode.ToString(), productLine.OrderCode}; // using a composite primiary key
+                object[] compK = new object[2] { productLine.ProductLineCode.ToString(), productLine.OrderCode }; // using a composite primiary key
                 DataRow findRow = ds.Tables["ProductLinesData"].Rows.Find(compK);
                 if (findRow != null)
                 {
@@ -321,7 +321,7 @@ namespace DataAccessLayer
                     dRow["Resources"].ToString(),
                     Convert.ToInt32(dRow["RoomStatusID"]),
                     dRow["StatusName"].ToString(),
-                    dRow["RoomType"].ToString() 
+                    dRow["RoomType"].ToString()
                      );
 
                     rooms.Add(room);
@@ -338,8 +338,9 @@ namespace DataAccessLayer
         {
             string defaultSql = "SELECT COUNT(*) FROM LibraryRoomBookings";
             SqlCommand cmd = new SqlCommand(defaultSql, con);
-  
-            if (userId != null) {
+
+            if (userId != null)
+            {
                 cmd.CommandText += " WHERE UserID = @UserID";
                 cmd.Parameters.AddWithValue("@UserID", userId);
             }
@@ -432,7 +433,7 @@ namespace DataAccessLayer
                     DateTime date = (DateTime)reader["Date"];
                     TimeSpan startTimeSpan = (TimeSpan)reader["StartTime"];
                     TimeSpan endTimeSpan = (TimeSpan)reader["EndTime"];
-                    bool cancelled = Convert.ToBoolean(reader["Cancelled"]); 
+                    bool cancelled = Convert.ToBoolean(reader["Cancelled"]);
 
                     DateTime startTime = date.Date + startTimeSpan;
                     DateTime endTime = date.Date + endTimeSpan;
@@ -446,7 +447,7 @@ namespace DataAccessLayer
                         date,
                         startTime,
                         endTime,
-                        cancelled 
+                        cancelled
                     )
                     {
                         checkedIn = Convert.ToBoolean(reader["CheckedIn"])
@@ -549,7 +550,7 @@ namespace DataAccessLayer
                     dRow["Resources"].ToString(),
                     Convert.ToInt32(dRow["RoomStatusID"]),
                     dRow["StatusName"].ToString(),
-                    dRow["RoomType"].ToString()  
+                    dRow["RoomType"].ToString()
                      );
 
                     rooms.Add(room);
@@ -616,13 +617,13 @@ namespace DataAccessLayer
                     dRow["Resources"].ToString(),
                     Convert.ToInt32(dRow["RoomStatusID"]),
                     dRow["StatusName"].ToString(),
-                    dRow["RoomType"].ToString() 
+                    dRow["RoomType"].ToString()
                      );
 
                     DateTime date = (DateTime)dRow["Date"];
                     TimeSpan startTimeSpan = (TimeSpan)dRow["StartTime"];
                     TimeSpan endTimeSpan = (TimeSpan)dRow["EndTime"];
-                    bool cancelled = Convert.ToBoolean(dRow["Cancelled"]); 
+                    bool cancelled = Convert.ToBoolean(dRow["Cancelled"]);
 
                     DateTime startTime = date.Date + startTimeSpan;
                     DateTime endTime = date.Date + endTimeSpan;
@@ -634,7 +635,7 @@ namespace DataAccessLayer
                         date,
                         startTime,
                         endTime,
-                        cancelled 
+                        cancelled
                     )
                     {
                         checkedIn = Convert.ToBoolean(dRow["CheckedIn"])
@@ -697,6 +698,177 @@ namespace DataAccessLayer
                     con.Close();
                 Application.Exit();
             }
+        }
+
+        public List<LibraryRoomBooking> GetAllLibraryBookings()
+        {
+            List<LibraryRoomBooking> bookings = new List<LibraryRoomBooking>();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
+
+            try
+            {
+                string sql = @"
+              SELECT  lrb.BookingID,
+            lrb.UserID,
+            lrb.LibraryRoomID,
+            lrb.Date,
+            lrb.StartTime,
+            lrb.EndTime,
+            lrb.Cancelled,
+            lrb.CheckedIn,
+            lr.RoomNumber,
+            lr.Capacity,
+            lr.Resources,
+            lr.RoomStatusID,
+            rs.StatusName
+           FROM LibraryRoomBookings AS lrb
+            JOIN LibraryRooms AS lr ON lrb.LibraryRoomID = lr.LibraryRoomID
+          JOIN RoomStatus AS rs ON lr.RoomStatusID = rs.RoomStatusID
+      ";
+
+
+                da = new SqlDataAdapter(sql, con);
+                da.Fill(ds, "LibraryRoomBookingsData");
+
+                foreach (DataRow dRow in ds.Tables["LibraryRoomBookingsData"].Rows)
+                {
+                    LibraryRoom room = new LibraryRoom(
+                        Convert.ToInt32(dRow["LibraryRoomID"]),
+                        dRow["RoomNumber"].ToString(),
+                        Convert.ToInt32(dRow["Capacity"]),
+                        dRow["Resources"].ToString(),
+                        Convert.ToInt32(dRow["RoomStatusID"]),
+                        dRow["StatusName"].ToString()
+                    );
+
+                    DateTime date = (DateTime)dRow["Date"];
+                    TimeSpan startSpan = (TimeSpan)dRow["StartTime"];
+                    TimeSpan endSpan = (TimeSpan)dRow["EndTime"];
+
+                    DateTime startTime = date.Date + startSpan;
+                    DateTime endTime = date.Date + endSpan;
+
+                    bool cancelled = dRow["Cancelled"] != DBNull.Value && (bool)dRow["Cancelled"];
+                    bool checkedIn = dRow["CheckedIn"] != DBNull.Value && (bool)dRow["CheckedIn"];
+
+                    LibraryRoomBooking booking = new LibraryRoomBooking(
+                        Convert.ToInt32(dRow["BookingID"]),
+                        Convert.ToInt32(dRow["UserID"]),
+                        room,
+                        date,
+                        startTime,
+                        endTime,
+                        cancelled
+                    )
+                    {
+                        checkedIn = checkedIn
+                    };
+
+                    bookings.Add(booking);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving library bookings: " + ex.Message);
+            }
+
+            return bookings;
+        }
+
+        public bool UpdateLibraryRoomBooking(LibraryRoomBooking booking)
+        {
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
+                string sql = @"
+            UPDATE LibraryRoomBookings
+            SET LibraryRoomID = @RoomID,
+                Date         = @Date,
+                StartTime    = @StartTime,
+                EndTime      = @EndTime
+            WHERE BookingID  = @BookingID";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@RoomID", booking.room.roomID);
+                    cmd.Parameters.AddWithValue("@Date", booking.date.Date);
+                    cmd.Parameters.AddWithValue("@StartTime",
+                        new TimeSpan(booking.startTime.Hour, booking.startTime.Minute, 0));
+                    cmd.Parameters.AddWithValue("@EndTime",
+                        new TimeSpan(booking.endTime.Hour, booking.endTime.Minute, 0));
+                    cmd.Parameters.AddWithValue("@BookingID", booking.bookingID);
+
+                    int rows = cmd.ExecuteNonQuery();
+                    return rows > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating booking: " + ex.Message);
+                return false;
+            }
+        }
+
+
+
+        public bool CancelLibraryBooking(int bookingId)
+        {
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
+                string sql = "UPDATE LibraryRoomBookings SET Cancelled = 1 WHERE BookingID = @BookingID";
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@BookingID", bookingId);
+                    int rows = cmd.ExecuteNonQuery();
+                    return rows > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error cancelling library booking: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+            }
+        }
+
+        public int AutoCancelNoShowBookings()
+        {
+            try
+            {
+                if (con.State != ConnectionState.Open)
+                    con.Open();
+
+                string sql = @"
+            UPDATE LibraryRoomBookings
+            SET Cancelled = 1
+            WHERE Cancelled = 0
+              AND (CheckedIn = 0 OR CheckedIn IS NULL)
+              AND DATEADD(hour,
+                          DATEPART(hour, EndTime),
+                          DATEADD(minute, DATEPART(minute, EndTime), CAST(Date AS datetime)))
+                  < GETDATE();";
+
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    return cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error auto - cancelling no - show bookings:" + "" + ex.Message);
+                return 0;
+            }
+           
         }
     }
 }

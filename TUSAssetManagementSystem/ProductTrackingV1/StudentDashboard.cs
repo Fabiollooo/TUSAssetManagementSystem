@@ -78,7 +78,7 @@ namespace ProductTracking
                 dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Resources", DataPropertyName = "resources" });
                 dgvRooms.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Status", DataPropertyName = "statusName" });
 
-               
+
                 string userType = Model.CurrentUser.UserType;
                 var filteredRooms = Model.LibraryRoomList.Where(room =>
                     room.roomType == userType || room.roomType == "Both"
@@ -109,13 +109,14 @@ namespace ProductTracking
                 dgvMyBookings.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Cancelled", DataPropertyName = "cancelled" });
                 dgvMyBookings.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Checked In", DataPropertyName = "checkedIn" });
 
-                dgvMyBookings.DataSource = Model.LibraryRoomBookingsList.Select(booking => new {
+                dgvMyBookings.DataSource = Model.LibraryRoomBookingsList.Select(booking => new
+                {
                     booking.room.roomNumber,
                     date = booking.date.ToString("dd:MM:yyyy"),
                     startTime = booking.startTime.ToString("HH:mm"),
                     endTime = booking.endTime.ToString("HH:mm"),
                     cancelled = booking.cancelled ? "True" : "False",
-                    checkedIn = booking.checkedIn ? "Yes" : "No"  
+                    checkedIn = booking.checkedIn ? "Yes" : "No"
                 }).ToList();
             }
         }
@@ -124,12 +125,12 @@ namespace ProductTracking
         {
             try
             {
-        
+
                 lblNoActiveBookings.Text = Model.CountActiveBookingsForUser(Model.CurrentUser.UserID).ToString();
                 lblHoursBooked.Text = Model.GetHoursBookedThisMonth(Model.CurrentUser.UserID).ToString();
                 lblUpcomingNo.Text = Model.GetUpcomingBookingsCount(Model.CurrentUser.UserID).ToString();
 
-            
+
                 LoadUpcomingBookings();
             }
             catch (Exception ex)
@@ -139,31 +140,31 @@ namespace ProductTracking
         }
 
 
-        
+
 
         private void LoadUpcomingBookings()
         {
             try
             {
-              
+
                 List<LibraryRoomBooking> bookings = Model.GetTop3UpcomingBookings(Model.CurrentUser.UserID);
                 DisplayBookings(bookings);
             }
             catch (Exception ex)
             {
-                
+
                 MessageBox.Show("Error loading upcoming bookings: " + ex.Message);
             }
         }
 
         private void DisplayBookings(List<LibraryRoomBooking> bookings)
         {
-          
+
             panelRoom1.Visible = false;
             panelRoom2.Visible = false;
             panelRoom3.Visible = false;
 
-           
+
             if (bookings.Count >= 1)
             {
                 DisplayBooking(bookings[0], panelRoom1, lblTitle1, lblTime1, lblID1);
@@ -301,7 +302,7 @@ namespace ProductTracking
 
             string randomCode = GenerateRandomCode();
 
-            
+
             using (Form inputForm = new Form())
             {
                 inputForm.Text = "Check-In Verification";
@@ -316,17 +317,17 @@ namespace ProductTracking
 
                 inputForm.Controls.AddRange(new Control[] { codeLabel, instructionLabel, codeTextBox, submitButton, cancelButton });
 
-                
+
                 DialogResult result = inputForm.ShowDialog();
 
                 if (result == DialogResult.OK && codeTextBox.Text == randomCode)
                 {
-                    
+
                     bool success = Model.UpdateBookingCheckInStatus(selectedBooking.bookingID, true);
 
                     if (success)
                     {
-                        
+
                         selectedBooking.checkedIn = true;
                         RefreshMyBookings();
                         MessageBox.Show("Successfully checked in!", "Check-In Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -366,7 +367,7 @@ namespace ProductTracking
         //Ignore
         private void dgvRooms_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -409,13 +410,54 @@ namespace ProductTracking
 
         }
 
-
-
-
-        //}
+      
 
 
 
 
+       
+
+        private void btnEditBooking_Click_1(object sender, EventArgs e)
+        {
+            if (dgvMyBookings.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a booking to edit.");
+                return;
+            }
+
+            int rowIndex = dgvMyBookings.CurrentRow.Index;
+
+            if (rowIndex < 0 || rowIndex >= Model.LibraryRoomBookingsList.Count)
+            {
+                MessageBox.Show("Could not read the selected booking.");
+                return;
+            }
+
+            var booking = Model.LibraryRoomBookingsList[rowIndex];
+
+            using (var editForm = new EditBookingForm(Model, booking))
+            {
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    LoadUpcomingBookings();
+                    Model.populateLibraryRoomBookings(Model.CurrentUser);
+                    RefreshRooms();
+                    RefreshMyBookings();
+
+
+                    LoadUpcomingBookings();
+
+
+                }
+            }
+        }
     }
 }
+    
+
+
+
+
+
+    
+
