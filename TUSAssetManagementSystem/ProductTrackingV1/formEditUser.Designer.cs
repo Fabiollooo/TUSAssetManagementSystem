@@ -37,6 +37,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboUserType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(178, 244);
             this.listBoxUsers.TabIndex = 0;
+            this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             this.listBoxUsers.DoubleClick += new System.EventHandler(this.listBoxUsers_DoubleClick);
             // 
             // textBoxName
@@ -69,7 +71,7 @@
             // 
             // buttonCommit
             // 
-            this.buttonCommit.Location = new System.Drawing.Point(235, 294);
+            this.buttonCommit.Location = new System.Drawing.Point(235, 303);
             this.buttonCommit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCommit.Name = "buttonCommit";
             this.buttonCommit.Size = new System.Drawing.Size(112, 35);
@@ -120,6 +122,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.comboUserType);
             this.panel1.Controls.Add(this.lblName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonCommit);
@@ -131,6 +134,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(548, 465);
             this.panel1.TabIndex = 8;
+            // 
+            // comboUserType
+            // 
+            this.comboUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboUserType.FormattingEnabled = true;
+            this.comboUserType.Location = new System.Drawing.Point(235, 221);
+            this.comboUserType.Name = "comboUserType";
+            this.comboUserType.Size = new System.Drawing.Size(121, 28);
+            this.comboUserType.TabIndex = 8;
             // 
             // formEditUser
             // 
@@ -165,5 +177,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboUserType;
     }
 }

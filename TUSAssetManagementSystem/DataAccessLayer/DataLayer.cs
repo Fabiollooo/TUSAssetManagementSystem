@@ -48,10 +48,10 @@ namespace DataAccessLayer
         public void openConnection()
         {
             con = new SqlConnection();
-            con.ConnectionString = "Data Source=tcp:MY-V-U-ITSQL05.tusstudent.ad.tus.ie\\INSTBL11,60161;Initial Catalog=ProductTracker;User ID=K00295782;Password=11$QLSD3-2025;";
+         //   con.ConnectionString = "Data Source=tcp:MY-V-U-ITSQL05.tusstudent.ad.tus.ie\\INSTBL11,60161;Initial Catalog=ProductTracker;User ID=K00295782;Password=11$QLSD3-2025;";
 
 
-            // con.ConnectionString = "Server=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Persist Security Info=False;User ID=adminUser;Password=P@ssword123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+             con.ConnectionString = "Server=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Persist Security Info=False;User ID=adminUser;Password=P@ssword123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             try
             {
                 con.Open();
@@ -89,10 +89,10 @@ namespace DataAccessLayer
                 for (int i = 0; i < totUsers; i++)
                 {
                     DataRow dRow = ds.Tables["UsersData"].Rows[i];
-                    IUser user = UserFactory.GetUser(dRow.ItemArray.GetValue(1).ToString(),  // Using a Factory to create the user entity object. ie seperating object creation from business logic
+                    IUser user = UserFactory.GetUser(dRow.ItemArray.GetValue(0).ToString(),  // Using a Factory to create the user entity object. ie seperating object creation from business logic
+                                                        dRow.ItemArray.GetValue(1).ToString(),
                                                         dRow.ItemArray.GetValue(2).ToString(),
-                                                        dRow.ItemArray.GetValue(3).ToString(),
-                                                       Convert.ToInt16((dRow.ItemArray.GetValue(0))));
+                                                       Convert.ToInt16((dRow.ItemArray.GetValue(3))));
 
                     UserList.Add(user);
                 }
@@ -170,24 +170,28 @@ namespace DataAccessLayer
                 string sql = "SELECT * From Users";
                 da = new SqlDataAdapter(sql, con);
                 da.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                cb = new SqlCommandBuilder(da);  //Generates
+                cb = new SqlCommandBuilder(da);
                 da.Fill(ds, "UsersData");
+
                 DataRow findRow = ds.Tables["UsersData"].Rows.Find(user.UserID);
                 if (findRow != null)
                 {
+                    
                     findRow[0] = user.Name;
                     findRow[1] = user.Password;
+                    findRow[2] = user.UserType;   
                 }
-                da.Update(ds, "UsersData"); //remove row from database table
+
+                da.Update(ds, "UsersData");      
+                return true;
             }
-            catch (System.Exception excep)
+            catch (Exception ex)
             {
-                MessageBox.Show(excep.Message);
-                if (getConnection().ToString() == "Open")
-                    closeConnection();
-                Application.Exit();
+                MessageBox.Show(ex.Message);
+                if (con.State == ConnectionState.Open)
+                    con.Close();
+                return false;
             }
-            return true;
         }
 
 
@@ -227,7 +231,7 @@ namespace DataAccessLayer
                 if (con.State.ToString() == "Open")
                     con.Close();
                 Application.Exit();
-                //Environment.Exit(0); //Force the application to close
+                
             }
             return OrderList;
         }

@@ -112,23 +112,36 @@ namespace BusinessLayer
         {
             try
             {
+               
+                if (UserList.Any(u => u.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("A user with that name already exists.");
+                    return false;
+                }
+
+               
                 int maxId = 0;
-                // need some code to avoid dulicate usernames
-                // maybe add some logic (busiess rules) about password policy
-          //      IUser user = new User(name, password, userType); // Construct a User Object
                 foreach (User user in UserList)
                 {
                     if (user.UserID > maxId)
                         maxId = user.UserID;
                 }
-                IUser theUser = UserFactory.GetUser(name, password, userType,maxId+1);   
+
+                int newId = maxId + 1;
+
+               
+                IUser theUser = UserFactory.GetUser(name, password, userType, newId);
+                DataLayer.addNewUserToDB(theUser);
+                UserList.Add(theUser);
+
                 return true;
             }
-                catch (System.Exception excep)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
-            }   
-    }
+            }
+        }
 
         public bool deleteUser(IUser user)
         {
@@ -140,7 +153,19 @@ namespace BusinessLayer
         }
         public bool editUser(IUser user)
         {
-            DataLayer.editUserInDB(user);
+           
+            bool ok = DataLayer.editUserInDB(user);
+            if (!ok) return false;
+
+            
+            var existing = UserList.FirstOrDefault(u => u.UserID == user.UserID);
+            if (existing != null)
+            {
+                existing.Name = user.Name;
+                existing.Password = user.Password;
+                existing.UserType = user.UserType;
+            }
+
             return true;
         }
 

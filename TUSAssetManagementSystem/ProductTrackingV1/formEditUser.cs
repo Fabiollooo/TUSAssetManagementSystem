@@ -36,23 +36,74 @@ namespace ProductTracking
 
         private void buttonCommit_Click(object sender, EventArgs e)
         {
+            if (listBoxUsers.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a user to edit.");
+                return;
+            }
+
+            string originalName = listBoxUsers.SelectedItem.ToString();
+            string newName = textBoxName.Text.Trim();
+            string newPassword = textBoxPassword.Text;
+            string newUserType = comboUserType.SelectedItem == null
+                ? null
+                : comboUserType.SelectedItem.ToString().Trim();
+
+            if (string.IsNullOrWhiteSpace(newName) ||
+                string.IsNullOrWhiteSpace(newPassword) ||
+                string.IsNullOrWhiteSpace(newUserType))
+            {
+                MessageBox.Show("Name, password and role are required.");
+                return;
+            }
+
+            User selectedUser = null;
+
             foreach (User user in Model.UserList)
             {
-                if (user.Name == listBoxUsers.SelectedItem.ToString())
+                if (user.Name == originalName)
                 {
-                    user.Name = textBoxName.Text;
-                    user.Password = textBoxPassword.Text;
-                    Model.editUser(user);
+                    selectedUser = user;
+                    break;
                 }
             }
+
+            if (selectedUser == null)
+            {
+                MessageBox.Show("Could not find the selected user in the model.");
+                return;
+            }
+
+            // Create a fresh user object with updated values
+            BusinessEntities.IUser updatedUser =
+                UserFactory.GetUser(newName, newPassword, newUserType, selectedUser.UserID);
+
+            Model.editUser(updatedUser);
+
+            MessageBox.Show("User updated successfully.");
+
+            // Refresh UI
             textBoxName.Text = "";
             textBoxPassword.Text = "";
-        
+            comboUserType.SelectedIndex = -1;
+
+            listBoxUsers.Items.Clear();
+            foreach (User user in Model.UserList)
+            {
+                listBoxUsers.Items.Add(user.Name);
+            }
+
 
         }
 
         private void formEditUser_Load(object sender, EventArgs e)
         {
+            comboUserType.Items.Clear();
+            comboUserType.Items.Add("Admin");
+            comboUserType.Items.Add("Staff");
+            comboUserType.Items.Add("Student");
+
+            listBoxUsers.Items.Clear();
             foreach (User user in Model.UserList)
             {
                 listBoxUsers.Items.Add(user.Name);
@@ -61,14 +112,26 @@ namespace ProductTracking
 
         private void listBoxUsers_DoubleClick(object sender, EventArgs e)
         {
-            textBoxName.Text = listBoxUsers.SelectedItem.ToString();
+            if (listBoxUsers.SelectedItem == null) return;
+
+            string selectedName = listBoxUsers.SelectedItem.ToString();
+
             foreach (User user in Model.UserList)
             {
-                if (user.Name == textBoxName.Text)
+                if (user.Name == selectedName)
+                {
+                    textBoxName.Text = user.Name;
                     textBoxPassword.Text = user.Password;
+                    comboUserType.SelectedItem = user.UserType;
+                    break;
+                }
+
             }
-            
         }
 
+        private void listBoxUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
