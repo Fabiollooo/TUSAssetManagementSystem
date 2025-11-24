@@ -48,7 +48,10 @@ namespace DataAccessLayer
         public void openConnection()
         {
             con = new SqlConnection();
-            con.ConnectionString = "Server=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Persist Security Info=False;User ID=adminUser;Password=P@ssword123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            con.ConnectionString = "Data Source=tcp:MY-V-U-ITSQL05.tusstudent.ad.tus.ie\\INSTBL11,60161;Initial Catalog=ProductTracker;User ID=K00295782;Password=11$QLSD3-2025;";
+
+
+            // con.ConnectionString = "Server=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Persist Security Info=False;User ID=adminUser;Password=P@ssword123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             try
             {
                 con.Open();
@@ -86,10 +89,10 @@ namespace DataAccessLayer
                 for (int i = 0; i < totUsers; i++)
                 {
                     DataRow dRow = ds.Tables["UsersData"].Rows[i];
-                    IUser user = UserFactory.GetUser(dRow.ItemArray.GetValue(0).ToString(),  // Using a Factory to create the user entity object. ie seperating object creation from business logic
-                                                        dRow.ItemArray.GetValue(1).ToString(),
+                    IUser user = UserFactory.GetUser(dRow.ItemArray.GetValue(1).ToString(),  // Using a Factory to create the user entity object. ie seperating object creation from business logic
                                                         dRow.ItemArray.GetValue(2).ToString(),
-                                                       Convert.ToInt16((dRow.ItemArray.GetValue(3))));
+                                                        dRow.ItemArray.GetValue(3).ToString(),
+                                                       Convert.ToInt16((dRow.ItemArray.GetValue(0))));
 
                     UserList.Add(user);
                 }
@@ -833,11 +836,6 @@ namespace DataAccessLayer
             {
                 MessageBox.Show("Error cancelling library booking: " + ex.Message);
                 return false;
-            }
-            finally
-            {
-                if (con.State == ConnectionState.Open)
-                    con.Close();
             }
         }
 

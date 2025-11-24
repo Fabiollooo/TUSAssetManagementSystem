@@ -31,7 +31,8 @@ namespace ProductTracking
             }
         }
 
-       
+      
+
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             LoadStats();

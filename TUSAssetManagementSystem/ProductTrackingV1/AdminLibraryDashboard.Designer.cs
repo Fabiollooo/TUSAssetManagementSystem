@@ -34,14 +34,16 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.lblAdminBookings = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibraryBookings)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvLibraryBookings
             // 
             this.dgvLibraryBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLibraryBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLibraryBookings.Location = new System.Drawing.Point(159, 199);
+            this.dgvLibraryBookings.Location = new System.Drawing.Point(66, 70);
             this.dgvLibraryBookings.Name = "dgvLibraryBookings";
             this.dgvLibraryBookings.ReadOnly = true;
             this.dgvLibraryBookings.RowHeadersWidth = 62;
@@ -53,9 +55,9 @@
             // 
             // btnAutoCancel
             // 
-            this.btnAutoCancel.Location = new System.Drawing.Point(1147, 369);
+            this.btnAutoCancel.Location = new System.Drawing.Point(659, 504);
             this.btnAutoCancel.Name = "btnAutoCancel";
-            this.btnAutoCancel.Size = new System.Drawing.Size(92, 53);
+            this.btnAutoCancel.Size = new System.Drawing.Size(171, 36);
             this.btnAutoCancel.TabIndex = 2;
             this.btnAutoCancel.Text = "Auto Cancel no show";
             this.btnAutoCancel.UseVisualStyleBackColor = true;
@@ -63,9 +65,9 @@
             // 
             // btnCancelBooking
             // 
-            this.btnCancelBooking.Location = new System.Drawing.Point(1147, 442);
+            this.btnCancelBooking.Location = new System.Drawing.Point(515, 504);
             this.btnCancelBooking.Name = "btnCancelBooking";
-            this.btnCancelBooking.Size = new System.Drawing.Size(92, 48);
+            this.btnCancelBooking.Size = new System.Drawing.Size(92, 36);
             this.btnCancelBooking.TabIndex = 3;
             this.btnCancelBooking.Text = "Cancel Booking";
             this.btnCancelBooking.UseVisualStyleBackColor = true;
@@ -73,7 +75,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(1147, 321);
+            this.btnRefresh.Location = new System.Drawing.Point(333, 509);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(109, 31);
             this.btnRefresh.TabIndex = 4;
@@ -85,7 +87,7 @@
             // 
             this.lblAdminBookings.AutoSize = true;
             this.lblAdminBookings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdminBookings.Location = new System.Drawing.Point(91, 43);
+            this.lblAdminBookings.Location = new System.Drawing.Point(459, 15);
             this.lblAdminBookings.Name = "lblAdminBookings";
             this.lblAdminBookings.Size = new System.Drawing.Size(122, 29);
             this.lblAdminBookings.TabIndex = 5;
@@ -93,7 +95,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(22, 109);
+            this.btnBack.Location = new System.Drawing.Point(84, 509);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(82, 31);
             this.btnBack.TabIndex = 6;
@@ -101,23 +103,33 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.dgvLibraryBookings);
+            this.panel1.Controls.Add(this.btnAutoCancel);
+            this.panel1.Controls.Add(this.btnCancelBooking);
+            this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Controls.Add(this.btnBack);
+            this.panel1.Controls.Add(this.lblAdminBookings);
+            this.panel1.Location = new System.Drawing.Point(83, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1134, 619);
+            this.panel1.TabIndex = 7;
+            // 
             // AdminLibraryDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 671);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblAdminBookings);
-            this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.btnCancelBooking);
-            this.Controls.Add(this.btnAutoCancel);
-            this.Controls.Add(this.dgvLibraryBookings);
+            this.ClientSize = new System.Drawing.Size(1246, 671);
+            this.Controls.Add(this.panel1);
             this.Name = "AdminLibraryDashboard";
             this.Text = "AdminLibraryDashboard";
             this.Load += new System.EventHandler(this.AdminLibraryDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibraryBookings)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -128,5 +140,6 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Label lblAdminBookings;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Panel panel1;
     }
 }

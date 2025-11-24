@@ -16,7 +16,7 @@ namespace ProductTracking
         private IModel Model;
         #endregion  
         #region Constructors
-        public formContainer(IModel _Model) // gets passed a reference to the model object
+        public formContainer(IModel _Model) 
         {
             InitializeComponent();
             Model = _Model;
@@ -54,6 +54,11 @@ namespace ProductTracking
                     break;
                 }
             }
+
+        }
+
+        private void formContainer_Load(object sender, EventArgs e)
+        {
 
         }
     }
