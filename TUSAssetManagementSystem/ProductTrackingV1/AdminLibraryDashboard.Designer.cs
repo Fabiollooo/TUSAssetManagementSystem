@@ -42,7 +42,9 @@
             // dgvLibraryBookings
             // 
             this.dgvLibraryBookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLibraryBookings.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvLibraryBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLibraryBookings.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.dgvLibraryBookings.Location = new System.Drawing.Point(66, 70);
             this.dgvLibraryBookings.Name = "dgvLibraryBookings";
             this.dgvLibraryBookings.ReadOnly = true;
@@ -55,9 +57,9 @@
             // 
             // btnAutoCancel
             // 
-            this.btnAutoCancel.Location = new System.Drawing.Point(659, 504);
+            this.btnAutoCancel.Location = new System.Drawing.Point(834, 509);
             this.btnAutoCancel.Name = "btnAutoCancel";
-            this.btnAutoCancel.Size = new System.Drawing.Size(171, 36);
+            this.btnAutoCancel.Size = new System.Drawing.Size(171, 52);
             this.btnAutoCancel.TabIndex = 2;
             this.btnAutoCancel.Text = "Auto Cancel no show";
             this.btnAutoCancel.UseVisualStyleBackColor = true;
@@ -65,9 +67,9 @@
             // 
             // btnCancelBooking
             // 
-            this.btnCancelBooking.Location = new System.Drawing.Point(515, 504);
+            this.btnCancelBooking.Location = new System.Drawing.Point(592, 509);
             this.btnCancelBooking.Name = "btnCancelBooking";
-            this.btnCancelBooking.Size = new System.Drawing.Size(92, 36);
+            this.btnCancelBooking.Size = new System.Drawing.Size(92, 52);
             this.btnCancelBooking.TabIndex = 3;
             this.btnCancelBooking.Text = "Cancel Booking";
             this.btnCancelBooking.UseVisualStyleBackColor = true;
@@ -75,9 +77,9 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(333, 509);
+            this.btnRefresh.Location = new System.Drawing.Point(318, 509);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(109, 31);
+            this.btnRefresh.Size = new System.Drawing.Size(109, 52);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -97,7 +99,7 @@
             // 
             this.btnBack.Location = new System.Drawing.Point(84, 509);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(82, 31);
+            this.btnBack.Size = new System.Drawing.Size(82, 61);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;

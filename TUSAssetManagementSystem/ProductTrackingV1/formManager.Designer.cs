@@ -96,20 +96,21 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.btnBack);
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.buttonAddUser);
             this.panel1.Controls.Add(this.buttonEditUser);
             this.panel1.Controls.Add(this.buttonDeleteUser);
-            this.panel1.Location = new System.Drawing.Point(216, 202);
+            this.panel1.Location = new System.Drawing.Point(254, 210);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(547, 527);
             this.panel1.TabIndex = 5;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(84, 105);
+            this.btnBack.Location = new System.Drawing.Point(399, 443);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 36);
+            this.btnBack.Size = new System.Drawing.Size(99, 40);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -120,9 +121,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(967, 769);
+            this.ClientSize = new System.Drawing.Size(1007, 769);
             this.ControlBox = false;
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LblUserManagement);
             this.DoubleBuffered = true;

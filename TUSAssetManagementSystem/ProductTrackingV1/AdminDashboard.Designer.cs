@@ -45,9 +45,9 @@
             this.panelTotalBookings = new System.Windows.Forms.Panel();
             this.lblTotalBookingsNumber = new System.Windows.Forms.Label();
             this.panelQuickActions = new System.Windows.Forms.Panel();
+            this.btnlibrary = new System.Windows.Forms.Button();
             this.lblQuickTitle = new System.Windows.Forms.Label();
             this.panelRecent = new System.Windows.Forms.Panel();
-            this.btnlibrary = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecentBookings)).BeginInit();
             this.panelStatsRow.SuspendLayout();
@@ -86,7 +86,7 @@
             // 
             this.btnLogout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Location = new System.Drawing.Point(855, 538);
+            this.btnLogout.Location = new System.Drawing.Point(1217, 477);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(124, 58);
             this.btnLogout.TabIndex = 2;
@@ -109,7 +109,7 @@
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1228, 100);
+            this.panelHeader.Size = new System.Drawing.Size(1439, 100);
             this.panelHeader.TabIndex = 4;
             // 
             // dgvRecentBookings
@@ -133,7 +133,7 @@
             // lblTotalBookingsTitle
             // 
             this.lblTotalBookingsTitle.AutoSize = true;
-            this.lblTotalBookingsTitle.Location = new System.Drawing.Point(10, 0);
+            this.lblTotalBookingsTitle.Location = new System.Drawing.Point(-4, 0);
             this.lblTotalBookingsTitle.Name = "lblTotalBookingsTitle";
             this.lblTotalBookingsTitle.Size = new System.Drawing.Size(114, 20);
             this.lblTotalBookingsTitle.TabIndex = 6;
@@ -154,15 +154,15 @@
             this.panelTotalUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelTotalUsers.Controls.Add(this.lblTotalUsersNumber);
             this.panelTotalUsers.Controls.Add(this.lblTotalUsersTitle);
-            this.panelTotalUsers.Location = new System.Drawing.Point(645, 31);
+            this.panelTotalUsers.Location = new System.Drawing.Point(579, 35);
             this.panelTotalUsers.Name = "panelTotalUsers";
-            this.panelTotalUsers.Size = new System.Drawing.Size(174, 69);
+            this.panelTotalUsers.Size = new System.Drawing.Size(174, 76);
             this.panelTotalUsers.TabIndex = 13;
             // 
             // lblTotalUsersNumber
             // 
             this.lblTotalUsersNumber.AutoSize = true;
-            this.lblTotalUsersNumber.Location = new System.Drawing.Point(75, 35);
+            this.lblTotalUsersNumber.Location = new System.Drawing.Point(67, 31);
             this.lblTotalUsersNumber.Name = "lblTotalUsersNumber";
             this.lblTotalUsersNumber.Size = new System.Drawing.Size(18, 20);
             this.lblTotalUsersNumber.TabIndex = 12;
@@ -173,7 +173,7 @@
             // 
             this.lblTotalUsersTitle.AutoSize = true;
             this.lblTotalUsersTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalUsersTitle.Location = new System.Drawing.Point(40, 0);
+            this.lblTotalUsersTitle.Location = new System.Drawing.Point(-5, 0);
             this.lblTotalUsersTitle.Name = "lblTotalUsersTitle";
             this.lblTotalUsersTitle.Size = new System.Drawing.Size(90, 20);
             this.lblTotalUsersTitle.TabIndex = 11;
@@ -186,15 +186,15 @@
             this.panelActiveBookings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelActiveBookings.Controls.Add(this.lblActiveBookingsNumber);
             this.panelActiveBookings.Controls.Add(this.lblActiveBookingsTitle);
-            this.panelActiveBookings.Location = new System.Drawing.Point(340, 29);
+            this.panelActiveBookings.Location = new System.Drawing.Point(295, 32);
             this.panelActiveBookings.Name = "panelActiveBookings";
-            this.panelActiveBookings.Size = new System.Drawing.Size(200, 71);
+            this.panelActiveBookings.Size = new System.Drawing.Size(200, 79);
             this.panelActiveBookings.TabIndex = 2;
             // 
             // lblActiveBookingsNumber
             // 
             this.lblActiveBookingsNumber.AutoSize = true;
-            this.lblActiveBookingsNumber.Location = new System.Drawing.Point(64, 35);
+            this.lblActiveBookingsNumber.Location = new System.Drawing.Point(72, 34);
             this.lblActiveBookingsNumber.Name = "lblActiveBookingsNumber";
             this.lblActiveBookingsNumber.Size = new System.Drawing.Size(18, 20);
             this.lblActiveBookingsNumber.TabIndex = 7;
@@ -203,7 +203,7 @@
             // lblActiveBookingsTitle
             // 
             this.lblActiveBookingsTitle.AutoSize = true;
-            this.lblActiveBookingsTitle.Location = new System.Drawing.Point(14, 2);
+            this.lblActiveBookingsTitle.Location = new System.Drawing.Point(3, 2);
             this.lblActiveBookingsTitle.Name = "lblActiveBookingsTitle";
             this.lblActiveBookingsTitle.Size = new System.Drawing.Size(122, 20);
             this.lblActiveBookingsTitle.TabIndex = 6;
@@ -236,29 +236,11 @@
             this.panelQuickActions.Controls.Add(this.lblQuickTitle);
             this.panelQuickActions.Controls.Add(this.btnManageUsers);
             this.panelQuickActions.Controls.Add(this.btnLibraryBookings);
-            this.panelQuickActions.Location = new System.Drawing.Point(33, 510);
+            this.panelQuickActions.Location = new System.Drawing.Point(1139, 142);
             this.panelQuickActions.Name = "panelQuickActions";
             this.panelQuickActions.Size = new System.Drawing.Size(220, 262);
             this.panelQuickActions.TabIndex = 11;
             this.panelQuickActions.Paint += new System.Windows.Forms.PaintEventHandler(this.panelQuickActions_Paint);
-            // 
-            // lblQuickTitle
-            // 
-            this.lblQuickTitle.AutoSize = true;
-            this.lblQuickTitle.Location = new System.Drawing.Point(33, 12);
-            this.lblQuickTitle.Name = "lblQuickTitle";
-            this.lblQuickTitle.Size = new System.Drawing.Size(106, 20);
-            this.lblQuickTitle.TabIndex = 12;
-            this.lblQuickTitle.Text = "Quick Actions";
-            // 
-            // panelRecent
-            // 
-            this.panelRecent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelRecent.Controls.Add(this.dgvRecentBookings);
-            this.panelRecent.Location = new System.Drawing.Point(32, 252);
-            this.panelRecent.Name = "panelRecent";
-            this.panelRecent.Size = new System.Drawing.Size(1045, 250);
-            this.panelRecent.TabIndex = 12;
             // 
             // btnlibrary
             // 
@@ -270,11 +252,29 @@
             this.btnlibrary.UseVisualStyleBackColor = true;
             this.btnlibrary.Click += new System.EventHandler(this.btnlibrary_Click);
             // 
+            // lblQuickTitle
+            // 
+            this.lblQuickTitle.AutoSize = true;
+            this.lblQuickTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblQuickTitle.Name = "lblQuickTitle";
+            this.lblQuickTitle.Size = new System.Drawing.Size(106, 20);
+            this.lblQuickTitle.TabIndex = 12;
+            this.lblQuickTitle.Text = "Quick Actions";
+            // 
+            // panelRecent
+            // 
+            this.panelRecent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRecent.Controls.Add(this.dgvRecentBookings);
+            this.panelRecent.Location = new System.Drawing.Point(32, 295);
+            this.panelRecent.Name = "panelRecent";
+            this.panelRecent.Size = new System.Drawing.Size(1045, 250);
+            this.panelRecent.TabIndex = 12;
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 775);
+            this.ClientSize = new System.Drawing.Size(1439, 632);
             this.Controls.Add(this.panelRecent);
             this.Controls.Add(this.panelQuickActions);
             this.Controls.Add(this.panelStatsRow);

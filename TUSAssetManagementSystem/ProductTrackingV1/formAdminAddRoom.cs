@@ -50,5 +50,40 @@ namespace ProductTracking
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void cmbRoomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRoomType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formAdminAddRoom_Load(object sender, EventArgs e)
+        {
+            cmbStatus.Items.Clear();
+            cmbStatus.Items.Add("Available");
+            cmbStatus.Items.Add("Not Available");
+            cmbRoomType.Items.Clear();
+            cmbRoomType.Items.Add("Staff");
+            cmbRoomType.Items.Add("Student");
+ 
+
+        
+            if (cmbStatus.Items.Count > 0) cmbStatus.SelectedIndex = 0;
+            if (cmbRoomType.Items.Count > 0) cmbRoomType.SelectedIndex = 0;
+        }
     }
 }

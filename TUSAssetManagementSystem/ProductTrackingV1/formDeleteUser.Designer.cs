@@ -40,7 +40,7 @@
             // 
             this.listBoxUsers.FormattingEnabled = true;
             this.listBoxUsers.ItemHeight = 20;
-            this.listBoxUsers.Location = new System.Drawing.Point(120, 15);
+            this.listBoxUsers.Location = new System.Drawing.Point(170, 21);
             this.listBoxUsers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxUsers.Name = "listBoxUsers";
             this.listBoxUsers.Size = new System.Drawing.Size(451, 304);
@@ -48,7 +48,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(315, 376);
+            this.buttonDelete.Location = new System.Drawing.Point(253, 376);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(112, 35);
@@ -59,10 +59,10 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(653, 176);
+            this.buttonBack.Location = new System.Drawing.Point(472, 376);
             this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(112, 88);
+            this.buttonBack.Size = new System.Drawing.Size(112, 35);
             this.buttonBack.TabIndex = 2;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             // 
             this.lblDeleteUsers.AutoSize = true;
             this.lblDeleteUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteUsers.Location = new System.Drawing.Point(234, 47);
+            this.lblDeleteUsers.Location = new System.Drawing.Point(516, 106);
             this.lblDeleteUsers.Name = "lblDeleteUsers";
             this.lblDeleteUsers.Size = new System.Drawing.Size(153, 29);
             this.lblDeleteUsers.TabIndex = 3;

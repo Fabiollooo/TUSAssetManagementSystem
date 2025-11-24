@@ -28,22 +28,56 @@ namespace ProductTracking
             fc = parent;
             this.Model = Model;        
         }
-       #endregion
+        #endregion
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Delete " + listBoxUsers.SelectedItem.ToString() + " ? ", "Are you sure !", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+        
+            if (listBoxUsers.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a user to delete first.",
+                                "No user selected",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
                 return;
+            }
+
+            string selectedName = listBoxUsers.SelectedItem.ToString();
+
+            DialogResult result = MessageBox.Show(
+                "Delete " + selectedName + " ?",
+                "Are you sure?",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            User userToDelete = null;
+
             foreach (User user in Model.UserList)
             {
-                 if (user.Name == listBoxUsers.SelectedItem.ToString())
-                 {
-                     Model.deleteUser(user);
-                     listBoxUsers.Items.Remove(listBoxUsers.SelectedItem); //remove name from listbox
-                                    break;
-                 }
+                if (user.Name == selectedName)
+                {
+                    userToDelete = user;
+                    break;
+                }
             }
+
+            if (userToDelete == null)
+            {
+                MessageBox.Show("Could not find that user in the system.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            Model.deleteUser(userToDelete);
+            listBoxUsers.Items.Remove(selectedName);
         }
+
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
