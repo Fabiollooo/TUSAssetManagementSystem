@@ -16,15 +16,12 @@ namespace ProductTracking
     {
         #region Instance Attributes
         IModel Model;
-        formContainer fc;
         #endregion
 
         #region Constructors
-        public formAddUser(formContainer parent, IModel Model)
+        public formAddUser(IModel Model)
         {
             InitializeComponent();
-            MdiParent = parent;
-            fc = parent;
             this.Model = Model;
         }
         #endregion

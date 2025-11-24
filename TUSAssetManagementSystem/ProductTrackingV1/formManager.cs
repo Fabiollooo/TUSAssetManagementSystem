@@ -13,26 +13,16 @@ namespace ProductTracking
     public partial class formManager : Form
     {
         #region Instance Attributes
-        private formContainer fc;
         private IModel Model;
         #endregion
 
         #region Constructors
-        public formManager(formContainer parent, IModel Model)
+        public formManager(IModel Model)
         {
             InitializeComponent();
-            MdiParent = parent;
-            fc = parent;
             this.Model = Model;
         }
         #endregion
-
-
-       
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-                   Application.Exit();
-        }
 
         private void formManager_Load(object sender, EventArgs e)
         {
@@ -41,32 +31,36 @@ namespace ProductTracking
 
         private void buttonAddUser_Click(object sender, EventArgs e)
         {
-            formAddUser form = new formAddUser(fc,  Model);
+            this.Visible = false;
+            formAddUser form = new formAddUser(Model);
             form.Dock = DockStyle.Fill;
-            form.Show();
+            form.ShowDialog();
+
+            this.Visible = true;
          }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
-            formDeleteUser form = new formDeleteUser(fc, Model);
+            this.Visible = false;
+            formDeleteUser form = new formDeleteUser(Model);
             form.Dock = DockStyle.Fill;
-            form.Show();
+            form.ShowDialog();
+
+            this.Visible = true;
         }
 
         private void buttonEditUser_Click(object sender, EventArgs e)
         {
-            formEditUser form = new formEditUser(fc, Model);
+            this.Visible = false;
+            formEditUser form = new formEditUser(Model);
             form.Dock = DockStyle.Fill;
-            form.Show();
+            form.ShowDialog();
 
+            this.Visible = true;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AdminDashboard admin = new AdminDashboard(fc,Model);
-            admin.Show();
-
-       
             this.Close();
         }
     }

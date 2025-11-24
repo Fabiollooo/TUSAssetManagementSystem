@@ -353,6 +353,18 @@ namespace DataAccessLayer
             }
             return (int)cmd.ExecuteScalar();
         }
+        public int CountActiveBookings(int? userId)
+        {
+            string defaultSql = "SELECT COUNT(*) FROM LibraryRoomBookings WHERE Cancelled = 0 AND Date >= GETDATE()";
+            SqlCommand cmd = new SqlCommand(defaultSql, con);
+
+            if (userId != null)
+            {
+                cmd.CommandText += " AND UserID = @UserID";
+                cmd.Parameters.AddWithValue("@UserID", userId);
+            }
+            return (int)cmd.ExecuteScalar();
+        }
         public int CountActiveBookingsForUser(int userId)
         {
             string sql = "SELECT COUNT(*) FROM LibraryRoomBookings WHERE UserID = @UserID AND Cancelled = 0";

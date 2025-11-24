@@ -27,7 +27,8 @@ namespace BusinessLayer
         void populateLibraryRooms();
         void populateLibraryRooms(DateTime date, DateTime startTime, DateTime endTime);
 
-        //Count for "Active bookings" - FG
+        //Count for "Active bookings" - FG & TM
+        int CountActiveBookings(int? userId);
         int CountActiveBookingsForUser(int userId);
         //Count for "Hours Booked" - FG
         int GetHoursBookedThisMonth(int userId);

@@ -28,54 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpStart = new System.Windows.Forms.DateTimePicker();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.cboRoom = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpBookingEndTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpBookingStartTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpBookingDate = new System.Windows.Forms.DateTimePicker();
+            this.panelContainer = new System.Windows.Forms.Panel();
+            this.labelRoomNumber = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelContainer.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.Location = new System.Drawing.Point(237, 111);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(200, 26);
-            this.dtpDate.TabIndex = 0;
-            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
-            // 
-            // dtpStart
-            // 
-            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpStart.Location = new System.Drawing.Point(113, 201);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.ShowUpDown = true;
-            this.dtpStart.Size = new System.Drawing.Size(200, 26);
-            this.dtpStart.TabIndex = 1;
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEnd.Location = new System.Drawing.Point(409, 201);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.ShowUpDown = true;
-            this.dtpEnd.Size = new System.Drawing.Size(200, 26);
-            this.dtpEnd.TabIndex = 2;
             // 
             // cboRoom
             // 
             this.cboRoom.FormattingEnabled = true;
-            this.cboRoom.Location = new System.Drawing.Point(316, 265);
+            this.cboRoom.Location = new System.Drawing.Point(132, 2);
+            this.cboRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboRoom.Name = "cboRoom";
-            this.cboRoom.Size = new System.Drawing.Size(121, 28);
+            this.cboRoom.Size = new System.Drawing.Size(118, 21);
             this.cboRoom.TabIndex = 3;
             this.cboRoom.SelectedIndexChanged += new System.EventHandler(this.cboRoom_SelectedIndexChanged);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(171, 353);
+            this.btnSave.Location = new System.Drawing.Point(10, 191);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(10);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(78, 31);
+            this.btnSave.Size = new System.Drawing.Size(96, 33);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -83,38 +65,135 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(457, 353);
+            this.btnCancel.Location = new System.Drawing.Point(154, 191);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(10);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 31);
+            this.btnCancel.Size = new System.Drawing.Size(96, 33);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label6.Location = new System.Drawing.Point(6, 131);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 20);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "End Time";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.Location = new System.Drawing.Point(6, 86);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 20);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Start Time";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dtpBookingEndTime
+            // 
+            this.dtpBookingEndTime.CustomFormat = "HH:00";
+            this.dtpBookingEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBookingEndTime.Location = new System.Drawing.Point(132, 131);
+            this.dtpBookingEndTime.Name = "dtpBookingEndTime";
+            this.dtpBookingEndTime.ShowUpDown = true;
+            this.dtpBookingEndTime.Size = new System.Drawing.Size(118, 20);
+            this.dtpBookingEndTime.TabIndex = 18;
+            this.dtpBookingEndTime.Value = new System.DateTime(2025, 11, 22, 18, 0, 0, 0);
+            // 
+            // dtpBookingStartTime
+            // 
+            this.dtpBookingStartTime.CustomFormat = "HH:00";
+            this.dtpBookingStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpBookingStartTime.Location = new System.Drawing.Point(132, 86);
+            this.dtpBookingStartTime.Name = "dtpBookingStartTime";
+            this.dtpBookingStartTime.ShowUpDown = true;
+            this.dtpBookingStartTime.Size = new System.Drawing.Size(118, 20);
+            this.dtpBookingStartTime.TabIndex = 17;
+            this.dtpBookingStartTime.Value = new System.DateTime(2025, 11, 22, 9, 0, 0, 0);
+            // 
+            // dtpBookingDate
+            // 
+            this.dtpBookingDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpBookingDate.CustomFormat = "";
+            this.dtpBookingDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBookingDate.Location = new System.Drawing.Point(132, 43);
+            this.dtpBookingDate.Name = "dtpBookingDate";
+            this.dtpBookingDate.Size = new System.Drawing.Size(118, 20);
+            this.dtpBookingDate.TabIndex = 16;
+            this.dtpBookingDate.Value = new System.DateTime(2025, 11, 16, 20, 37, 27, 0);
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Controls.Add(this.label1);
+            this.panelContainer.Controls.Add(this.btnCancel);
+            this.panelContainer.Controls.Add(this.labelRoomNumber);
+            this.panelContainer.Controls.Add(this.btnSave);
+            this.panelContainer.Controls.Add(this.label6);
+            this.panelContainer.Controls.Add(this.dtpBookingDate);
+            this.panelContainer.Controls.Add(this.cboRoom);
+            this.panelContainer.Controls.Add(this.label3);
+            this.panelContainer.Controls.Add(this.dtpBookingEndTime);
+            this.panelContainer.Controls.Add(this.dtpBookingStartTime);
+            this.panelContainer.Location = new System.Drawing.Point(29, 29);
+            this.panelContainer.Margin = new System.Windows.Forms.Padding(20);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(260, 234);
+            this.panelContainer.TabIndex = 22;
+            // 
+            // labelRoomNumber
+            // 
+            this.labelRoomNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelRoomNumber.Location = new System.Drawing.Point(3, 2);
+            this.labelRoomNumber.Name = "labelRoomNumber";
+            this.labelRoomNumber.Size = new System.Drawing.Size(114, 21);
+            this.labelRoomNumber.TabIndex = 22;
+            this.labelRoomNumber.Text = "Room Number";
+            this.labelRoomNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(6, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 21);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Date";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // EditBookingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 450);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.cboRoom);
-            this.Controls.Add(this.dtpEnd);
-            this.Controls.Add(this.dtpStart);
-            this.Controls.Add(this.dtpDate);
+            this.ClientSize = new System.Drawing.Size(318, 297);
+            this.Controls.Add(this.panelContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "EditBookingForm";
-            this.Text = "EditBookingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Library Booking";
+            this.TopMost = true;
+            this.panelContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dtpDate;
-        private System.Windows.Forms.DateTimePicker dtpStart;
-        private System.Windows.Forms.DateTimePicker dtpEnd;
         private System.Windows.Forms.ComboBox cboRoom;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtpBookingEndTime;
+        private System.Windows.Forms.DateTimePicker dtpBookingStartTime;
+        private System.Windows.Forms.DateTimePicker dtpBookingDate;
+        private System.Windows.Forms.Panel panelContainer;
+        private System.Windows.Forms.Label labelRoomNumber;
+        private System.Windows.Forms.Label label1;
     }
 }

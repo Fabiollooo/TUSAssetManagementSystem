@@ -39,19 +39,16 @@
             // listBoxUsers
             // 
             this.listBoxUsers.FormattingEnabled = true;
-            this.listBoxUsers.ItemHeight = 20;
-            this.listBoxUsers.Location = new System.Drawing.Point(170, 21);
-            this.listBoxUsers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listBoxUsers.Location = new System.Drawing.Point(113, 14);
             this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(451, 304);
+            this.listBoxUsers.Size = new System.Drawing.Size(302, 199);
             this.listBoxUsers.TabIndex = 0;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(253, 376);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonDelete.Location = new System.Drawing.Point(169, 244);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(112, 35);
+            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 1;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -59,10 +56,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(472, 376);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonBack.Location = new System.Drawing.Point(315, 244);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(112, 35);
+            this.buttonBack.Size = new System.Drawing.Size(75, 23);
             this.buttonBack.TabIndex = 2;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -72,9 +68,10 @@
             // 
             this.lblDeleteUsers.AutoSize = true;
             this.lblDeleteUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeleteUsers.Location = new System.Drawing.Point(516, 106);
+            this.lblDeleteUsers.Location = new System.Drawing.Point(344, 69);
+            this.lblDeleteUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeleteUsers.Name = "lblDeleteUsers";
-            this.lblDeleteUsers.Size = new System.Drawing.Size(153, 29);
+            this.lblDeleteUsers.Size = new System.Drawing.Size(102, 20);
             this.lblDeleteUsers.TabIndex = 3;
             this.lblDeleteUsers.Text = "Delete Users";
             // 
@@ -84,25 +81,25 @@
             this.panel1.Controls.Add(this.listBoxUsers);
             this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.buttonBack);
-            this.panel1.Location = new System.Drawing.Point(238, 169);
+            this.panel1.Location = new System.Drawing.Point(159, 110);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(808, 471);
+            this.panel1.Size = new System.Drawing.Size(539, 306);
             this.panel1.TabIndex = 4;
             // 
             // formDeleteUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 702);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(858, 456);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDeleteUsers);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "formDeleteUser";
-            this.Text = "formDeleteUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Delete User";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.formDeleteUser_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

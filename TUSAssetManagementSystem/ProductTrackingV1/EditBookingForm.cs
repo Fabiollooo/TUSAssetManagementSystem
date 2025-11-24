@@ -25,26 +25,17 @@ namespace ProductTracking
             _model = model;
             _booking = booking;
 
-            // make sure the date is fully editable
-            dtpDate.Enabled = true;
-            dtpDate.ShowUpDown = false;
-            dtpDate.Format = DateTimePickerFormat.Custom;
-            dtpDate.CustomFormat = "dddd dd MMMM yyyy";
-
-            dtpDate.MinDate = DateTimePicker.MinimumDateTime;
-            dtpDate.MaxDate = DateTimePicker.MaximumDateTime;
-
             // load current values
-            dtpDate.Value = _booking.date.Date;
-            dtpStart.Value = _booking.startTime;
-            dtpEnd.Value = _booking.endTime;
+            dtpBookingDate.Value = _booking.date.Date;
+            dtpBookingStartTime.Value = _booking.startTime;
+            dtpBookingEndTime.Value = _booking.endTime;
 
             LoadRooms();
         }
 
         private void LoadRooms()
         {
-            _model.populateLibraryRooms(dtpDate.Value, dtpStart.Value, dtpEnd.Value);
+            _model.populateLibraryRooms(dtpBookingDate.Value, dtpBookingStartTime.Value, dtpBookingEndTime.Value);
 
             cboRoom.DataSource = null;
             cboRoom.DataSource = _model.LibraryRoomList;
@@ -82,9 +73,9 @@ namespace ProductTracking
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _booking.date = dtpDate.Value.Date;
-            _booking.startTime = dtpStart.Value;
-            _booking.endTime = dtpEnd.Value;
+            _booking.date = dtpBookingDate.Value.Date;
+            _booking.startTime = dtpBookingStartTime.Value;
+            _booking.endTime = dtpBookingEndTime.Value;
             _booking.room = (LibraryRoom)cboRoom.SelectedItem;
 
             if (_model.UpdateLibraryRoomBooking(_booking))

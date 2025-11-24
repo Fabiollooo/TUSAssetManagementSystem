@@ -17,17 +17,13 @@ namespace ProductTracking
             this.parentForm = parent;
             this.Model = model;
 
-          
             try
             {
-                if (Model != null && Model.CurrentUser != null)
-                {
-                    lblWelcome.Text = $"Welcome, {Model.CurrentUser.Name}";
-                }
+                lblWelcomeLong.Text = "Welcome back, " + Model.CurrentUser.Name + "! Here's an overview of the system's current bookings!";
             }
             catch
             {
-                
+                lblWelcomeLong.Text = "Welcome back! Here's an overview of the system's current bookings!";
             }
         }
 
@@ -45,28 +41,15 @@ namespace ProductTracking
         /// </summary>
         private void LoadStats()
         {
-            try { Model.populateOrders(); } catch { }
-            int activeBookings = 0;
             int totalUsers = 0;
-
-            if (Model != null && Model.OrderList != null)
-            {
-                activeBookings = Model.OrderList.Count(o => !o.Complete);
-            }
-
-           
             if (Model != null && Model.UserList != null)
             {
                 totalUsers = Model.UserList.Count;
             }
 
-           
             lblTotalBookingsNumber.Text = Model.CountTotalBookings(null).ToString();
-            lblActiveBookingsNumber.Text = activeBookings.ToString();
+            lblActiveBookingsNumber.Text = Model.CountActiveBookings(null).ToString();
             lblTotalUsersNumber.Text = totalUsers.ToString();
-
-
-     
         }
 
 
@@ -91,9 +74,9 @@ namespace ProductTracking
             dgvRecentBookings.Columns.Add("Status", "Status");
 
             var recentBookings = Model.LibraryRoomBookingsList
-                                      .OrderByDescending(b => b.date)
-                                      .ThenByDescending(b => b.startTime)
-                                      .Take(5)
+                                      .OrderBy(b => b.date)
+                                      .ThenBy(b => b.startTime)
+                                      .Take(10)
                                       .ToList();
 
             foreach (var booking in recentBookings)
@@ -121,10 +104,17 @@ namespace ProductTracking
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
+            using (formManager manageUsersForm = new formManager(Model))
+            {
+                this.Hide();
+                manageUsersForm.ShowDialog();
+                this.Show();
+            }
+            /*
             try
             {
                 var manageUsersForm = new formManager(parentForm, Model);
-                manageUsersForm.MdiParent = parentForm;
+                //manageUsersForm.MdiParent = parentForm;
                 manageUsersForm.Dock = DockStyle.Fill;
                 manageUsersForm.Show();
                 this.Close();
@@ -132,7 +122,7 @@ namespace ProductTracking
             catch (Exception ex)
             {
                 MessageBox.Show("Error opening Manage Users form: " + ex.Message);
-            }
+            }*/
         }
 
         private void btnLibraryBookings_Click(object sender, EventArgs e)
@@ -157,11 +147,6 @@ namespace ProductTracking
             {
                 MessageBox.Show("Error logging out: " + ex.Message);
             }
-        }
-
-        private void dgvRecentBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
         }
 
         private void panelQuickActions_Paint(object sender, PaintEventArgs e)
@@ -190,12 +175,9 @@ namespace ProductTracking
             {
             
                 AdminLibraryDashboard libForm = new AdminLibraryDashboard(parentForm, Model);
-
-             
-                libForm.MdiParent = parentForm;
+                //libForm.MdiParent = parentForm;
                 libForm.Dock = DockStyle.Fill;
                 libForm.Show();
-
             
                 this.Close();
             }

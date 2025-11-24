@@ -23,6 +23,7 @@ namespace DataAccessLayer
         List<LibraryRoom> getAllLibraryRooms();
         List<LibraryRoom> getLibraryRoomsAvailable(DateTime date, DateTime startTime, DateTime endTime);
         int CountTotalBookings(int? userId);
+        int CountActiveBookings(int? userId);
         int CountActiveBookingsForUser(int userId);
         int GetHoursBookedThisMonth(int userId);
         int GetUpcomingBookingsCount(int userId);

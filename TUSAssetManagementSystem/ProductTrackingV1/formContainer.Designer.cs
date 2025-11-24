@@ -32,17 +32,16 @@
             // 
             // formContainer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(993, 702);
+            this.ClientSize = new System.Drawing.Size(662, 456);
             this.ControlBox = false;
-            this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "formContainer";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.ShowInTaskbar = false;
             this.Text = "Asset Management System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.formContainer_Load);
             this.Shown += new System.EventHandler(this.formContainer_Shown);
             this.ResumeLayout(false);

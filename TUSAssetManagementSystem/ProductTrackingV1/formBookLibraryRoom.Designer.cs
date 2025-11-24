@@ -109,9 +109,12 @@
             this.Controls.Add(this.labelBookRoomEndTime);
             this.Controls.Add(this.labelBookRoomStartTime);
             this.Controls.Add(this.labelBookRoomRoomNumber);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "formBookLibraryRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Book A Room";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }
