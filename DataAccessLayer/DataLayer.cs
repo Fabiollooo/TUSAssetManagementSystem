@@ -48,10 +48,10 @@ namespace DataAccessLayer
         public void openConnection()
         {
             con = new SqlConnection();
-         //   con.ConnectionString = "Data Source=tcp:MY-V-U-ITSQL05.tusstudent.ad.tus.ie\\INSTBL11,60161;Initial Catalog=ProductTracker;User ID=K00295782;Password=11$QLSD3-2025;";
+            con.ConnectionString = "Data Source=tcp:MY-V-U-ITSQL05.tusstudent.ad.tus.ie\\INSTBL11,60161;Initial Catalog=ProductTracker;User ID=K00295782;Password=11$QLSD3-2025;";
 
 
-             con.ConnectionString = "Server=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Persist Security Info=False;User ID=adminUser;Password=P@ssword123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+             //con.ConnectionString = "Server=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Persist Security Info=False;User ID=adminUser;Password=P@ssword123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             try
             {
                 con.Open();
@@ -489,7 +489,8 @@ namespace DataAccessLayer
             string sql = @"UPDATE LibraryRooms 
                    SET RoomNumber = @RoomNumber, 
                    Capacity = @Capacity, 
-                   Resources = @Resources 
+                   Resources = @Resources, 
+                   RoomStatusID = @statusID
                    WHERE LibraryRoomID = @LibraryRoomID";
 
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -497,6 +498,7 @@ namespace DataAccessLayer
             cmd.Parameters.AddWithValue("@Capacity", room.capacity);
             cmd.Parameters.AddWithValue("@Resources", room.resources);
             cmd.Parameters.AddWithValue("@LibraryRoomID", room.roomID);
+            cmd.Parameters.AddWithValue("@statusID", room.roomStatusID);
 
             try
             {
@@ -707,6 +709,8 @@ namespace DataAccessLayer
                 dRow[2] = newLibraryRoom.capacity;
                 dRow[3] = newLibraryRoom.resources;
                 dRow[4] = newLibraryRoom.roomStatusID;
+                dRow[5] = newLibraryRoom.roomType;
+
 
                 ds.Tables["LibraryRoomsData"].Rows.Add(dRow);
                 da.Update(ds, "LibraryRoomsData");

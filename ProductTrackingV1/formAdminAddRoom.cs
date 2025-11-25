@@ -27,10 +27,11 @@ namespace ProductTracking
             string roomNumber = txtRoomNumber.Text;
             int capacity = (int)nudCapacity.Value;
             string resources = txtResources.Text;
-            string statusName = cmbStatus.SelectedText;
+            string statusName = cmbStatus.SelectedItem.ToString();
             int statusId = (statusName == "Available" ? 2 : 3);
 
             string roomType = cmbRoomType.SelectedItem.ToString();
+            
 
             bool success = Model.AddLibraryRoom(roomNumber, capacity, resources, statusId, statusName, roomType);
             if (success)
