@@ -29,6 +29,7 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
+
 [Ll]og/
 [Ll]ogs/
 
@@ -359,4 +360,8 @@ MigrationBackup/
 .ionide/
 
 # Fody - auto-generated XML schema
+<<<<<<< HEAD
 FodyWeavers.xsd
+=======
+FodyWeavers.xsd
+>>>>>>> ArBranch
