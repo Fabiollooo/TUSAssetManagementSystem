@@ -22,7 +22,36 @@ namespace BusinessLayer
 
 
         //View Available Rooms (Student) -FG
-        List<ILibraryRoom> LibraryRoomList { get; set; }
+        List<LibraryRoom> LibraryRoomList { get; set; }
         void populateLibraryRooms();
+        void populateLibraryRooms(DateTime date, DateTime startTime, DateTime endTime);
+
+        //Count for "Active bookings" - FG
+        int CountActiveBookingsForUser(int userId);
+        //Count for "Hours Booked" - FG
+        int GetHoursBookedThisMonth(int userId);
+        //Count for "No of Upcoming bookings" - FG
+        int GetUpcomingBookingsCount(int userId);
+
+        //Upcoming bookings - FG
+        List<LibraryRoomBooking> GetTop3UpcomingBookings(int userId);
+
+        bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn);
+
+
+
+
+
+        //Count for "Cancelled bookings" - TM
+        int CountCancelledBookingsForUser(int userId);
+        //Count for "Completed bookings" - TM
+        int CountCompletedBookingsForUser(int userId);
+
+
+        //Book Library Room (Student) -TM
+        bool AddNewLibraryBooking(LibraryRoomBooking booking);
+        // View Your Library Room Bookings (Student) -TM
+        List<LibraryRoomBooking> LibraryRoomBookingsList { get; set; }
+        void populateLibraryRoomBookings(IUser student);
     }
 }

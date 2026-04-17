@@ -36,9 +36,10 @@
             // 
             // btnLibraryBookings
             // 
-            this.btnLibraryBookings.Location = new System.Drawing.Point(370, 176);
+            this.btnLibraryBookings.Location = new System.Drawing.Point(247, 114);
+            this.btnLibraryBookings.Margin = new System.Windows.Forms.Padding(2);
             this.btnLibraryBookings.Name = "btnLibraryBookings";
-            this.btnLibraryBookings.Size = new System.Drawing.Size(116, 49);
+            this.btnLibraryBookings.Size = new System.Drawing.Size(77, 32);
             this.btnLibraryBookings.TabIndex = 0;
             this.btnLibraryBookings.Text = "Library Booking";
             this.btnLibraryBookings.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // btnManageUsers
             // 
-            this.btnManageUsers.Location = new System.Drawing.Point(196, 176);
+            this.btnManageUsers.Location = new System.Drawing.Point(131, 114);
+            this.btnManageUsers.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageUsers.Name = "btnManageUsers";
-            this.btnManageUsers.Size = new System.Drawing.Size(103, 49);
+            this.btnManageUsers.Size = new System.Drawing.Size(69, 32);
             this.btnManageUsers.TabIndex = 1;
             this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(598, 294);
+            this.btnLogout.Location = new System.Drawing.Point(467, 254);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.Size = new System.Drawing.Size(55, 27);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "button3";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -67,23 +70,26 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(117, 70);
+            this.lblWelcome.Location = new System.Drawing.Point(78, 46);
+            this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(51, 20);
+            this.lblWelcome.Size = new System.Drawing.Size(35, 13);
             this.lblWelcome.TabIndex = 3;
             this.lblWelcome.Text = "label1";
             // 
             // AdminDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(533, 292);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnManageUsers);
             this.Controls.Add(this.btnLibraryBookings);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
+            this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

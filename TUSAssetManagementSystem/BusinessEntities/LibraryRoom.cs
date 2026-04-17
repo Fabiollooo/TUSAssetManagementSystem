@@ -6,13 +6,33 @@ using System.Threading.Tasks;
 
 namespace BusinessEntities
 {
-    public class LibraryRoom : ILibraryRoom
+    public class LibraryRoom : IRoom
     {
-        public int LibraryRoomID { get; set; }
-        public string RoomNumber { get; set; }
-        public int Capacity { get; set; }
-        public string Resources { get; set; }
-        public int RoomStatusID { get; set; }
-    }
+        public int roomID { get; set; }
+        public string roomNumber { get; set; }
+        public int capacity { get; set; }
+        public string resources { get; set; }
+        public int roomStatusID { get; set; }
+        public String statusName { get; set; }
 
+        public LibraryRoom()
+        {
+            roomID = 0;
+            roomNumber = "";
+            capacity = 0;
+            resources = "";
+            roomStatusID = 0;
+            statusName = "Unknown";
+        }
+
+        public LibraryRoom(int roomID, string roomNumber, int capacity, string resources, int roomStatusID, string statusName)
+        {
+            this.roomID = roomID;
+            this.roomNumber = roomNumber;
+            this.capacity = capacity;
+            this.resources = resources;
+            this.roomStatusID = roomStatusID;
+            this.statusName = statusName;
+        }
+    }
 }

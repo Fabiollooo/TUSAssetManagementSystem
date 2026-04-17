@@ -27,7 +27,6 @@ namespace ProductTracking
             formLogin formLgn = new formLogin(Model);
             formLgn.ShowDialog();
 
-           
             switch (Model.getUserTypeForCurrentuser())
             {
                 case "Admin":
@@ -44,14 +43,12 @@ namespace ProductTracking
                     form2.Show();
                     break;
                 case "Student":
-                    formLibraryRooms studentForm = new formLibraryRooms(Model); // All forms get passed the formContainer and a reference to the model object. 
+                    StudentDashboard studentForm = new StudentDashboard(Model); // All forms get passed the formContainer and a reference to the model object. 
                     this.Text = this.Text + "- Student";
                     studentForm.Dock = DockStyle.Fill;
                     studentForm.Show();
                     break;
             }
-
-
         }
     }
 }

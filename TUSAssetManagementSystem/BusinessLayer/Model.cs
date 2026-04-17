@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using DataAccessLayer;
 using BusinessEntities;
+using System.Xml.Linq;
 
 namespace BusinessLayer
 {
@@ -157,6 +158,9 @@ namespace BusinessLayer
 
         public String getUserTypeForCurrentuser()
         {
+            if (currentUser == null)
+                return "Unknown";
+
             return currentUser.UserType;
         }
 
@@ -191,12 +195,130 @@ namespace BusinessLayer
 
         // Available Rooms (Student) -FG
 
-        public List<ILibraryRoom> LibraryRoomList { get; set; } = new List<ILibraryRoom>();
+        public List<LibraryRoom> LibraryRoomList { get; set; } = new List<LibraryRoom>();
 
         public void populateLibraryRooms()
         {
             LibraryRoomList = DataLayer.getAllLibraryRooms();
         }
+        public void populateLibraryRooms(DateTime date, DateTime startTime, DateTime endTime)
+        {
+            LibraryRoomList = DataLayer.getLibraryRoomsAvailable(date, startTime, endTime);
+        }
+
+        //Count for "Active bookings" - FG
+        public int CountActiveBookingsForUser(int userId)
+        {
+            return DataLayer.CountActiveBookingsForUser(userId);
+        }
+
+        //Count for "Hours Booked" - FG
+        public int GetHoursBookedThisMonth(int userId)
+        {
+            return DataLayer.GetHoursBookedThisMonth(userId);
+        }
+
+        //Count for "No of Upcoming bookings" - FG
+        public int GetUpcomingBookingsCount(int userId)
+        {
+            return DataLayer.GetUpcomingBookingsCount(userId);
+        }
+
+        public List<LibraryRoomBooking> GetTop3UpcomingBookings(int userId)
+        {
+            try
+            {
+                return dataLayer.GetTop3UpcomingBookings(userId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving upcoming bookings: " + ex.Message);
+            }
+        }
+
+        public bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn)
+        {
+            try
+            {
+                return DataLayer.UpdateBookingCheckInStatus(bookingId, isCheckedIn);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating check-in status: " + ex.Message);
+                return false;
+            }
+        }
+
+
+
+
+
+
+
+        //Count for "Cancelled bookings" - TM
+        public int CountCancelledBookingsForUser(int userId)
+        {
+            return DataLayer.CountCancelledBookingsForUser(userId);
+        }
+
+        //Count for "Completed bookings" - TM
+        public int CountCompletedBookingsForUser(int userId)
+        {
+            return DataLayer.CountCompletedBookingsForUser(userId);
+        }
+
+        // Book Library Room (Student) -TM
+        public bool AddNewLibraryBooking(LibraryRoomBooking booking)
+        {
+            DateTime now = DateTime.Now;
+            // Booking must be in the future
+            if (booking.date.Date < now.Date || (booking.date.Date == now.Date && booking.startTime.TimeOfDay < now.TimeOfDay))
+            {
+                MessageBox.Show("Can't make a booking for the past!", "Rules", MessageBoxButtons.OK);
+                return false;
+            }
+            // Booking must be on a week day
+            if (booking.date.DayOfWeek == DayOfWeek.Saturday || booking.date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MessageBox.Show("Can't make a booking for the weekend!", "Rules", MessageBoxButtons.OK);
+                return false;
+            }
+
+            // Booking must be between class hours
+            if (booking.startTime.TimeOfDay < Convert.ToDateTime("09:00:00").TimeOfDay || booking.endTime.TimeOfDay > Convert.ToDateTime("18:00:00").TimeOfDay)
+            {
+                MessageBox.Show("Can't make a booking for outside of class hours!", "Rules", MessageBoxButtons.OK);
+                return false;
+            }
+
+            // Booking must be between 30 minutes to 2 hours long
+            double duration = booking.endTime.TimeOfDay.TotalMinutes - booking.startTime.TimeOfDay.TotalMinutes;
+            if (duration < 30 || duration > 120)
+            {
+                MessageBox.Show("Booking must be between 30 minutes and 2 hours long!", "Rules", MessageBoxButtons.OK);
+                return false;
+            }
+
+            try
+            {
+                DataLayer.addNewBookingToDB(booking);
+                return true;
+            }
+            catch (Exception _)
+            {
+                return false;
+            }
+        }
+
+        public List<LibraryRoomBooking> LibraryRoomBookingsList { get; set; } = new List<LibraryRoomBooking>();
+
+        // View Your Library Room Bookings (Student) -TM
+        public void populateLibraryRoomBookings(IUser student)
+        {
+            LibraryRoomBookingsList = DataLayer.getAllStudentLibraryBookings(student);
+        }
+
+    
 
 
     }

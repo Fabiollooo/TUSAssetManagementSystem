@@ -44,11 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBooking.cs" />
+    <Compile Include="IRoom.cs" />
     <Compile Include="ILibraryRoom.cs" />
     <Compile Include="IOrder.cs" />
     <Compile Include="IProductLine.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="LibraryRoom.cs" />
+    <Compile Include="LibraryRoomBooking.cs" />
     <Compile Include="MaxCodes.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderFactory.cs" />
