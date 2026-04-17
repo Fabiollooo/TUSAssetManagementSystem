@@ -19,6 +19,9 @@ namespace DataAccessLayer
         List<IProductLine> getProductLinesForOrder(int OrderCode);
 
         bool editProductLineInDB(BusinessEntities.IProductLine productLine);
-     
+
+        //Available Rooms (Student) -FG
+        List<ILibraryRoom> getAllLibraryRooms();
+
     }
 }

@@ -297,5 +297,41 @@ namespace DataAccessLayer
                 return false;
             }
         }
-}
+
+
+        //Available rooms (Student) -FG
+        public List<ILibraryRoom> getAllLibraryRooms()
+        {
+            List<ILibraryRoom> rooms = new List<ILibraryRoom>();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da;
+            try
+            {
+                string sql = "SELECT * FROM LibraryRooms";
+                da = new SqlDataAdapter(sql, con);
+                da.Fill(ds, "LibraryRoomsData");
+                foreach (DataRow dRow in ds.Tables["LibraryRoomsData"].Rows)
+                {
+                    ILibraryRoom room = new LibraryRoom
+                    {
+                        LibraryRoomID = Convert.ToInt32(dRow["LibraryRoomID"]),
+                        RoomNumber = dRow["RoomNumber"].ToString(),
+                        Capacity = Convert.ToInt32(dRow["Capacity"]),
+                        Resources = dRow["Resources"].ToString(),
+                        RoomStatusID = Convert.ToInt32(dRow["RoomStatusID"])
+                    };
+                    rooms.Add(room);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                if (con.State == ConnectionState.Open) con.Close();
+            }
+            return rooms;
+        }
+
+
+
+    }
 }

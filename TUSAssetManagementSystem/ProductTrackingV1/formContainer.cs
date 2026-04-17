@@ -44,10 +44,10 @@ namespace ProductTracking
                     form2.Show();
                     break;
                 case "Student":
-                    formOperator form3 = new formOperator(this, Model); // All forms get passed the formContainer and a reference to the model object. 
+                    formLibraryRooms studentForm = new formLibraryRooms(Model); // All forms get passed the formContainer and a reference to the model object. 
                     this.Text = this.Text + "- Student";
-                    form3.Dock = DockStyle.Fill;
-                    form3.Show();
+                    studentForm.Dock = DockStyle.Fill;
+                    studentForm.Show();
                     break;
             }
 

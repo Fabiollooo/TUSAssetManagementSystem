@@ -186,7 +186,17 @@ namespace BusinessLayer
         {
             DataLayer.editProductLineInDB(productLine);
             return true;
-        }   
+        }
+
+
+        // Available Rooms (Student) -FG
+
+        public List<ILibraryRoom> LibraryRoomList { get; set; } = new List<ILibraryRoom>();
+
+        public void populateLibraryRooms()
+        {
+            LibraryRoomList = DataLayer.getAllLibraryRooms();
+        }
 
 
     }
