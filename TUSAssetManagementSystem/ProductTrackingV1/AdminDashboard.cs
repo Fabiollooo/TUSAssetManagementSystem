@@ -78,10 +78,5 @@ namespace ProductTracking
                     MessageBox.Show("Error logging out: " + ex.Message);
                 }
             }
-
-        private void AdminDashboard_Load(object sender, EventArgs e)
-        {
-
         }
-    }
     }
