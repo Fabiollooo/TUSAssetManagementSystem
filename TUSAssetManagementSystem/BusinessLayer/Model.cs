@@ -225,6 +225,12 @@ namespace BusinessLayer
             return DataLayer.CountTotalBookings(userId);
         }
 
+        //Count for "Active bookings" - FG & TM
+        public int CountActiveBookings(int? userId)
+        {
+            return DataLayer.CountActiveBookings(userId);
+        }
+
         //Count for "Active bookings" - FG
         public int CountActiveBookingsForUser(int userId)
         {
@@ -381,13 +387,13 @@ namespace BusinessLayer
             populateLibraryBookings();
         }
 
-        private void populateLibraryBookings()
+        public void populateLibraryBookings()
         {
             LibraryRoomBookingsList = new List<LibraryRoomBooking>();
 
             foreach (IUser user in userList)
             {
-                var bookingsForUser = DataLayer.getAllStudentLibraryBookings(user);
+                List<LibraryRoomBooking> bookingsForUser = DataLayer.getAllStudentLibraryBookings(user);
                 if (bookingsForUser != null)
                     LibraryRoomBookingsList.AddRange(bookingsForUser);
             }
@@ -468,11 +474,6 @@ namespace BusinessLayer
             {
                 return false;
             }
-        }
-
-        void IModel.populateLibraryBookings()
-        {
-            throw new NotImplementedException();
         }
     }
 }

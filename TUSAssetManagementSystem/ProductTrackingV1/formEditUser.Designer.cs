@@ -44,37 +44,32 @@
             // listBoxUsers
             // 
             this.listBoxUsers.FormattingEnabled = true;
-            this.listBoxUsers.ItemHeight = 20;
-            this.listBoxUsers.Location = new System.Drawing.Point(13, 5);
-            this.listBoxUsers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listBoxUsers.Location = new System.Drawing.Point(9, 3);
             this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(178, 244);
+            this.listBoxUsers.Size = new System.Drawing.Size(120, 160);
             this.listBoxUsers.TabIndex = 0;
             this.listBoxUsers.SelectedIndexChanged += new System.EventHandler(this.listBoxUsers_SelectedIndexChanged);
             this.listBoxUsers.DoubleClick += new System.EventHandler(this.listBoxUsers_DoubleClick);
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(235, 43);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxName.Location = new System.Drawing.Point(157, 28);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(148, 26);
+            this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 1;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(235, 163);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxPassword.Location = new System.Drawing.Point(157, 106);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(148, 26);
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 2;
             // 
             // buttonCommit
             // 
-            this.buttonCommit.Location = new System.Drawing.Point(235, 303);
-            this.buttonCommit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonCommit.Location = new System.Drawing.Point(157, 197);
             this.buttonCommit.Name = "buttonCommit";
-            this.buttonCommit.Size = new System.Drawing.Size(112, 35);
+            this.buttonCommit.Size = new System.Drawing.Size(75, 23);
             this.buttonCommit.TabIndex = 3;
             this.buttonCommit.Text = "Commit";
             this.buttonCommit.UseVisualStyleBackColor = true;
@@ -82,10 +77,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(416, 294);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonBack.Location = new System.Drawing.Point(277, 191);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(112, 52);
+            this.buttonBack.Size = new System.Drawing.Size(75, 34);
             this.buttonBack.TabIndex = 4;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -95,27 +89,30 @@
             // 
             this.lblEditUser.AutoSize = true;
             this.lblEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditUser.Location = new System.Drawing.Point(270, 42);
+            this.lblEditUser.Location = new System.Drawing.Point(180, 27);
+            this.lblEditUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEditUser.Name = "lblEditUser";
-            this.lblEditUser.Size = new System.Drawing.Size(121, 29);
+            this.lblEditUser.Size = new System.Drawing.Size(84, 20);
             this.lblEditUser.TabIndex = 5;
             this.lblEditUser.Text = "Edit User";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(242, 18);
+            this.lblName.Location = new System.Drawing.Point(161, 12);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 20);
+            this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 6;
             this.lblName.Text = "Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(232, 124);
+            this.label1.Location = new System.Drawing.Point(155, 81);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Password";
             // 
@@ -130,34 +127,35 @@
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Controls.Add(this.textBoxPassword);
             this.panel1.Controls.Add(this.listBoxUsers);
-            this.panel1.Location = new System.Drawing.Point(113, 118);
+            this.panel1.Location = new System.Drawing.Point(75, 77);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(548, 465);
+            this.panel1.Size = new System.Drawing.Size(365, 302);
             this.panel1.TabIndex = 8;
             // 
             // comboUserType
             // 
             this.comboUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboUserType.FormattingEnabled = true;
-            this.comboUserType.Location = new System.Drawing.Point(235, 221);
+            this.comboUserType.Location = new System.Drawing.Point(157, 144);
+            this.comboUserType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboUserType.Name = "comboUserType";
-            this.comboUserType.Size = new System.Drawing.Size(121, 28);
+            this.comboUserType.Size = new System.Drawing.Size(82, 21);
             this.comboUserType.TabIndex = 8;
             // 
             // formEditUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 769);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(611, 500);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblEditUser);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "formEditUser";
-            this.Text = "EditUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit User";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.formEditUser_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

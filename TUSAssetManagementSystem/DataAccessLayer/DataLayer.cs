@@ -353,6 +353,18 @@ namespace DataAccessLayer
             }
             return (int)cmd.ExecuteScalar();
         }
+        public int CountActiveBookings(int? userId)
+        {
+            string defaultSql = "SELECT COUNT(*) FROM LibraryRoomBookings WHERE Cancelled = 0 AND Date >= GETDATE()";
+            SqlCommand cmd = new SqlCommand(defaultSql, con);
+
+            if (userId != null)
+            {
+                cmd.CommandText += " AND UserID = @UserID";
+                cmd.Parameters.AddWithValue("@UserID", userId);
+            }
+            return (int)cmd.ExecuteScalar();
+        }
         public int CountActiveBookingsForUser(int userId)
         {
             string sql = "SELECT COUNT(*) FROM LibraryRoomBookings WHERE UserID = @UserID AND Cancelled = 0";
@@ -477,7 +489,8 @@ namespace DataAccessLayer
             string sql = @"UPDATE LibraryRooms 
                    SET RoomNumber = @RoomNumber, 
                    Capacity = @Capacity, 
-                   Resources = @Resources 
+                   Resources = @Resources, 
+                   RoomStatusID = @statusID
                    WHERE LibraryRoomID = @LibraryRoomID";
 
             SqlCommand cmd = new SqlCommand(sql, con);
@@ -485,6 +498,7 @@ namespace DataAccessLayer
             cmd.Parameters.AddWithValue("@Capacity", room.capacity);
             cmd.Parameters.AddWithValue("@Resources", room.resources);
             cmd.Parameters.AddWithValue("@LibraryRoomID", room.roomID);
+            cmd.Parameters.AddWithValue("@statusID", room.roomStatusID);
 
             try
             {
@@ -695,6 +709,8 @@ namespace DataAccessLayer
                 dRow[2] = newLibraryRoom.capacity;
                 dRow[3] = newLibraryRoom.resources;
                 dRow[4] = newLibraryRoom.roomStatusID;
+                dRow[5] = newLibraryRoom.roomType;
+
 
                 ds.Tables["LibraryRoomsData"].Rows.Add(dRow);
                 da.Update(ds, "LibraryRoomsData");

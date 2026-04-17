@@ -32,18 +32,18 @@ namespace ProductTracking
 
         private void StudentDashboard_Load(object sender, EventArgs e)
         {
-            lblNoActiveBookings.Text = Model.CountActiveBookingsForUser(Model.CurrentUser.UserID).ToString();
+            lblNoActiveBookings.Text = Model.CountActiveBookings(Model.CurrentUser.UserID).ToString();
             lblHoursBooked.Text = Model.GetHoursBookedThisMonth(Model.CurrentUser.UserID).ToString();
             lblUpcomingNo.Text = Model.GetUpcomingBookingsCount(Model.CurrentUser.UserID).ToString();
             lblAvailableRooms.Text = Model.GetAvailableRoomsCount(Model.CurrentUser.UserID).ToString();
 
             try
             {
-                lblWelcome.Text = $"Welcome, {Model.CurrentUser.Name}";
+                lblWelcomeLong.Text = "Welcome back, " + Model.CurrentUser.Name + "! Here's an overview of you bookings!";
             }
             catch
             {
-                lblWelcome.Text = "Welcome!";
+                lblWelcomeLong.Text = "Welcome back! Here's an overview of you bookings!";
             }
 
             RefreshRooms();
