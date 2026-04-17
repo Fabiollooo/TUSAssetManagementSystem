@@ -39,53 +39,60 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(80, 110);
+            this.textBoxName.Location = new System.Drawing.Point(120, 169);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(120, 20);
+            this.textBoxName.Size = new System.Drawing.Size(178, 26);
             this.textBoxName.TabIndex = 0;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(80, 187);
+            this.textBoxPassword.Location = new System.Drawing.Point(120, 288);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(120, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(178, 26);
             this.textBoxPassword.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 113);
+            this.label1.Location = new System.Drawing.Point(45, 174);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 190);
+            this.label2.Location = new System.Drawing.Point(18, 292);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password";
             // 
             // listBoxUserType
             // 
             this.listBoxUserType.FormattingEnabled = true;
+            this.listBoxUserType.ItemHeight = 20;
             this.listBoxUserType.Items.AddRange(new object[] {
-            "Manager",
-            "Sales",
-            "Production"});
-            this.listBoxUserType.Location = new System.Drawing.Point(80, 273);
+            "Admin",
+            "Staff",
+            "Student"});
+            this.listBoxUserType.Location = new System.Drawing.Point(120, 420);
+            this.listBoxUserType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxUserType.Name = "listBoxUserType";
-            this.listBoxUserType.Size = new System.Drawing.Size(120, 56);
+            this.listBoxUserType.Size = new System.Drawing.Size(178, 84);
             this.listBoxUserType.TabIndex = 5;
             // 
             // buttonCommit
             // 
-            this.buttonCommit.Location = new System.Drawing.Point(302, 213);
+            this.buttonCommit.Location = new System.Drawing.Point(453, 328);
+            this.buttonCommit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCommit.Name = "buttonCommit";
-            this.buttonCommit.Size = new System.Drawing.Size(75, 72);
+            this.buttonCommit.Size = new System.Drawing.Size(112, 111);
             this.buttonCommit.TabIndex = 6;
             this.buttonCommit.Text = "Commit";
             this.buttonCommit.UseVisualStyleBackColor = true;
@@ -93,9 +100,10 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(380, 382);
+            this.buttonBack.Location = new System.Drawing.Point(570, 588);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 65);
+            this.buttonBack.Size = new System.Drawing.Size(112, 100);
             this.buttonBack.TabIndex = 7;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -103,11 +111,11 @@
             // 
             // formAddUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProductTracking.Properties.Resources.Blue_hills;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(500, 500);
+            this.ClientSize = new System.Drawing.Size(750, 769);
             this.ControlBox = false;
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonCommit);
@@ -118,6 +126,7 @@
             this.Controls.Add(this.textBoxName);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formAddUser";
