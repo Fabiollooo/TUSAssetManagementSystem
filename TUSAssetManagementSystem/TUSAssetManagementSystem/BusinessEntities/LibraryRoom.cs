@@ -14,6 +14,8 @@ namespace BusinessEntities
         public string resources { get; set; }
         public int roomStatusID { get; set; }
         public String statusName { get; set; }
+        public string roomType { get; set; }
+
 
         public LibraryRoom()
         {
@@ -25,7 +27,7 @@ namespace BusinessEntities
             statusName = "Unknown";
         }
 
-        public LibraryRoom(int roomID, string roomNumber, int capacity, string resources, int roomStatusID, string statusName)
+        public LibraryRoom(int roomID, string roomNumber, int capacity, string resources, int roomStatusID, string statusName, string roomType)
         {
             this.roomID = roomID;
             this.roomNumber = roomNumber;
@@ -33,6 +35,18 @@ namespace BusinessEntities
             this.resources = resources;
             this.roomStatusID = roomStatusID;
             this.statusName = statusName;
+            this.roomType = roomType;
+        }
+
+        public LibraryRoom(int libraryRoomID,
+                       string roomNumber,
+                       int capacity,
+                       string resources,
+                       int roomStatusID,
+                       string statusName)
+        : this(libraryRoomID, roomNumber, capacity, resources, roomStatusID, statusName, "Unknown")
+        {
         }
     }
 }
+

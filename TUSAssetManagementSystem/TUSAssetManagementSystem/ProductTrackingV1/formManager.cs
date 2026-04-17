@@ -60,5 +60,14 @@ namespace ProductTracking
             form.Show();
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            AdminDashboard admin = new AdminDashboard(fc,Model);
+            admin.Show();
+
+       
+            this.Close();
+        }
     }
 }

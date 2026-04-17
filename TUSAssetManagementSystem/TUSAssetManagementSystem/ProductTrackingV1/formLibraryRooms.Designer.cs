@@ -75,7 +75,7 @@
             this.Controls.Add(this.dgvRooms);
             this.Controls.Add(this.label1);
             this.Name = "formLibraryRooms";
-            this.Text = "formLibraryRooms";
+            this.Text = "Library Rooms";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRooms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

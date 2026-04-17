@@ -39,61 +39,51 @@ namespace ProductTracking
          * */
         private void buttonCommit_Click(object sender, EventArgs e)
         {
-            // 1. Basic validation
-            if (string.IsNullOrWhiteSpace(textBoxName.Text))
             {
-                MessageBox.Show("Please enter a name.");
-                return;
-            }
+                string name = textBoxName.Text.Trim();
+                string password = textBoxPassword.Text;
+                string confirm = textBoxConfirmPassword.Text;
+                string userType = comboUserType.SelectedItem == null
+                    ? null
+                    : comboUserType.SelectedItem.ToString().Trim();
 
-            if (string.IsNullOrWhiteSpace(textBoxPassword.Text))
-            {
-                MessageBox.Show("Please enter a password.");
-                return;
-            }
+                // Basic validation
+                if (string.IsNullOrWhiteSpace(name) ||
+                    string.IsNullOrWhiteSpace(password) ||
+                    string.IsNullOrWhiteSpace(confirm) ||
+                    string.IsNullOrWhiteSpace(userType))
+                {
+                    MessageBox.Show("Please enter a name, password, confirm it, and select a role.",
+                        "Missing data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            if (textBoxPassword.Text != textBoxConfirmPassword.Text)
-            {
-                MessageBox.Show("Passwords do not match.");
-                return;
-            }
+                if (password != confirm)
+                {
+                    MessageBox.Show("Passwords do not match.",
+                        "Password mismatch", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            if (comboUserType.SelectedIndex == -1)   // or listBoxUserType if you kept it
-            {
-                MessageBox.Show("You must select a user role.");
-                return;
-            }
+                // Call the Model → this uses addNewUser in IModel
+                bool added = Model.addNewUser(name, password, userType);
 
-            // 2. Duplicate name check (same as before)
-            IUser duplicateUser = Model.UserList
-                                       .FirstOrDefault(user => user.Name == textBoxName.Text.Trim());
-
-            if (duplicateUser != null)
-            {
-                MessageBox.Show("Duplicate user name, enter a different name!");
-                // optional debug:
-                // MessageBox.Show(duplicateUser.Name + " " + duplicateUser.Password);
-                ClearInputs();
-                return;
-            }
-
-            // 3. Create user via model
-            string role = comboUserType.SelectedItem.ToString(); // or listBoxUserType.SelectedItem.ToString()
-
-            if (Model.addNewUser(textBoxName.Text.Trim(),
-                                 textBoxPassword.Text,
-                                 role))
-            {
-                MessageBox.Show("User created successfully.");
-                ClearInputs();
-            }
-            else
-            {
-                MessageBox.Show("Error creating user.");
+                if (added)
+                {
+                    MessageBox.Show("User added successfully.",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearInputs();
+                }
+                else
+                {
+                    MessageBox.Show("Could not add user (maybe the username already exists).",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private void buttonReset_Click(object sender, EventArgs e)
+
+            private void buttonReset_Click(object sender, EventArgs e)
         {
             
                 ClearInputs();

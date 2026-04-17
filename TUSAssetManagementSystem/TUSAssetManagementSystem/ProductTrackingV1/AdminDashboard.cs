@@ -31,7 +31,8 @@ namespace ProductTracking
             }
         }
 
-       
+      
+
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             LoadStats();
@@ -45,25 +46,22 @@ namespace ProductTracking
         private void LoadStats()
         {
             try { Model.populateOrders(); } catch { }
-
-            int totalBookings = 0;
             int activeBookings = 0;
             int totalUsers = 0;
 
             if (Model != null && Model.OrderList != null)
             {
-                totalBookings = Model.OrderList.Count;
                 activeBookings = Model.OrderList.Count(o => !o.Complete);
             }
 
-            // Users list is already in the Model (no populateUsers needed)
+           
             if (Model != null && Model.UserList != null)
             {
                 totalUsers = Model.UserList.Count;
             }
 
-            // Put numbers into the 3 labels
-            lblTotalBookingsNumber.Text = totalBookings.ToString();
+           
+            lblTotalBookingsNumber.Text = Model.CountTotalBookings(null).ToString();
             lblActiveBookingsNumber.Text = activeBookings.ToString();
             lblTotalUsersNumber.Text = totalUsers.ToString();
 
@@ -75,44 +73,51 @@ namespace ProductTracking
         /// <summary>
         /// Fills the Recent Bookings grid with the 5 most recent orders.
         /// </summary>
+
         private void LoadRecentBookings()
         {
-            if (Model.OrderList == null)
-            {
-                try { Model.populateOrders(); } catch { }
-            }
+          
+            Model.populateAllCurrentLibraryBookings();
 
             dgvRecentBookings.Rows.Clear();
             dgvRecentBookings.Columns.Clear();
 
-            // Columns that match the data we REALLY have in IOrder
-            dgvRecentBookings.Columns.Add("BookingId", "Booking ID");
-            dgvRecentBookings.Columns.Add("LibraryRoom", "Library Room");
+           
+            dgvRecentBookings.Columns.Add("BookingID", "Booking ID");
+            dgvRecentBookings.Columns.Add("Room", "Room");
             dgvRecentBookings.Columns.Add("Date", "Date");
-            dgvRecentBookings.Columns.Add("Time", "Time");
+            dgvRecentBookings.Columns.Add("StartTime", "Start");
+            dgvRecentBookings.Columns.Add("EndTime", "End");
             dgvRecentBookings.Columns.Add("Status", "Status");
 
-            if (Model.OrderList == null || Model.OrderList.Count == 0)
-                return;
+            var recentBookings = Model.LibraryRoomBookingsList
+                                      .OrderByDescending(b => b.date)
+                                      .ThenByDescending(b => b.startTime)
+                                      .Take(5)
+                                      .ToList();
 
-            var recent = Model.OrderList
-                              .OrderByDescending(o => o.OrderDate)
-                              .Take(5)
-                              .ToList();
-
-            foreach (var order in recent)
+            foreach (var booking in recentBookings)
             {
-                string status = order.Complete ? "complete" : "active";
+                string status;
+
+                if (booking.cancelled)
+                    status = "Cancelled";
+                else if (booking.checkedIn)
+                    status = "Checked In";
+                else
+                    status = "Active";
 
                 dgvRecentBookings.Rows.Add(
-                    order.OrderCode,                          // Booking ID
-                    order.CustomerCode,                       // Customer
-                    order.OrderDate.ToShortDateString(),      // Date
-                    order.OrderDate.ToString("HH:mm"),        // Time
-                    status                                    // Status
+                    booking.bookingID,
+                    booking.room?.roomNumber ?? "Unknown",
+                    booking.date.ToShortDateString(),
+                    booking.startTime.ToString("HH:mm"),
+                    booking.endTime.ToString("HH:mm"),
+                    status
                 );
             }
         }
+
 
         private void btnManageUsers_Click(object sender, EventArgs e)
         {
@@ -132,12 +137,13 @@ namespace ProductTracking
 
         private void btnLibraryBookings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                "Library Bookings feature coming soon!",
-                "Coming Soon",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+
+            using (formAdminManageRooms manageRoomsForm = new formAdminManageRooms(Model))
+            {
+                this.Hide(); 
+                manageRoomsForm.ShowDialog();
+                this.Show(); 
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -176,6 +182,27 @@ namespace ProductTracking
         private void lblTotalUsersTitle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnlibrary_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            
+                AdminLibraryDashboard libForm = new AdminLibraryDashboard(parentForm, Model);
+
+             
+                libForm.MdiParent = parentForm;
+                libForm.Dock = DockStyle.Fill;
+                libForm.Show();
+
+            
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening Library Bookings form: " + ex.Message);
+            }
         }
     }
 }

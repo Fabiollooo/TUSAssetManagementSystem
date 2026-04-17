@@ -98,7 +98,7 @@ namespace ProductTracking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ProductTracking.Properties.Resources.Blue_hills4;
+          
             this.ClientSize = new System.Drawing.Size(492, 456);
             this.Controls.Add(this.buttonAddProduct);
             this.Controls.Add(this.textBoxAmount);

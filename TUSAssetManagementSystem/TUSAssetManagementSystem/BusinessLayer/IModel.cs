@@ -39,11 +39,11 @@ namespace BusinessLayer
 
         bool UpdateBookingCheckInStatus(int bookingId, bool isCheckedIn);
         int GetAvailableRoomsCount(int userId);
+        bool UpdateLibraryRoom(LibraryRoom room);
+        bool DeleteLibraryRoom(int roomId);
 
-
-
-
-
+        //Count for "Total bookings" - TM
+        int CountTotalBookings(int? userId);
         //Count for "Cancelled bookings" - TM
         int CountCancelledBookingsForUser(int userId);
         //Count for "Completed bookings" - TM
@@ -55,5 +55,15 @@ namespace BusinessLayer
         // View Your Library Room Bookings (Student) -TM
         List<LibraryRoomBooking> LibraryRoomBookingsList { get; set; }
         void populateLibraryRoomBookings(IUser student);
+
+        List<LibraryRoomBooking> LibraryRoomBookingList { get; set; }
+        void populateLibraryBookings();
+        void populateAllCurrentLibraryBookings();
+        bool CancelLibraryBooking(int bookingId);
+        int AutoCancelNoShowBookings();
+        bool UpdateLibraryRoomBooking(LibraryRoomBooking booking);
+
+
+        bool AddLibraryRoom(string roomNumber, int capacity, string resources, int statusId, string statusName, string roomType);
     }
 }

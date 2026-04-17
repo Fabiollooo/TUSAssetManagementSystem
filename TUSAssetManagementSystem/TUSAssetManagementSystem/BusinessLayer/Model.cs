@@ -96,16 +96,6 @@ namespace BusinessLayer
         public Boolean login(String name, String password)
         {
             
-            //foreach (User user in userList) // now using template so can simplify this code as shown below
-            //{
-            //    if (name == user.Name && password == user.Password)
-            //    {
-                  
-            //        CurrentUser=user;
-            //        return true;
-            //    }
-            //}
-            //return false;
 
             IUser matchUser = userList.FirstOrDefault(user => user.Name == name && user.Password == password);
             if (matchUser == null)
@@ -122,37 +112,60 @@ namespace BusinessLayer
         {
             try
             {
+               
+                if (UserList.Any(u => u.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("A user with that name already exists.");
+                    return false;
+                }
+
+               
                 int maxId = 0;
-                // need some code to avoid dulicate usernames
-                // maybe add some logic (busiess rules) about password policy
-          //      IUser user = new User(name, password, userType); // Construct a User Object
                 foreach (User user in UserList)
                 {
                     if (user.UserID > maxId)
                         maxId = user.UserID;
                 }
-                IUser theUser = UserFactory.GetUser(name, password, userType,maxId+1);   // Using a Factory to create the user entity object. ie seperating object creation from business logic
-                UserList.Add(theUser);                             // Add a reference to the newly created object to the Models UserList
-                DataLayer.addNewUserToDB(theUser); //Gets the DataLayer to add the new user to the DB. 
+
+                int newId = maxId + 1;
+
+               
+                IUser theUser = UserFactory.GetUser(name, password, userType, newId);
+                DataLayer.addNewUserToDB(theUser);
+                UserList.Add(theUser);
+
                 return true;
             }
-                catch (System.Exception excep)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
-            }   
-    }
+            }
+        }
 
         public bool deleteUser(IUser user)
         {
 
             DataLayer.deleteUserFromDB(user);
-            UserList.Remove(user); //remove object from collection
+            UserList.Remove(user); 
            return true;
 
         }
         public bool editUser(IUser user)
         {
-            DataLayer.editUserInDB(user);
+           
+            bool ok = DataLayer.editUserInDB(user);
+            if (!ok) return false;
+
+            
+            var existing = UserList.FirstOrDefault(u => u.UserID == user.UserID);
+            if (existing != null)
+            {
+                existing.Name = user.Name;
+                existing.Password = user.Password;
+                existing.UserType = user.UserType;
+            }
+
             return true;
         }
 
@@ -206,6 +219,12 @@ namespace BusinessLayer
             LibraryRoomList = DataLayer.getLibraryRoomsAvailable(date, startTime, endTime);
         }
 
+        //Count for "Total bookings" - TM
+        public int CountTotalBookings(int? userId)
+        {
+            return DataLayer.CountTotalBookings(userId);
+        }
+
         //Count for "Active bookings" - FG
         public int CountActiveBookingsForUser(int userId)
         {
@@ -253,7 +272,8 @@ namespace BusinessLayer
         {
             try
             {
-                return dataLayer.GetAvailableRoomsCountRightNow();
+                string userType = CurrentUser.UserType;
+                return dataLayer.GetAvailableRoomsCountRightNow(userType);
             }
             catch (Exception ex)
             {
@@ -261,6 +281,31 @@ namespace BusinessLayer
             }
         }
 
+        public bool UpdateLibraryRoom(LibraryRoom room)
+        {
+            try
+            {
+                return DataLayer.UpdateLibraryRoom(room);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Model.UpdateLibraryRoom: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool DeleteLibraryRoom(int roomId)
+        {
+            try
+            {
+                return DataLayer.DeleteLibraryRoom(roomId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in Model.DeleteLibraryRoom: {ex.Message}");
+                return false;
+            }
+        }
 
 
 
@@ -323,6 +368,7 @@ namespace BusinessLayer
         }
 
         public List<LibraryRoomBooking> LibraryRoomBookingsList { get; set; } = new List<LibraryRoomBooking>();
+        public List<LibraryRoomBooking> LibraryRoomBookingList { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         // View Your Library Room Bookings (Student) -TM
         public void populateLibraryRoomBookings(IUser student)
@@ -330,8 +376,103 @@ namespace BusinessLayer
             LibraryRoomBookingsList = DataLayer.getAllStudentLibraryBookings(student);
         }
 
-    
+        public void populateAllCurrentLibraryBookings()
+        {
+            populateLibraryBookings();
+        }
+
+        private void populateLibraryBookings()
+        {
+            LibraryRoomBookingsList = new List<LibraryRoomBooking>();
+
+            foreach (IUser user in userList)
+            {
+                var bookingsForUser = DataLayer.getAllStudentLibraryBookings(user);
+                if (bookingsForUser != null)
+                    LibraryRoomBookingsList.AddRange(bookingsForUser);
+            }
+        }
+        public bool UpdateLibraryRoomBooking(LibraryRoomBooking booking)
+        {
+            DateTime now = DateTime.Now;
+
+           
+            if (booking.date.Date < now.Date ||
+               (booking.date.Date == now.Date && booking.startTime.TimeOfDay < now.TimeOfDay))
+            {
+                MessageBox.Show("Can't move a booking into the past!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+           
+            if (booking.date.DayOfWeek == DayOfWeek.Saturday ||
+                booking.date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MessageBox.Show("Can't make a booking for the weekend!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (booking.startTime.TimeOfDay < TimeSpan.FromHours(9) ||
+                booking.endTime.TimeOfDay > TimeSpan.FromHours(18))
+            {
+                MessageBox.Show("Booking must be between 09:00 and 18:00!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            double duration = (booking.endTime - booking.startTime).TotalMinutes;
+            if (duration < 30 || duration > 120)
+            {
+                MessageBox.Show("Booking must be between 30 minutes and 2 hours!", "Rules",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+        
+            return DataLayer.UpdateLibraryRoomBooking(booking);
+        }
 
 
+        public bool CancelLibraryBooking(int bookingId)
+        {
+            return DataLayer.CancelLibraryBooking(bookingId);
+        }
+
+        public int AutoCancelNoShowBookings()
+        {
+            return DataLayer.AutoCancelNoShowBookings();
+        }
+
+        public bool AddLibraryRoom(string roomNumber, int capacity, string resources, int statusId, string statusName, string roomType)
+        {
+            try
+            {
+                if (roomNumber.Length == 0)
+                    throw new Exception();
+
+                int maxId = 0;
+                foreach (LibraryRoom room in LibraryRoomList)
+                {
+                    if (room.roomID > maxId)
+                        maxId = room.roomID;
+                }
+
+                LibraryRoom newLibraryRoom = LibraryRoomFactory.GetLibraryRoom(maxId + 1, roomNumber, capacity, resources, statusId, statusName, roomType);
+                LibraryRoomList.Add(newLibraryRoom);
+                DataLayer.addNewLibraryRoomToDB(newLibraryRoom);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        void IModel.populateLibraryBookings()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

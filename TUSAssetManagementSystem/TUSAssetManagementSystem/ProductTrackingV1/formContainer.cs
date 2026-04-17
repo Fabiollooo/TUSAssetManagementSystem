@@ -16,7 +16,7 @@ namespace ProductTracking
         private IModel Model;
         #endregion  
         #region Constructors
-        public formContainer(IModel _Model) // gets passed a reference to the model object
+        public formContainer(IModel _Model) 
         {
             InitializeComponent();
             Model = _Model;
@@ -31,24 +31,35 @@ namespace ProductTracking
             {
                 case "Admin":
                     AdminDashboard dashboard = new AdminDashboard(this, Model);
-                    this.Text = this.Text + " - Admin Dashboard";
+                    this.Text += " - Admin Dashboard";
                     dashboard.Dock = DockStyle.Fill;
                     dashboard.Show();
                     break;
 
                 case "Staff":
-                    formSales form2 = new formSales(this, Model);// All forms get passed the formContainer and a reference to the model object. 
-                    this.Text = this.Text + "- Staff";
-                    form2.Dock = DockStyle.Fill;
-                    form2.Show();
-                    break;
-                case "Student":
-                    StudentDashboard studentForm = new StudentDashboard(Model); // All forms get passed the formContainer and a reference to the model object. 
-                    this.Text = this.Text + "- Student";
+                {
+                    StudentDashboard studentForm = new StudentDashboard(Model);
+                    this.Text += "- Staff";
                     studentForm.Dock = DockStyle.Fill;
                     studentForm.Show();
                     break;
+                }
+
+                case "Student":
+                {
+                    StudentDashboard studentForm = new StudentDashboard(Model);
+                    this.Text += "- Student";
+                    studentForm.Dock = DockStyle.Fill;
+                    studentForm.Show();
+                    break;
+                }
             }
+
+        }
+
+        private void formContainer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
