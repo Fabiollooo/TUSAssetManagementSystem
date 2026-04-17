@@ -30,19 +30,19 @@ namespace ProductTracking
            
             switch (Model.getUserTypeForCurrentuser())
             {
-                case "Admin":
+                case "Manager":
                     formManager form1 = new formManager(this, Model); // All forms get passed the formContainer and a reference to the model object. 
                     this.Text = this.Text + "-Manager";
                     form1.Dock = DockStyle.Fill;
                     form1.Show();
                     break;
-                case "Student":
+                case "Sales":
                     formSales form2 = new formSales(this, Model);// All forms get passed the formContainer and a reference to the model object. 
                     this.Text = this.Text + "-Sales";
                     form2.Dock = DockStyle.Fill;
                     form2.Show();
                     break;
-                case "Staff":
+                case "Production":
                     formOperator form3 = new formOperator(this, Model); // All forms get passed the formContainer and a reference to the model object. 
                     this.Text = this.Text + "-Production";
                     form3.Dock = DockStyle.Fill;

@@ -46,12 +46,7 @@ namespace DataAccessLayer
         public void openConnection()
         {
             con = new SqlConnection();
-            con.ConnectionString = "Data Source=tcp:producttrackerserver.database.windows.net,1433;Initial Catalog=ProductTracker;Integrated Security=False;User ID=adminUser;Password=P@ssword123 ";
-
-
-
-
-
+            con.ConnectionString = "Data Source=tcp:MY-V-U-ITSQL05.tusstudent.ad.tus.ie\\INSTBL11,60161 ;Initial Catalog=ProductTracker;Integrated Security=True";
             try
             {
                 con.Open();
