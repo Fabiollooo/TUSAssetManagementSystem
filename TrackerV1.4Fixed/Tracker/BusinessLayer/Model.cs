@@ -71,7 +71,7 @@ namespace BusinessLayer
         #region Constructors/Destructors
         public static IModel GetInstance(IDataLayer _DataLayer) // With Singleton pattern this method is used rather than constructor
         {
-            lock (padlock) //   only one thread can entry this block of code
+            lock (padlock) 
             {
                 if (modelSingletonInstance == null)
                 {
@@ -80,11 +80,11 @@ namespace BusinessLayer
                 return modelSingletonInstance;
             }
         }
-        private Model(IDataLayer _DataLayer)  // The constructor is private as its a singleton and I only allow one instance which is created with the GetInstance() method
+        private Model(IDataLayer _DataLayer)  
         {
             userList = new List<IUser>();
             dataLayer = _DataLayer;
-            userList = dataLayer.getAllUsers(); // setup Models userList so we can login
+            userList = dataLayer.getAllUsers(); 
         }
 
         ~Model()
